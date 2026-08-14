@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  username  String   @default("Admin")
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admins")
+}
+
+model Mentor {
+  id         Int      @id @default(autoincrement())
+  name       String
+  title      String
+  bio        String
+  imageUrl   String?
+  expertise  String[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("mentors")
+}
+
+model Track {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  icon        String?
+  color       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("tracks")
+}
+
+model FAQ {
+  id          Int      @id @default(autoincrement())
+  question    String
+  answer      String
+  category    String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+model Application {
+  id             Int      @id @default(autoincrement())
+  fullName       String
+  email          String
+  phone          String
+  country        String
+  university     String
+  degree         String
+  yearOfStudy    String
+  gpa            String
+  availability   String
+  timezone       String
+  labFirst       String
+  labSecond      String?
+  portfolio      String?
+  cv             String
+  transcript     String
+  sop            String?
+  sampleWork     String?
+  status         String   @default("pending")
+  type           String   @default("fellowship")
+  feedback       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@map("applications")
+}
+
+model NewsletterSubscription {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  role      String?
+  source    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("newsletter_subscriptions")
+}
+
+model BlogPost {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  body        String
+  excerpt     String?
+  category    String
+  imageUrl    String?
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
