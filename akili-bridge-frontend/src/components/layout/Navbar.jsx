@@ -96,7 +96,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Right Side - Hidden Admin Login from public */}
+          {/* Right Side */}
           <div className="flex items-center gap-3">
             {isAuthenticated() ? (
               <div className="hidden lg:flex items-center gap-4">
@@ -150,7 +150,6 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              /* No login/register button visible to public - admin route is hidden */
               <a
                 href={GOOGLE_FORM_URL}
                 target="_blank"
