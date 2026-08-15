@@ -30,7 +30,7 @@ export default function FinalCTA() {
               rel="noopener noreferrer"
               className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
             >
-              Apply Now
+              Apply Here
             </a>
             <button
               onClick={() => navigate("/program")}
