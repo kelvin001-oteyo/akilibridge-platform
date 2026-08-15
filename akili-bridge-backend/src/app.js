@@ -10,7 +10,6 @@ const authRoutes = require('./routes/auth.routes');
 const mentorRoutes = require('./routes/mentors.routes');
 const trackRoutes = require('./routes/tracks.routes');
 const faqRoutes = require('./routes/faq.routes');
-
 const applicationRoutes = require('./routes/application.routes');
 
 const app = express();
@@ -18,17 +17,41 @@ const app = express();
 // Security middleware
 app.use(helmet());
 
-// CORS
+// CORS - Allow multiple origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://akili-bridge-frontend.onrender.com',
+  'https://akili-bridge.vercel.app',
+  'https://akilibridge-platform.onrender.com',
+];
+
+// Add any custom origins from environment
+if (corsOrigin) {
+  const customOrigins = corsOrigin.split(',').map(o => o.trim());
+  allowedOrigins.push(...customOrigins);
+}
+
 app.use(cors({
-  origin: corsOrigin,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('Blocked origin:', origin);
+      callback(null, false);
+    }
+  },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
 
 // Body parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use('/api/applications', applicationRoutes);
 
 // Request logging
 app.use((req, res, next) => {
@@ -50,6 +73,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/mentors', mentorRoutes);
 app.use('/api/tracks', trackRoutes);
 app.use('/api/faq', faqRoutes);
+app.use('/api/applications', applicationRoutes);
 
 // 404 handler
 app.use((req, res) => {
