@@ -125,12 +125,7 @@ export default function MentorStrip() {
                     alt={mentor.name}
                     className="relative w-20 h-20 rounded-full object-cover border-2 border-white/10 group-hover:border-[#2fb3ff]/50 transition-all duration-300"
                   />
-                  <div 
-                    className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-[#0a1628] flex items-center justify-center text-xs"
-                    style={{ backgroundColor: mentor.color }}
-                  >
-                    ✓
-                  </div>
+                  {/* Verified badge removed */}
                 </div>
 
                 {/* Info */}
