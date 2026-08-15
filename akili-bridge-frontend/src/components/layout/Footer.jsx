@@ -242,7 +242,7 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Newsletter */}
+          {/* Newsletter - Fixed Spacing */}
           <motion.div variants={itemVariants}>
             <motion.h4
               className="text-lg font-semibold text-[#2fb3ff] mb-4 flex items-center gap-2"
@@ -255,14 +255,14 @@ export default function Footer() {
               </svg>
               Subscribe for updates
             </motion.h4>
-            <motion.form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
+            <motion.form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <motion.input
                 type="email"
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 whileFocus={{ scale: 1.02, boxShadow: "0 0 0 2px #2fb3ff" }}
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none transition-all"
                 disabled={isSubmitting}
               />
               <motion.button
@@ -270,10 +270,10 @@ export default function Footer() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={subscribed ? { scale: [1, 1.1, 1] } : {}}
-                className="px-6 py-3 bg-[#2fb3ff] text-[#0a1628] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all whitespace-nowrap disabled:opacity-50"
+                className="w-full px-6 py-3 bg-[#2fb3ff] text-[#0a1628] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all disabled:opacity-50"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Subscribing..." : subscribed ? "Subscribed" : "Subscribe"}
+                {isSubmitting ? "Subscribing..." : subscribed ? "Subscribed ✓" : "Subscribe"}
               </motion.button>
             </motion.form>
             {subscribed && (
@@ -282,7 +282,7 @@ export default function Footer() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-2 text-[#2fb3ff] text-sm"
               >
-                Thanks for subscribing!
+                Thanks for subscribing! 🎉
               </motion.p>
             )}
             {subscribeError && (
