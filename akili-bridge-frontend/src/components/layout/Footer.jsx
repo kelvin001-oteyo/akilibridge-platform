@@ -101,7 +101,7 @@ export default function Footer() {
     { name: "Facebook", link: "https://web.facebook.com/akilibridge" },
     { name: "Instagram", link: "https://www.instagram.com/akilibridge/" },
     { name: "X", link: "https://x.com/akilibridge" },
-    { name: "LinkedIn", link: "https://www.linkedin.com/in/akili-bridge-0a10b2403" },
+    { name: "LinkedIn", link: "https://www.linkedin.com/company/akilibridge-africa/" },
   ];
 
   const quickLinks = [
