@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import apiFetch from "../../api/client";
+import logo from "../../assets/primary-horizontal-2400.png"; // <--- IMPORT
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -170,18 +171,18 @@ export default function Footer() {
           {/* Logo Section */}
           <motion.div variants={itemVariants} className="space-y-4">
             <motion.div
-              className="flex items-center gap-3"
+              className="flex items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ textShadow: "0 0 20px rgba(255,217,102,0.5)" }}
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] flex items-center justify-center text-[#0a1628] font-bold text-sm shadow-lg shadow-[#2fb3ff]/20">
-                AB
-              </div>
-              <span className="text-2xl font-bold text-white">
-                Akili<span className="text-[#2fb3ff]">Bridge</span>
-              </span>
+              {/* REPLACED WITH NEW LOGO */}
+              <img 
+                src={logo} 
+                alt="Akili Bridge Logo" 
+                className="h-10 w-auto object-contain"
+              />
             </motion.div>
             <motion.p
               variants={itemVariants}
@@ -349,9 +350,12 @@ export default function Footer() {
           />
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] flex items-center justify-center text-[#0a1628] font-bold text-[10px]">
-                AB
-              </div>
+              {/* REPLACED WITH LOGO */}
+              <img 
+                src={logo} 
+                alt="Akili Bridge Logo" 
+                className="h-6 w-auto object-contain"
+              />
               <motion.span whileHover={{ color: "#2fb3ff" }}>
                 © 2025 | AkiliBridge | All Rights Reserved.
               </motion.span>
