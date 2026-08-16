@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Hero from "../components/home/Hero";
 import HowItWorks from "../components/home/HowItWorks";
 import MissionTeaser from "../components/home/MissionTeaser";
-import MentorStrip from "../components/home/MentorStrip";
+// import MentorStrip from "../components/home/MentorStrip"; // REMOVED - will be placed elsewhere
 import FinalCTA from "../components/home/FinalCTA";
 
 export default function Home() {
@@ -104,7 +104,8 @@ export default function Home() {
     }
   };
 
-  // Testimonials data
+  // Testimonials data - HIDDEN (commented out)
+  /*
   const testimonials = [
     {
       name: "Dr. Jane Akinyi",
@@ -125,6 +126,7 @@ export default function Home() {
       image: "https://ui-avatars.com/api/?name=Sarah+Uwimana&background=ff6b9d&color=fff&size=64"
     }
   ];
+  */
 
   // Partner logos
   const partners = [
@@ -143,7 +145,8 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Stats Counter Section */}
+      {/* Stats Counter Section - HIDDEN (commented out) */}
+      {/*
       <motion.section
         className="py-16 px-4 bg-gradient-to-b from-[#0a1628] to-[#1a2a4a]"
         initial="hidden"
@@ -193,6 +196,7 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+      */}
 
       {/* How It Works */}
       <HowItWorks />
@@ -200,7 +204,8 @@ export default function Home() {
       {/* Mission Teaser */}
       <MissionTeaser />
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - HIDDEN (commented out) */}
+      {/*
       <motion.section
         className="py-20 px-4 bg-[#1a2a4a]/30"
         initial="hidden"
@@ -259,9 +264,10 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+      */}
 
-      {/* Mentor Strip */}
-      <MentorStrip />
+      {/* Mentor Strip - REMOVED (will be placed elsewhere) */}
+      {/* <MentorStrip /> */}
 
       {/* Partners Section */}
       <motion.section
@@ -299,7 +305,8 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Subscribe Section */}
+      {/* Subscribe Section - HIDDEN (commented out) */}
+      {/*
       <section className="bg-gradient-to-b from-[#1a2a4a]/30 to-[#0a1628] py-20 px-4">
         <motion.div
           initial="hidden"
@@ -379,6 +386,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
+      */}
 
       {/* Final CTA */}
       <FinalCTA />

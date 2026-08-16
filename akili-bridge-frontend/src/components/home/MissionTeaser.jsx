@@ -14,7 +14,6 @@ export default function MissionTeaser() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="text-4xl block mb-4">🎯</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our <span className="text-[#2fb3ff]">Mission</span>
           </h2>

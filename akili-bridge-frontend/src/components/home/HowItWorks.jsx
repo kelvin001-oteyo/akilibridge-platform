@@ -7,25 +7,21 @@ export default function HowItWorks() {
       number: "01",
       title: "Apply Online",
       description: "Submit your application with academic details, motivation statement, and required documents.",
-      icon: "📝"
     },
     {
       number: "02",
       title: "Review & Selection",
       description: "Our team reviews applications and shortlists candidates for interviews.",
-      icon: "🔍"
     },
     {
       number: "03",
       title: "Fellowship Journey",
       description: "Selected fellows begin a one-year journey of research, mentorship, and growth.",
-      icon: "🚀"
     },
     {
       number: "04",
       title: "Impact & Alumni",
       description: "Graduates join our alumni network and continue making an impact in STEM.",
-      icon: "🌟"
     }
   ];
 
@@ -51,7 +47,6 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#2fb3ff]/50 hover:-translate-y-1 transition-all text-center"
             >
-              <div className="text-4xl mb-3">{step.icon}</div>
               <div className="text-sm text-[#2fb3ff] font-mono mb-1">{step.number}</div>
               <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>

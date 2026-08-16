@@ -32,11 +32,12 @@ export default function Hero() {
     opacity: Math.random() * 0.5 + 0.1,
   }));
 
+  // Updated stats text as requested
   const stats = [
-    { value: "17%", label: "of global population", delay: 0.9 },
-    { value: "<1%", label: "of global research", delay: 1.1 },
-    { value: "5+", label: "African countries", delay: 1.3 },
-    { value: "100+", label: "Researchers trained", delay: 1.5 },
+    { value: "17%", label: "of gender equality", delay: 0.9 },
+    { value: "<1%", label: "of science excellence", delay: 1.1 },
+    { value: "5+", label: "of African excellence", delay: 1.3 },
+    { value: "100+", label: "of research excellence", delay: 1.5 },
   ];
 
   return (
@@ -121,7 +122,8 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* Badge */}
+        {/* Badge - REMOVED "First Cohort 2025" */}
+        {/*
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,6 +137,7 @@ export default function Hero() {
             First Cohort 2025
           </span>
         </motion.div>
+        */}
 
         {/* Main Title */}
         <motion.h1
@@ -173,7 +176,7 @@ export default function Hero() {
           </span>
         </motion.p>
 
-        {/* Stats */}
+        {/* Stats - Updated labels */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -207,7 +210,7 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - Updated "Apply Now" → "Apply Here" */}
         <motion.div
           className="flex flex-col sm:flex-row justify-center gap-4"
           initial={{ opacity: 0, y: 30 }}
@@ -223,7 +226,7 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Apply Now
+              Apply Here
               <motion.span
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
