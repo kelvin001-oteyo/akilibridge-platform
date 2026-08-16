@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
+import logo from "../../assets/primary-horizontal-2400.png"; // <--- IMPORT ADDED HERE
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -52,14 +53,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] flex items-center justify-center text-[#0a1628] font-bold text-sm shadow-lg shadow-[#2fb3ff]/20">
-              AB
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent group-hover:from-[#8a7ff7] group-hover:to-[#2fb3ff] transition-all duration-300">
-              AkiliBridge
-            </span>
+          
+          {/* Updated Logo */}
+          <Link to="/" className="flex items-center shrink-0 group">
+            <img 
+              src={logo} 
+              alt="Akili Bridge Logo" 
+              className="h-8 md:h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+            />
           </Link>
 
           {/* Desktop Navigation */}
