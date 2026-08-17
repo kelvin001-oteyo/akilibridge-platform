@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 // Layout
@@ -27,18 +27,22 @@ import TrackForm from "./admin/Tracks/TrackForm";
 import FAQList from "./admin/FAQ/FAQList";
 import FAQForm from "./admin/FAQ/FAQForm";
 
-// Protected Route
-// ProtectedRoute.jsx should now be directly inside src/
-import ProtectedRoute from "./ProtectedRoute";
+// Authentication
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+  const location = useLocation();
+
+  // Don't show public Navbar/Footer inside admin pages
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <div className="min-h-screen bg-[#0a1628] flex flex-col">
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         <AnimatePresence mode="wait">
-          <Routes>
+          <Routes location={location} key={location.pathname}>
 
             {/* =========================
                 PUBLIC ROUTES
@@ -68,7 +72,7 @@ function App() {
               path="/admin"
               element={
                 <Navigate
-                  to="/admin/login"
+                  to="/admin/dashboard"
                   replace
                 />
               }
@@ -92,7 +96,7 @@ function App() {
 
 
             {/* =========================
-                ADMIN - MENTORS
+                MENTORS
             ========================== */}
 
             <Route
@@ -130,7 +134,7 @@ function App() {
 
 
             {/* =========================
-                ADMIN - TRACKS
+                RESEARCH TRACKS
             ========================== */}
 
             <Route
@@ -168,7 +172,7 @@ function App() {
 
 
             {/* =========================
-                ADMIN - FAQ
+                FAQ
             ========================== */}
 
             <Route
@@ -211,19 +215,14 @@ function App() {
 
             <Route
               path="*"
-              element={
-                <Navigate
-                  to="/"
-                  replace
-                />
-              }
+              element={<Navigate to="/" replace />}
             />
 
           </Routes>
         </AnimatePresence>
       </main>
 
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </div>
   );
 }
