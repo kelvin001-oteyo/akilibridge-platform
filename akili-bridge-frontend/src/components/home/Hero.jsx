@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // Import the local background image - using hero.png (which exists)
 import heroBackground from "../assets/background.png";
 
+
 export default function Hero() {
   const navigate = useNavigate();
   const containerRef = useRef(null);
