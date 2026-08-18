@@ -12,11 +12,11 @@ export default function Mentorship() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-[#0a1628] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#2fb3ff] rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8a7ff7] rounded-full filter blur-3xl" />
+    <section className="py-20 px-4 bg-white relative overflow-hidden">
+      {/* Background decoration - Changed to subtle orange */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -25,11 +25,11 @@ export default function Mentorship() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-3xl p-8 md:p-12 border border-white/10 text-center"
+          className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50 text-center"
         >
-          {/* Badge */}
+          {/* Badge - Updated to Orange */}
           <motion.span
-            className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
+            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
@@ -38,42 +38,44 @@ export default function Mentorship() {
             Expert Guidance
           </motion.span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            World-Class <span className="text-[#2fb3ff]">Mentorship</span>
+          {/* Title - Updated to Dark Navy & Orange */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
+            World-Class <span className="text-[#df7c2e]">Mentorship</span>
           </h2>
 
-          <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+          {/* Description - Updated to Dark Navy text */}
+          <p className="text-[#0a1628]/70 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
             Each fellow is paired with a dedicated mentor — an active researcher or senior engineer
-            at <span className="text-[#2fb3ff] font-semibold">top global universities and industry labs</span> 
+            at <span className="text-[#df7c2e] font-semibold">top global universities and industry labs</span> 
             who provides guidance, support, and networking opportunities throughout the 16-week program.
           </p>
 
-          {/* Mentor stats */}
+          {/* Mentor stats - Updated to light gray cards with Dark Navy text */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6">
-            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-              <p className="text-2xl font-bold text-[#2fb3ff]">1:1</p>
-              <p className="text-[10px] text-gray-400">Personalized Mentorship</p>
+            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">1:1</p>
+              <p className="text-[10px] text-[#0a1628]/60">Personalized Mentorship</p>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-              <p className="text-2xl font-bold text-[#8a7ff7]">15+</p>
-              <p className="text-[10px] text-gray-400">Expert Mentors</p>
+            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">15+</p>
+              <p className="text-[10px] text-[#0a1628]/60">Expert Mentors</p>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-              <p className="text-2xl font-bold text-[#ffd93d]">Weekly</p>
-              <p className="text-[10px] text-gray-400">Check-ins & Support</p>
+            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">Weekly</p>
+              <p className="text-[10px] text-[#0a1628]/60">Check-ins & Support</p>
             </div>
-            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-              <p className="text-2xl font-bold text-[#4CAF50]">Global</p>
-              <p className="text-[10px] text-gray-400">University Network</p>
+            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">Global</p>
+              <p className="text-[10px] text-[#0a1628]/60">University Network</p>
             </div>
           </div>
 
-          {/* Features tags */}
+          {/* Features tags - Updated to light gray tags with Dark Navy text */}
           <div className="flex flex-wrap justify-center gap-2">
             {mentorshipFeatures.map((feature, index) => (
               <motion.span
                 key={index}
-                className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/10 hover:border-[#2fb3ff]/30 hover:text-white transition-all hover:-translate-y-0.5"
+                className="px-4 py-2 bg-gray-100 rounded-full text-sm text-[#0a1628]/70 border border-gray-200 hover:border-[#df7c2e]/40 hover:text-[#0a1628] transition-all hover:-translate-y-0.5"
                 whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -85,9 +87,9 @@ export default function Mentorship() {
             ))}
           </div>
 
-          {/* Trust indicator */}
+          {/* Trust indicator - Updated text color */}
           <motion.p
-            className="text-xs text-gray-500 mt-6"
+            className="text-xs text-[#0a1628]/50 mt-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
