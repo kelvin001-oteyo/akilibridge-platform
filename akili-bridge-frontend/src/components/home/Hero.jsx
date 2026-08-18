@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-// Import the local background image - using hero.png (which exists)
-import heroBackground from "../assets/background.png";
-
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -48,7 +45,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background with Parallax - USING LOCAL IMAGE */}
+      {/* Background with Parallax - USING SPLASH URL */}
       <motion.div
         className="absolute inset-0 -z-10"
         style={{ y, scale }}
@@ -56,7 +53,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${heroBackground})`,
+            backgroundImage: `url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/85 to-[#0a1628]/50" />
