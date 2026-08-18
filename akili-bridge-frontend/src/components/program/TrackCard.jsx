@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TrackCard({ track }) {
-  // SAFETY CHECK 1: If track data hasn't loaded yet, render nothing (stops the crash)
+  // SAFETY CHECK 1: If track data is entirely missing, render nothing
   if (!track) {
     return null;
   }
@@ -13,8 +13,8 @@ export default function TrackCard({ track }) {
     setIsExpanded(!isExpanded);
   };
 
-  // SAFETY CHECK 2: Safe optional chaining for the color
-  const themeColor = track?.color || "#df7c2e";
+  // SAFETY CHECK 2: The ultimate fallback. If track exists but has no color, default to orange.
+  const themeColor = track && track.color ? track.color : "#df7c2e";
 
   // SAFETY CHECK 3: Ensure name exists before using charAt(0)
   const initial = track.name ? track.name.charAt(0) : "?";
