@@ -116,15 +116,15 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* Main Title - CLEANER HIERARCHY */}
+        {/* LOGO & SUBTITLE - NOW SMALLER AND CLEANER */}
         <motion.div
-          className="mb-3"
+          className="mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -146,10 +146,8 @@ export default function Hero() {
               Bridge
             </motion.span>
           </motion.h1>
-
-          {/* Subtitle - STEM Research Fellowship (smaller, below brand) */}
           <motion.p
-            className="text-lg sm:text-xl text-gray-400 font-medium mt-1"
+            className="text-sm sm:text-base text-gray-400 font-medium mt-1 tracking-wide"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -158,15 +156,15 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* Value Proposition - LARGER AND MORE PROMINENT */}
+        {/* MAIN VALUE PROPOSITION - NOW LARGER AND MORE PROMINENT */}
         <motion.div
-          className="mb-8"
+          className="mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
         >
           <motion.p
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -179,7 +177,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.p
-            className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mt-3 leading-relaxed"
+            className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mt-4 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
