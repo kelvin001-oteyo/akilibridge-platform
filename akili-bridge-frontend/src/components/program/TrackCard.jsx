@@ -8,14 +8,17 @@ export default function TrackCard({ track }) {
     setIsExpanded(!isExpanded);
   };
 
+  // Use the track's color, or default to brand Orange if it's undefined
+  const themeColor = track.color || "#df7c2e";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#2fb3ff]/50 hover:-translate-y-1 transition-all cursor-pointer group"
-      style={{ borderTopColor: track.color, borderTopWidth: "4px" }}
+      className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#df7c2e]/50 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group"
+      style={{ borderTopColor: themeColor, borderTopWidth: "4px" }}
       onClick={toggleExpand}
       role="button"
       tabIndex={0}
@@ -31,25 +34,28 @@ export default function TrackCard({ track }) {
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
         <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold text-white"
-          style={{ background: `${track.color}20`, color: track.color }}
+          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold"
+          style={{ 
+            background: `${themeColor}15`, // Very light version of the color
+            color: themeColor 
+          }}
         >
           {track.name.charAt(0)}
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-white group-hover:text-[#2fb3ff] transition-colors">
+          <h3 className="text-lg font-semibold text-[#0a1628] group-hover:text-[#df7c2e] transition-colors">
             {track.name}
           </h3>
-          <span className="text-xs text-gray-500">{track.duration}</span>
+          <span className="text-xs text-[#0a1628]/50">{track.duration}</span>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed">{track.description}</p>
+      <p className="text-[#0a1628]/70 text-sm leading-relaxed">{track.description}</p>
 
       {/* Expand indicator */}
       <div className="flex justify-end mt-3">
-        <span className="text-xs text-gray-500 group-hover:text-[#2fb3ff] transition-colors">
+        <span className="text-xs text-[#0a1628]/50 group-hover:text-[#df7c2e] transition-colors">
           {isExpanded ? "Show less ▲" : "Show more ▼"}
         </span>
       </div>
@@ -64,17 +70,17 @@ export default function TrackCard({ track }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="mt-4 pt-4 border-t border-white/10 space-y-3">
+            <div className="mt-4 pt-4 border-t border-gray-200 space-y-3">
               {/* Skills */}
               <div>
-                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2">
+                <p className="text-xs text-[#0a1628]/50 font-medium uppercase tracking-wider mb-2">
                   Skills You'll Learn
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {track.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400 border border-white/5"
+                      className="text-xs bg-gray-100 px-3 py-1 rounded-full text-[#0a1628]/70 border border-gray-200"
                     >
                       {skill}
                     </span>
@@ -84,7 +90,7 @@ export default function TrackCard({ track }) {
 
               {/* Projects */}
               <div>
-                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2">
+                <p className="text-xs text-[#0a1628]/50 font-medium uppercase tracking-wider mb-2">
                   Sample Projects
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -93,9 +99,9 @@ export default function TrackCard({ track }) {
                       key={i}
                       className="text-xs px-3 py-1 rounded-full border"
                       style={{
-                        background: `${track.color}15`,
-                        color: track.color,
-                        borderColor: `${track.color}30`,
+                        background: `${themeColor}15`,
+                        color: themeColor,
+                        borderColor: `${themeColor}30`,
                       }}
                     >
                       {project}
@@ -106,12 +112,12 @@ export default function TrackCard({ track }) {
 
               {/* Duration badge */}
               <div className="flex items-center gap-2 pt-1">
-                <span className="text-xs text-gray-500">Duration:</span>
+                <span className="text-xs text-[#0a1628]/50">Duration:</span>
                 <span
                   className="text-xs font-medium px-3 py-0.5 rounded-full"
                   style={{
-                    background: `${track.color}20`,
-                    color: track.color,
+                    background: `${themeColor}20`,
+                    color: themeColor,
                   }}
                 >
                   {track.duration}
