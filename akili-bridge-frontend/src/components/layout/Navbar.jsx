@@ -39,14 +39,13 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Program", path: "/program" },
     { name: "FAQ", path: "/faq" },
-    { name: "Apply", path: "/apply" },
+    // "Apply" is now a CTA button, not a nav link (removed from here)
   ];
 
   const isActive = (path) => {
     if (path === "/") {
       return location.pathname === "/";
     }
-
     return location.pathname === path;
   };
 
@@ -81,12 +80,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`relative px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.path)
                     ? "text-[#2fb3ff] bg-[#2fb3ff]/10"
                     : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -110,11 +109,11 @@ export default function Navbar() {
           </div>
 
           {/* Right Side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
 
             {/* Admin Session */}
             {isAuthenticated() && isAdmin() ? (
-              <div className="hidden lg:flex items-center gap-4">
+              <div className="hidden lg:flex items-center gap-3">
                 <div className="relative">
 
                   <button
@@ -203,19 +202,21 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              /* Public Apply CTA */
-              <Link
-                to="/apply"
-                className="hidden lg:inline-block relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-[#0a1628] font-semibold text-sm hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all group"
+              /* Public Apply CTA - Links to Google Form */
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden lg:inline-block relative overflow-hidden px-5 lg:px-6 py-2.5 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-[#0a1628] font-semibold text-sm hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all group"
               >
                 <span className="relative z-10">Apply</span>
-              </Link>
+              </a>
             )}
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative p-2 rounded-lg hover:bg-white/5 transition-colors"
+              className="lg:hidden relative p-2 rounded-lg hover:bg-white/5 transition-colors ml-1"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -342,13 +343,15 @@ export default function Navbar() {
                   </button>
                 </>
               ) : (
-                <Link
-                  to="/apply"
+                <a
+                  href={GOOGLE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-sm"
                 >
                   Apply
-                </Link>
+                </a>
               )}
 
             </div>

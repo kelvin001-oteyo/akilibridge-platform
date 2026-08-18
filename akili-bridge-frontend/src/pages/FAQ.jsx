@@ -1,93 +1,195 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
 
+// Import components from components/faq/
+import FAQCategory from "../components/faq/FAQCategory";
+
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
+
+  // Full FAQ data
   const faqs = [
     {
-      category: "Eligibility",
+      category: "Program Overview",
       questions: [
         {
-          q: "Who can apply for the fellowship?",
-          a: "Undergraduate students in Rwanda who are passionate about STEM and eager to gain hands-on research experience. We welcome applications from all backgrounds and disciplines."
+          q: "What is the Akili Bridge STEM Research Fellowship?",
+          a: "The Akili Bridge STEM Research Fellowship is a 16-week intensive mentored research program that pairs top African scholars with practicing international researchers and engineers. Fellows work on real-world research projects, receive 1:1 mentorship, and become published authors on peer-reviewed papers or conference proceedings."
         },
         {
-          q: "What fields are covered?",
-          a: "We accept applications from all STEM fields including but not limited to Computer Science, Engineering, Biology, Chemistry, Physics, Mathematics, and Environmental Science."
+          q: "Who is this program designed for?",
+          a: "The program is designed for final-year undergraduate students (B.Sc./B.Eng.), recent STEM graduates (Bachelor's degree holders), and current Master's or Ph.D. students who are residing and studying in East Africa. We look for scholars who are willing to pursue research as a career or continue into graduate studies."
+        },
+        {
+          q: "How long is the fellowship?",
+          a: "The flagship program runs for 16 weeks (intensive term). We also have a 12-month researcher-in-training option for undergraduate students in Rwanda. Both programs are designed to provide hands-on research experience and mentorship."
+        },
+        {
+          q: "Is there a cost to participate?",
+          a: "No, this is a fully funded fellowship program. There are absolutely no costs for selected fellows. All program expenses, mentorship, and resources are covered by Akili Bridge."
+        },
+        {
+          q: "What makes this fellowship different from others?",
+          a: "What sets us apart is our focus on tangible output — every fellow becomes a published author. We also provide 1:1 mentorship with active researchers at top global universities, a detailed recommendation letter, and exclusive post-fellowship support for fully funded Master's and Ph.D. placements."
+        }
+      ]
+    },
+    {
+      category: "Eligibility & Requirements",
+      questions: [
+        {
+          q: "What are the academic requirements?",
+          a: "We welcome final-year undergraduates (B.Sc./B.Eng.), recent graduates (Bachelor's degree holders), and current Master's or Ph.D. students in STEM fields. You should have a strong academic record and a demonstrated interest in research."
+        },
+        {
+          q: "Do I need to be from East Africa?",
+          a: "Yes, currently we require applicants to be residing and studying in East Africa. This helps us build a strong regional research community and provide targeted support to scholars in the region."
         },
         {
           q: "Do I need prior research experience?",
-          a: "No prior research experience is required. We welcome students who are curious and motivated to learn. The program is designed to build research skills from the ground up."
+          a: "Not necessarily. We welcome motivated students with strong academic backgrounds who are eager to learn. Our mentorship model is designed to guide you through the research process from start to finish."
         },
         {
-          q: "Is there a minimum GPA requirement?",
-          a: "Yes, applicants should have a minimum GPA of 3.0 on a 4.0 scale or equivalent. However, we also consider other factors like motivation and potential."
+          q: "What GPA do I need?",
+          a: "We look for candidates with strong academic performance. While there is no strict minimum, a GPA of 3.0 or equivalent on a 4.0 scale is generally considered competitive."
+        },
+        {
+          q: "What STEM fields are accepted?",
+          a: "We accept applications from Computer Science, Artificial Intelligence, Data Science, Civil & Structural Engineering, Intelligent Transportation, Applied Mathematics & Statistics, and related STEM disciplines."
+        },
+        {
+          q: "Can I apply if I'm not currently enrolled?",
+          a: "Yes, recent STEM graduates (Bachelor's degree holders) are welcome to apply. You do not need to be currently enrolled in an academic program."
         }
       ]
     },
     {
-      category: "Process",
+      category: "Application Process",
       questions: [
         {
-          q: "How long is the program?",
-          a: "The fellowship is a one-year program with structured mentorship, research training, and professional development. The program runs from June to May each year."
+          q: "How do I apply?",
+          a: "Applications are submitted through our Google Form. The process includes: 1) Completing the application form with your academic background and research interests, 2) Submitting supporting documents (transcripts, CV, research proposal), 3) Interview selection for shortlisted candidates, and 4) Final selection and onboarding."
         },
         {
-          q: "Is there a deadline?",
-          a: "Applications are accepted on a rolling basis. However, priority consideration is given to applications submitted before March 15th for the upcoming cohort."
+          q: "What documents do I need to submit?",
+          a: "You'll need to submit: 1) Your academic transcripts, 2) A current CV/Resume, 3) A brief research proposal or statement of purpose (1-2 pages), and 4) A letter of recommendation (optional but encouraged)."
         },
         {
-          q: "What is the application process?",
-          a: "The application process involves submitting an online application form, providing academic transcripts, writing a motivation statement, and participating in an interview for shortlisted candidates."
+          q: "Is there an application fee?",
+          a: "No, there is absolutely no application fee. The program is fully funded for all selected fellows."
         },
         {
-          q: "When will I hear back?",
-          a: "You will receive a confirmation email within 48 hours of submission. Shortlisted candidates will be contacted for interviews within 2-3 weeks."
+          q: "When is the application deadline?",
+          a: "Application deadlines are announced on our website and social media channels. We recommend checking regularly for updates and submitting your application early for priority consideration."
+        },
+        {
+          q: "When will I hear back after applying?",
+          a: "Shortlisted candidates will be contacted within 2-3 weeks after the application deadline for interviews. Final decisions will be communicated within 4-6 weeks."
+        },
+        {
+          q: "Can I apply to multiple research tracks?",
+          a: "Yes, you can indicate your preference for up to two tracks in your application. However, you will ultimately be placed in one track that best matches your interests and background."
+        },
+        {
+          q: "Can I edit my application after submission?",
+          a: "We recommend reviewing your application carefully before submission. If you need to make critical changes, please contact our team directly with your application reference number."
         }
       ]
     },
     {
-      category: "Logistics",
+      category: "Program Structure",
       questions: [
         {
-          q: "Is the program fully funded?",
-          a: "Yes, selected fellows receive full funding including tuition support, research materials, mentorship, and a monthly stipend to cover living expenses."
+          q: "What is the weekly time commitment?",
+          a: "Fellows are expected to dedicate 15 focused hours per week for the full 16-week term. This covers mandatory mentor pod check-ins, cohort seminars, and heavy independent research work."
         },
         {
-          q: "Where will the program take place?",
-          a: "The program is based in Kigali, Rwanda, with opportunities for remote collaboration with partner institutions across East Africa."
+          q: "Is the program remote or in-person?",
+          a: "The program is hybrid — fellows work remotely with virtual mentorship, while staying connected through weekly check-ins and cohort seminars. Some tracks may have optional in-person meetups or collaboration sessions."
         },
         {
-          q: "What resources are provided?",
-          a: "Fellows have access to research labs, library resources, mentorship, training workshops, and networking opportunities with researchers and industry experts."
+          q: "What does a typical week look like?",
+          a: "A typical week includes: 1) Weekly mentor check-in (1 hour), 2) Cohort seminar or workshop (1-2 hours), 3) Independent research work (10-12 hours), and 4) Progress reporting and documentation."
         },
         {
-          q: "Is accommodation provided?",
-          a: "Yes, accommodation is provided for fellows during the program. Housing is arranged near the research facilities for convenience."
+          q: "How are mentors assigned?",
+          a: "Mentors are assigned based on your research interests, academic background, and track selection. We match each fellow with an experienced researcher or senior engineer who has relevant expertise at top global universities and industry labs."
+        },
+        {
+          q: "What research tracks are available?",
+          a: "We offer six tracks: 1) Computer Science, 2) Artificial Intelligence, 3) Data Science, 4) Civil & Structural Engineering, 5) Intelligent Transportation, and 6) Applied Mathematics & Statistics."
+        },
+        {
+          q: "Can I choose my research topic?",
+          a: "You'll work on research projects aligned with your track. While your mentor will guide the research direction, there's flexibility to explore topics within the track's scope that match your interests."
         }
       ]
     },
     {
-      category: "After Program",
+      category: "Output & Outcomes",
       questions: [
         {
-          q: "What happens after the program?",
-          a: "Graduates join our alumni network with access to continued mentorship, research opportunities, career support, and networking events."
+          q: "Will I actually get published?",
+          a: "Yes! Every fellow who completes the program will become a published author on a peer-reviewed paper, conference paper, or open-source scientific repository. Publication is a core output of the fellowship."
         },
         {
-          q: "Will I receive a certificate?",
-          a: "Yes, all fellows receive a certificate of completion and a detailed transcript of their research activities and achievements."
+          q: "What kind of publication can I expect?",
+          a: "Depending on your track and research progress, you can expect either a peer-reviewed journal paper, a conference paper, or a significant open-source contribution. Your mentor will guide you through the publication process."
         },
         {
-          q: "Are there opportunities for publication?",
-          a: "Yes, fellows are encouraged and supported to publish their research in peer-reviewed journals and present at conferences."
+          q: "Do I get a certificate?",
+          a: "Yes, all fellows who complete the 16-week term receive the Akili Bridge Fellowship Certificate as formal recognition of completing a rigorous research term and presenting at the final symposium."
         },
         {
-          q: "Can I continue my research?",
-          a: "Absolutely! Many alumni continue their research with support from AkiliBridge's alumni network and partner institutions."
+          q: "Will I get a recommendation letter?",
+          a: "Yes, you will receive a detailed, output-backed letter of recommendation from your track mentor for future Master's/Ph.D. applications or career advancement."
+        }
+      ]
+    },
+    {
+      category: "Post-Fellowship Pathway",
+      questions: [
+        {
+          q: "What is the post-fellowship pathway?",
+          a: "For fellows who complete the term, Akili Bridge provides direct support to secure fully funded Master's and Ph.D. positions at top international universities. This includes help with applications, scholarships, and connecting with professors."
+        },
+        {
+          q: "What universities do you partner with?",
+          a: "Our mentors come from and have connections with top institutions including MIT, Stanford, Oxford, Cambridge, ETH Zurich, Carnegie Mellon, and others. We leverage these extensive networks for post-fellowship placements."
+        },
+        {
+          q: "Is the post-fellowship support guaranteed?",
+          a: "The support is exclusive to program completers. While we help you connect with opportunities, the final outcome depends on your performance, research output, and the specific requirements of each opportunity."
+        },
+        {
+          q: "What kind of funding can I expect?",
+          a: "The post-fellowship support helps you secure positions covering full tuition, monthly living stipends, and research funding at top international universities."
+        }
+      ]
+    },
+    {
+      category: "Technical & Logistics",
+      questions: [
+        {
+          q: "What platform will we use for the program?",
+          a: "We use a combination of platforms including Zoom for meetings, Slack/Discord for community communication, and Google Workspace for collaboration. Specific tools may vary by track."
+        },
+        {
+          q: "What if I have technical difficulties?",
+          a: "We provide technical support throughout the program. You'll have access to a program coordinator who can help with any technical issues you encounter."
+        },
+        {
+          q: "What internet speed do I need?",
+          a: "We recommend a minimum internet speed of 10 Mbps download and 5 Mbps upload for smooth video conferencing and collaboration. However, we understand that internet access varies and will work with you to accommodate your situation."
+        },
+        {
+          q: "Is there a community for fellows?",
+          a: "Yes, all fellows join a dedicated Slack/Discord community where you can connect with peers, share resources, ask questions, and collaborate beyond the formal program sessions."
         }
       ]
     },
@@ -96,39 +198,37 @@ export default function FAQ() {
       questions: [
         {
           q: "Who will mentor me?",
-          a: "You will be paired with an experienced researcher or industry expert who will provide guidance, support, and networking opportunities throughout the program."
+          a: "You will be paired with an active researcher or senior engineer at top global universities and industry labs who will provide guidance, support, and networking opportunities throughout the program."
         },
         {
           q: "How often will I meet my mentor?",
-          a: "You will have at least two virtual check-ins per month, with additional in-person meetings when possible. The mentorship relationship is designed to be flexible."
+          a: "You'll have weekly mentor pod check-ins, with additional 1:1 meetings as needed. The mentorship relationship is designed to be flexible and responsive to your research needs."
         },
         {
           q: "Can I choose my mentor?",
-          a: "We match fellows with mentors based on their research interests, career goals, and the mentor's expertise. You'll have the opportunity to provide preferences."
+          a: "We match fellows with mentors based on your research interests, career goals, and the mentor's expertise. You'll have the opportunity to provide preferences during the onboarding process."
         }
       ]
     }
   ];
 
   // Get unique categories
-  const categories = ["all", ...new Set(faqs.map(faq => faq.category))];
+  const categories = [
+    { id: "all", label: "All Categories" },
+    ...faqs.map(faq => ({ 
+      id: faq.category, 
+      label: faq.category
+    }))
+  ];
+
+  // Calculate total questions
+  const totalQuestions = useMemo(() => {
+    return faqs.reduce((acc, cat) => acc + cat.questions.length, 0);
+  }, []);
 
   // Filter FAQs based on search and category
   const filteredFaqs = useMemo(() => {
     return faqs
-      .filter(faq => {
-        if (activeCategory !== "all" && faq.category !== activeCategory) {
-          return false;
-        }
-        if (searchTerm) {
-          const searchLower = searchTerm.toLowerCase();
-          return faq.questions.some(q => 
-            q.q.toLowerCase().includes(searchLower) || 
-            q.a.toLowerCase().includes(searchLower)
-          );
-        }
-        return true;
-      })
       .map(faq => ({
         ...faq,
         questions: faq.questions.filter(q => {
@@ -138,34 +238,13 @@ export default function FAQ() {
                  q.a.toLowerCase().includes(searchLower);
         })
       }))
-      .filter(faq => faq.questions.length > 0);
+      .filter(faq => {
+        if (activeCategory !== "all" && faq.category !== activeCategory) {
+          return false;
+        }
+        return faq.questions.length > 0;
+      });
   }, [searchTerm, activeCategory]);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const getCategoryColor = (category) => {
-    const colors = {
-      "Eligibility": "text-blue-400 border-blue-500/30",
-      "Process": "text-green-400 border-green-500/30",
-      "Logistics": "text-yellow-400 border-yellow-500/30",
-      "After Program": "text-purple-400 border-purple-500/30",
-      "Mentorship": "text-pink-400 border-pink-500/30",
-    };
-    return colors[category] || "text-gray-400 border-gray-500/30";
-  };
-
-  const getCategoryBg = (category) => {
-    const colors = {
-      "Eligibility": "bg-blue-500/10",
-      "Process": "bg-green-500/10",
-      "Logistics": "bg-yellow-500/10",
-      "After Program": "bg-purple-500/10",
-      "Mentorship": "bg-pink-500/10",
-    };
-    return colors[category] || "bg-white/5";
-  };
 
   // Animation variants
   const fadeInUp = {
@@ -177,20 +256,11 @@ export default function FAQ() {
     }
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.2
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
-      {/* Hero Section */}
+      {/* ============================================================ */}
+      {/* HERO SECTION */}
+      {/* ============================================================ */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
         initial={{ opacity: 0 }}
@@ -225,19 +295,44 @@ export default function FAQ() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Everything you need to know about the AkiliBridge Fellowship
+            Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
+
+          {/* Quick stats */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-6 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span className="text-[#2fb3ff] font-bold">{totalQuestions}</span>
+              <span>Questions</span>
+            </div>
+            <div className="w-px h-6 bg-white/10" />
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span className="text-[#ffd93d] font-bold">{faqs.length}</span>
+              <span>Categories</span>
+            </div>
+            <div className="w-px h-6 bg-white/10" />
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span className="text-[#4CAF50] font-bold">24/7</span>
+              <span>Support</span>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* Search & Filter */}
+      {/* ============================================================ */}
+      {/* SEARCH & FILTER SECTION */}
+      {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 -mt-8 relative z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
       >
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl shadow-black/20">
           {/* Search Bar */}
           <div className="relative mb-4">
             <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -249,133 +344,143 @@ export default function FAQ() {
               placeholder="Search for questions or keywords..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none focus:ring-2 focus:ring-[#2fb3ff]/20 transition-all"
+              className="w-full pl-12 pr-12 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none focus:ring-2 focus:ring-[#2fb3ff]/20 transition-all"
             />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+            )}
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
             {categories.map((category) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                  activeCategory === category
-                    ? "bg-[#2fb3ff] text-[#0a1628]"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                  activeCategory === category.id
+                    ? "bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] text-[#0a1628] shadow-lg shadow-[#2fb3ff]/20"
+                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5"
                 }`}
               >
-                {category === "all" ? "All Categories" : category}
+                {category.label}
               </button>
             ))}
           </div>
 
           {/* Results Count */}
-          <div className="mt-4 text-sm text-gray-500">
-            {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
+          <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-white/5">
+            <span className="text-sm text-gray-500">
+              {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
+            </span>
+            {(searchTerm || activeCategory !== "all") && (
+              <button
+                onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
+                className="text-sm text-[#2fb3ff] hover:text-[#8a7ff7] transition-colors"
+              >
+                Clear all filters
+              </button>
+            )}
           </div>
         </div>
       </motion.section>
 
-      {/* FAQ Accordion */}
+      {/* ============================================================ */}
+      {/* FAQ CATEGORIES - Using FAQCategory component */}
+      {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         {filteredFaqs.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-16 bg-white/5 rounded-2xl border border-white/10"
+            className="text-center py-20 bg-white/5 rounded-2xl border border-white/10"
           >
             <h3 className="text-xl font-semibold text-white mb-2">No questions found</h3>
-            <p className="text-gray-400">
-              Try adjusting your search or filter to find what you're looking for.
+            <p className="text-gray-400 max-w-md mx-auto">
+              We couldn't find any questions matching your search.
             </p>
             <button
               onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
-              className="mt-4 px-4 py-2 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-lg hover:bg-[#2fb3ff]/30 transition-colors"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
             >
-              Clear Filters
+              Show all questions
             </button>
           </motion.div>
         ) : (
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
             className="space-y-10"
           >
-            {filteredFaqs.map((category, catIndex) => (
-              <motion.div key={catIndex} variants={fadeInUp} className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <h2 className={`text-2xl font-bold ${getCategoryColor(category.category)}`}>
-                    {category.category}
-                  </h2>
-                  <span className={`px-2 py-0.5 rounded-full text-xs ${getCategoryBg(category.category)} text-gray-400`}>
-                    {category.questions.length} questions
-                  </span>
-                </div>
-
-                {category.questions.map((faq, qIndex) => {
-                  const index = `${catIndex}-${qIndex}`;
-                  return (
-                    <motion.div
-                      key={index}
-                      variants={fadeInUp}
-                      className={`bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#2fb3ff]/30 transition-all ${
-                        openIndex === index ? "border-[#2fb3ff]/50" : ""
-                      }`}
-                    >
-                      <button
-                        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors group"
-                        onClick={() => toggleAccordion(index)}
-                      >
-                        <span className="text-lg font-medium text-white group-hover:text-[#2fb3ff] transition-colors">
-                          {faq.q}
-                        </span>
-                        <motion.span
-                          animate={{ rotate: openIndex === index ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className={`text-2xl flex-shrink-0 ml-4 transition-colors ${
-                            openIndex === index ? "text-[#2fb3ff]" : "text-gray-400"
-                          }`}
-                        >
-                          {openIndex === index ? "−" : "+"}
-                        </motion.span>
-                      </button>
-                      <AnimatePresence>
-                        {openIndex === index && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="px-6 pb-4"
-                          >
-                            <div className="pt-2 text-gray-300 leading-relaxed border-t border-white/5">
-                              {faq.a}
-                            </div>
-                            {/* Helpful buttons */}
-                            <div className="flex items-center gap-4 mt-4 text-sm">
-                              <span className="text-gray-500">Was this helpful?</span>
-                              <button className="text-gray-400 hover:text-[#2fb3ff] transition-colors">
-                                Yes
-                              </button>
-                              <button className="text-gray-400 hover:text-[#2fb3ff] transition-colors">
-                                No
-                              </button>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  );
-                })}
+            {filteredFaqs.map((category, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <FAQCategory
+                  category={category.category}
+                  questions={category.questions}
+                />
               </motion.div>
             ))}
           </motion.div>
         )}
       </section>
 
-      {/* Still Have Questions? */}
+      {/* ============================================================ */}
+      {/* QUICK LINKS */}
+      {/* ============================================================ */}
+      <section className="max-w-4xl mx-auto px-4 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+        >
+          <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider text-center mb-4">
+            Explore More
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button
+              onClick={() => navigate("/program")}
+              className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all border border-white/5 hover:border-[#2fb3ff]/30"
+            >
+              Program Details
+            </button>
+            <button
+              onClick={() => navigate("/")}
+              className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all border border-white/5 hover:border-[#2fb3ff]/30"
+            >
+              Home
+            </button>
+            <a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-sm text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+            >
+              Apply Now
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* STILL HAVE QUESTIONS? */}
+      {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 pb-20"
         initial={{ opacity: 0, y: 30 }}
@@ -383,26 +488,41 @@ export default function FAQ() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-2xl p-8 md:p-12 text-center border border-white/10">
-          <h2 className="text-2xl font-bold text-white mb-3">
-            Still Have <span className="text-[#2fb3ff]">Questions</span>?
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-6">
-            Can't find what you're looking for? Reach out to our team and we'll get back to you within 24 hours.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="mailto:info@akilibridge.org"
-              className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all inline-flex items-center gap-2"
-            >
-              Email Us
-            </a>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
-            >
-              Back to Top
-            </button>
+        <div className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-2xl p-8 md:p-12 text-center border border-white/10 relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#2fb3ff]/10 rounded-full filter blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#8a7ff7]/10 rounded-full filter blur-3xl" />
+          
+          <div className="relative z-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Still Have <span className="text-[#2fb3ff]">Questions</span>?
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-6">
+              Can't find what you're looking for? Our team is here to help. 
+              We typically respond within 24 hours.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="mailto:info@akilibridge.org"
+                className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all inline-flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Email Us
+              </a>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all inline-flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+                Back to Top
+              </button>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              Or reach us at <span className="text-gray-400">info@akilibridge.org</span>
+            </p>
           </div>
         </div>
       </motion.section>

@@ -32,12 +32,12 @@ export default function Hero() {
     opacity: Math.random() * 0.5 + 0.1,
   }));
 
-  // Updated stats text as requested
+  // Updated stats - meaningful fellowship metrics
   const stats = [
-    { value: "17%", label: "of gender equality", delay: 0.9 },
-    { value: "<1%", label: "of science excellence", delay: 1.1 },
-    { value: "5+", label: "of African excellence", delay: 1.3 },
-    { value: "100+", label: "of research excellence", delay: 1.5 },
+    { value: "16", label: "Weeks Intensive", delay: 0.9 },
+    { value: "1:1", label: "Mentorship", delay: 1.1 },
+    { value: "6", label: "Research Tracks", delay: 1.3 },
+    { value: "100%", label: "Publication Rate", delay: 1.5 },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function Hero() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format')",
+              "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/85 to-[#0a1628]/50" />
@@ -122,35 +122,20 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* Badge - REMOVED "First Cohort 2025" */}
-        {/*
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#2fb3ff]/20 backdrop-blur-sm rounded-full text-sm border border-[#2fb3ff]/30 mb-6 hover:bg-[#2fb3ff]/30 transition-all">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2fb3ff] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2fb3ff]"></span>
-            </span>
-            First Cohort 2025
-          </span>
-        </motion.div>
-        */}
+        {/* Badge - REMOVED "Applications Open — 2026 Cohort" */}
 
-        {/* Main Title */}
+        {/* Main Title - UPDATED: Cleaner wording */}
         <motion.h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span
             className="inline-block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             Akili
           </motion.span>
@@ -158,30 +143,43 @@ export default function Hero() {
             className="inline-block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             Bridge
           </motion.span>
+          <motion.span
+            className="block text-3xl sm:text-4xl md:text-5xl text-gray-300 font-medium mt-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+          >
+            STEM Research Fellowship
+          </motion.span>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle - UPDATED: Clearer value proposition */}
         <motion.p
           className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <span className="bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent font-semibold">
-            Nurturing the Next Generation of African Researcher Scholars
+          <span className="text-white font-semibold">
+            Publish your research. Secure your future.
+          </span>
+          <br />
+          <span className="text-gray-400 text-base sm:text-lg">
+            A 16-week mentored fellowship pairing top African scholars with 
+            international researchers for real-world research and publication.
           </span>
         </motion.p>
 
-        {/* Stats - Updated labels */}
+        {/* Stats - UPDATED: Meaningful metrics */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -210,12 +208,22 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* CTA Buttons - Updated "Apply Now" → "Apply Here" */}
+        {/* Trust Badge - NEW */}
+        <motion.p
+          className="text-xs text-gray-500 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+        >
+          Mentors from MIT, Stanford, Oxford, Cambridge, and more
+        </motion.p>
+
+        {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row justify-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
         >
           <motion.a
             href={GOOGLE_FORM_URL}
@@ -226,7 +234,7 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Apply Here
+              Apply Now
               <motion.span
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}

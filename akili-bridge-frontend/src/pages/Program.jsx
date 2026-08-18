@@ -2,130 +2,81 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+// Import all component pieces
+import Overview from "../components/program/Overview";
+import ResearchTracks from "../components/program/ResearchTracks";
+import WhatFellowsReceive from "../components/program/WhatFellowsReceive";
+import Mentorship from "../components/program/Mentorship";
+
 export default function Program() {
   const navigate = useNavigate();
-  const [selectedTrack, setSelectedTrack] = useState(null);
+  const [expandedFaq, setExpandedFaq] = useState(null);
   
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  const tracks = [
+  // FAQ Data
+  const faqs = [
     {
-      id: 1,
-      name: "EdTech & Digital Learning",
-      description: "Research on innovative educational technologies and digital learning solutions for African classrooms.",
-      color: "#2fb3ff",
-      duration: "12 weeks",
-      skills: ["EdTech Design", "Digital Pedagogy", "Learning Analytics"],
-      projects: ["Digital Learning Platform", "Teacher Training Module"]
+      q: "Is this program fully remote?",
+      a: "Yes, the program is hybrid with virtual mentorship and independent research. Fellows work remotely while staying connected through weekly check-ins and cohort seminars."
     },
     {
-      id: 2,
-      name: "Energy Storage & Battery Technology",
-      description: "Developing sustainable energy storage solutions and battery technologies for off-grid communities.",
-      color: "#ffd93d",
-      duration: "12 weeks",
-      skills: ["Battery Chemistry", "Energy Systems", "Sustainable Design"],
-      projects: ["Solar Battery System", "Energy Storage Optimization"]
+      q: "Can I apply if I'm not from East Africa?",
+      a: "Currently, we require applicants to be residing and studying in East Africa. This helps us build a strong regional research community and provide targeted support."
     },
     {
-      id: 3,
-      name: "Nanotechnology & Advanced Materials",
-      description: "Exploring nanomaterials and advanced materials for applications in medicine, electronics, and manufacturing.",
-      color: "#ff6b9d",
-      duration: "12 weeks",
-      skills: ["Nanomaterials", "Material Characterization", "Lab Techniques"],
-      projects: ["Nanoparticle Synthesis", "Material Testing"]
+      q: "Do I need prior research experience?",
+      a: "Not necessarily. We welcome motivated students with strong academic backgrounds who are eager to learn. Our mentorship model is designed to guide you through the research process."
     },
     {
-      id: 4,
-      name: "Artificial Intelligence & Data Science",
-      description: "Building AI solutions and data science applications to address African challenges in healthcare, agriculture, and finance.",
-      color: "#8a7ff7",
-      duration: "12 weeks",
-      skills: ["Machine Learning", "Data Analysis", "Python Programming"],
-      projects: ["AI Health Prediction", "Agricultural Data Analysis"]
+      q: "Is there a fee to participate?",
+      a: "No, this is a fully funded fellowship program. There are no costs for selected fellows."
     },
     {
-      id: 5,
-      name: "Biotechnology & Health Innovations",
-      description: "Advancing biotechnology research for disease prevention, diagnostics, and healthcare delivery in Africa.",
-      color: "#4CAF50",
-      duration: "12 weeks",
-      skills: ["Molecular Biology", "Genetic Analysis", "Lab Research"],
-      projects: ["Disease Detection Kit", "Genetic Research Study"]
-    },
-    {
-      id: 6,
-      name: "Renewable Energy Systems",
-      description: "Designing and optimizing renewable energy systems for sustainable development across the continent.",
-      color: "#ff6a00",
-      duration: "12 weeks",
-      skills: ["Solar Energy", "Wind Energy", "Energy Optimization"],
-      projects: ["Solar Panel Efficiency", "Wind Turbine Design"]
+      q: "What happens after the fellowship?",
+      a: "Program completers receive direct support to secure fully funded Master's and Ph.D. positions at top international universities, including help with applications, scholarships, and connecting with professors."
     }
   ];
 
-  const benefits = [
-    "1:1 mentorship with leading researchers",
-    "Hands-on research experience in cutting-edge labs",
-    "Career development workshops and training",
-    "Publication and conference presentation opportunities",
-    "Networking with fellow researchers and industry experts",
-    "Research funding and resource support"
-  ];
-
-  // Program timeline
-  const timeline = [
-    {
-      phase: "Phase 1: Foundation",
-      weeks: "Weeks 1-4",
-      activities: [
-        "Orientation and program introduction",
-        "Research methodology training",
-        "Lab safety and protocols",
-        "Literature review and research proposal"
-      ]
-    },
-    {
-      phase: "Phase 2: Research",
-      weeks: "Weeks 5-16",
-      activities: [
-        "Hands-on research in assigned lab",
-        "Data collection and analysis",
-        "Weekly mentor meetings",
-        "Progress presentations"
-      ]
-    },
-    {
-      phase: "Phase 3: Analysis & Writing",
-      weeks: "Weeks 17-24",
-      activities: [
-        "Data analysis and interpretation",
-        "Research paper writing",
-        "Conference abstract preparation",
-        "Final presentation preparation"
-      ]
-    },
-    {
-      phase: "Phase 4: Publication & Graduation",
-      weeks: "Weeks 25-48",
-      activities: [
-        "Paper submission to journals",
-        "Conference presentations",
-        "Career development sessions",
-        "Graduation ceremony"
-      ]
-    }
-  ];
-
-  // Eligibility criteria
+  // Eligibility data
   const eligibility = [
-    { label: "Academic", value: "Current undergraduate student in STEM field" },
-    { label: "Country", value: "Rwandan citizen or resident" },
-    { label: "Year of Study", value: "2nd, 3rd, or 4th year" },
-    { label: "Academic Performance", value: "Minimum GPA of 3.0 on a 4.0 scale" },
-    { label: "Research Interest", value: "Demonstrated interest in research" },
+    { label: "Academic Level", value: "Final-year undergrad, recent grad, Master's, or Ph.D. student" },
+    { label: "Location", value: "Residing and studying in East Africa" },
+    { label: "Commitment", value: "15 focused hours per week for 16 weeks" },
+    { label: "Career Goal", value: "Willing to pursue research or graduate studies" },
     { label: "Language", value: "Proficiency in English" }
+  ];
+
+  // Post-fellowship data
+  const postFellowship = [
+    "Direct support to secure fully funded Master's and Ph.D. positions",
+    "Full tuition coverage, monthly stipends, and research funding",
+    "Connection with hiring professors at top international universities",
+    "Targeted guidance for competitive global scholarship programs"
+  ];
+
+  // Application steps
+  const applicationSteps = [
+    {
+      step: 1,
+      title: "Complete Application Form",
+      description: "Fill out our comprehensive Google Form with your academic background, research interests, and motivation."
+    },
+    {
+      step: 2,
+      title: "Submit Supporting Documents",
+      description: "Upload your transcripts, CV/resume, and a brief research proposal or statement of purpose."
+    },
+    {
+      step: 3,
+      title: "Interview Selection",
+      description: "Shortlisted candidates will be invited for an interview with our selection committee."
+    },
+    {
+      step: 4,
+      title: "Final Selection & Onboarding",
+      description: "Selected fellows will receive an offer letter and begin their orientation process."
+    }
   ];
 
   const containerVariants = {
@@ -152,62 +103,88 @@ export default function Program() {
     },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
-      {/* Hero Section */}
+      {/* ============================================================ */}
+      {/* HERO SECTION - "First Cohort 2025" REMOVED */}
+      {/* ============================================================ */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden min-h-[90vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Animated background orbs */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2fb3ff]/5 rounded-full filter blur-3xl" />
         </div>
         
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
+        
         <div className="relative z-10 max-w-4xl">
-          <motion.span
-            className="inline-block px-4 py-2 bg-[#2fb3ff]/20 rounded-full text-sm mb-4 border border-[#2fb3ff]/30"
-            initial={{ opacity: 0, y: 20 }}
+          {/* "First Cohort 2025" badge removed */}
+
+          <motion.h1
+            className="text-4xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent leading-tight"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
           >
-            First Cohort 2025
-          </motion.span>
-          
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
+            Akili Bridge STEM <br />Research Fellowship
+          </motion.h1>
+
+          <motion.p
+            className="text-xl md:text-2xl font-semibold text-[#ffd93d] mb-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            STEM Fellowship Program
-          </motion.h1>
+            Publish Your Research. Secure Your Future.
+          </motion.p>
           
           <motion.p
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
           >
-            A one-year researcher-in-training fellowship for undergraduate students in Rwanda,
-            equipping the next generation of African researchers with skills, mentorship,
-            and opportunities in STEM.
+            Pairing top African scholars with practicing international researchers and engineers 
+            for 16 weeks of real-world research, mentorship, and publication.
           </motion.p>
 
-          {/* Quick Stats */}
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <motion.a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Apply Now →
+            </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('program-info')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+            >
+              Learn More ↓
+            </motion.button>
+          </motion.div>
+
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -215,8 +192,8 @@ export default function Program() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#2fb3ff]">12</p>
-              <p className="text-xs text-gray-400">Months</p>
+              <p className="text-2xl font-bold text-[#2fb3ff]">16</p>
+              <p className="text-xs text-gray-400">Weeks</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
               <p className="text-2xl font-bold text-[#8a7ff7]">1:1</p>
@@ -234,97 +211,52 @@ export default function Program() {
         </div>
       </motion.section>
 
-      {/* Research Tracks */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
+      {/* ============================================================ */}
+      {/* PARTNER LOGOS SECTION */}
+      {/* ============================================================ */}
+      <section className="py-12 px-4 border-t border-b border-white/5 bg-white/5">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
-          <motion.h2 
-            variants={cardVariants}
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
-          >
-            Research <span className="text-[#2fb3ff]">Tracks</span>
-          </motion.h2>
-          
           <motion.p 
             variants={cardVariants}
-            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+            className="text-center text-gray-500 text-xs uppercase tracking-wider mb-6"
           >
-            Choose from six cutting-edge research tracks designed to address Africa's most pressing challenges
+            Our mentors are from leading institutions worldwide
           </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tracks.map((track) => (
-              <motion.div
-                key={track.id}
-                variants={cardVariants}
-                whileHover="hover"
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#2fb3ff]/50 transition-all group cursor-pointer"
-                style={{ borderTopColor: track.color, borderTopWidth: "4px" }}
-                onClick={() => setSelectedTrack(selectedTrack === track.id ? null : track.id)}
-              >
-                <div 
-                  className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl mb-4"
-                  style={{ background: `${track.color}20` }}
-                >
-                  {track.icon}
-                </div>
-                <h3 
-                  className="text-xl font-semibold mb-2 group-hover:text-[#2fb3ff] transition-colors"
-                  style={{ color: track.color }}
-                >
-                  {track.name}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {track.description}
-                </p>
-                
-                {/* Expandable details */}
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ 
-                    height: selectedTrack === track.id ? "auto" : 0,
-                    opacity: selectedTrack === track.id ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
-                    <p className="text-xs text-gray-500">
-                      <span className="text-[#2fb3ff]">Duration:</span> {track.duration}
-                    </p>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">Skills you'll learn:</p>
-                      <div className="flex flex-wrap gap-1">
-                        {track.skills.map((skill, i) => (
-                          <span key={i} className="text-xs bg-white/5 px-2 py-0.5 rounded-full text-gray-400">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">Sample projects:</p>
-                      <div className="flex flex-wrap gap-1">
-                        {track.projects.map((project, i) => (
-                          <span key={i} className="text-xs bg-[#2fb3ff]/10 px-2 py-0.5 rounded-full text-[#2fb3ff]">
-                            {project}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+          
+          <motion.div 
+            variants={cardVariants}
+            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60"
+          >
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">MIT</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Stanford</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Oxford</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Cambridge</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">ETH Zurich</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Carnegie Mellon</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Google Research</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Microsoft Research</span>
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* Program Timeline */}
+      {/* ============================================================ */}
+      {/* OVERVIEW COMPONENT */}
+      {/* ============================================================ */}
+      <Overview />
+
+      {/* ============================================================ */}
+      {/* RESEARCH TRACKS COMPONENT */}
+      {/* ============================================================ */}
+      <ResearchTracks />
+
+      {/* ============================================================ */}
+      {/* TIMELINE SECTION */}
+      {/* ============================================================ */}
       <section className="bg-[#1a2a4a]/30 py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -344,81 +276,114 @@ export default function Program() {
               variants={cardVariants}
               className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
             >
-              Your journey from orientation to graduation
+              Your 16-week journey from orientation to publication
             </motion.p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {timeline.map((phase, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">{phase.phase}</h3>
-                      <p className="text-xs text-[#ffd93d]">{phase.weeks}</p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Phase 1 */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">1</div>
+                  <div>
+                    <h3 className="font-semibold text-white">Phase 1: Orientation & Foundation</h3>
+                    <p className="text-xs text-[#ffd93d]">Weeks 1-2</p>
                   </div>
-                  <ul className="space-y-2">
-                    {phase.activities.map((activity, i) => (
-                      <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
-                        <span className="text-[#ffd93d] text-xs mt-1">▸</span>
-                        {activity}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                </div>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Program orientation and mentor pairing
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Research methodology and ethics training
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Literature review and research proposal development
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Phase 2 */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">2</div>
+                  <div>
+                    <h3 className="font-semibold text-white">Phase 2: Research Execution</h3>
+                    <p className="text-xs text-[#ffd93d]">Weeks 3-12</p>
+                  </div>
+                </div>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Hands-on research with mentor guidance
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Data collection, analysis, and experimentation
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Weekly mentor pod check-ins
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Cohort seminars and peer feedback sessions
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Phase 3 */}
+              <motion.div
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">3</div>
+                  <div>
+                    <h3 className="font-semibold text-white">Phase 3: Publication & Presentation</h3>
+                    <p className="text-xs text-[#ffd93d]">Weeks 13-16</p>
+                  </div>
+                </div>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Research paper writing and revision
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Conference abstract and journal submission
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Final symposium presentation
+                  </li>
+                  <li className="text-sm text-gray-400 flex items-start gap-2">
+                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                    Career development and post-fellowship planning
+                  </li>
+                </ul>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* What Fellows Receive */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            <motion.h2 
-              variants={cardVariants}
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
-            >
-              What Fellows <span className="text-[#8a7ff7]">Receive</span>
-            </motion.h2>
-            
-            <motion.p 
-              variants={cardVariants}
-              className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
-            >
-              Our comprehensive fellowship program provides everything you need to succeed
-            </motion.p>
+      {/* ============================================================ */}
+      {/* WHAT FELLOWS RECEIVE COMPONENT */}
+      {/* ============================================================ */}
+      <WhatFellowsReceive />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/5 hover:border-[#2fb3ff]/30 transition-all"
-                >
-                  <span className="text-[#2fb3ff] text-xl flex-shrink-0 mt-0.5">✓</span>
-                  <span className="text-gray-300">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Eligibility Section */}
+      {/* ============================================================ */}
+      {/* ELIGIBILITY SECTION */}
+      {/* ============================================================ */}
       <section className="py-16 px-4 bg-[#1a2a4a]/30">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -431,7 +396,7 @@ export default function Program() {
               variants={cardVariants}
               className="text-3xl md:text-4xl font-bold text-center mb-4"
             >
-              Eligibility <span className="text-[#4CAF50]">Criteria</span>
+              Candidate <span className="text-[#4CAF50]">Requirements</span>
             </motion.h2>
             
             <motion.p 
@@ -457,33 +422,257 @@ export default function Program() {
         </div>
       </section>
 
-      {/* Mentorship Section */}
+      {/* ============================================================ */}
+      {/* HOW TO APPLY SECTION */}
+      {/* ============================================================ */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-3xl p-8 md:p-12 border border-white/10"
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            How to <span className="text-[#ffd93d]">Apply</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Follow these four simple steps to submit your application
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ffd93d]/20 via-[#ffd93d]/40 to-[#ffd93d]/20 hidden md:block" />
+            
+            {applicationSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="relative text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffd93d]/20 to-[#ffd93d]/5 border-2 border-[#ffd93d]/30 flex items-center justify-center text-2xl font-bold text-[#ffd93d] mx-auto mb-4 relative z-10">
+                  {step.step}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                <p className="text-sm text-gray-400 max-w-xs mx-auto">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            variants={cardVariants}
+            className="text-center mt-10"
+          >
+            <motion.a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-[#ffd93d] to-[#ff6a00] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#ffd93d]/30 transition-all inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Your Application →
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* POST-FELLOWSHIP PATHWAY SECTION */}
+      {/* ============================================================ */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="bg-gradient-to-br from-[#8a7ff7]/10 to-[#2fb3ff]/10 rounded-3xl p-8 md:p-12 border border-white/10"
         >
           <motion.div variants={cardVariants} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">World-Class Mentorship</h2>
+            <h2 className="text-3xl font-bold mb-4">Post-Fellowship <span className="text-[#8a7ff7]">Pathway</span></h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              Each fellow is paired with a dedicated mentor — an experienced researcher or industry expert
-              who provides guidance, support, and networking opportunities throughout the program.
+              Exclusive to program completers — direct support to secure fully funded 
+              Master's and Ph.D. positions at top international universities.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">1:1 Mentorship</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Monthly Check-ins</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Career Guidance</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Research Support</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Networking</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+              {postFellowship.map((item, index) => (
+                <div key={index} className="flex items-start gap-2 bg-white/5 rounded-lg p-3">
+                  <span className="text-[#8a7ff7] text-lg flex-shrink-0">✦</span>
+                  <span className="text-sm text-gray-300">{item}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* CTA Section */}
+      {/* ============================================================ */}
+      {/* COMPARISON TABLE SECTION */}
+      {/* ============================================================ */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            Program <span className="text-[#ffd93d]">Comparison</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Choose the fellowship path that fits your goals and availability
+          </motion.p>
+
+          <motion.div 
+            variants={cardVariants}
+            className="overflow-x-auto"
+          >
+            <table className="w-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+              <thead className="bg-white/10">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Feature</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#2fb3ff]">
+                    16-Week Intensive <span className="block text-xs font-normal text-gray-400">(Flagship)</span>
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#ffd93d]">
+                    12-Month Training <span className="block text-xs font-normal text-gray-400">(Cohort 2025)</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Duration</td>
+                  <td className="px-6 py-4 text-sm text-white">16 weeks (intensive term)</td>
+                  <td className="px-6 py-4 text-sm text-white">12 months (full academic cycle)</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Weekly Commitment</td>
+                  <td className="px-6 py-4 text-sm text-white">15 focused hours/week</td>
+                  <td className="px-6 py-4 text-sm text-white">Flexible research schedule</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Target Audience</td>
+                  <td className="px-6 py-4 text-sm text-white">Final-year undergrads, recent grads, Master's & Ph.D.</td>
+                  <td className="px-6 py-4 text-sm text-white">Undergraduate students (Rwanda focus)</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Mentorship</td>
+                  <td className="px-6 py-4 text-sm text-white">1:1 with global researchers & senior engineers</td>
+                  <td className="px-6 py-4 text-sm text-white">1:1 mentorship</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Research Tracks</td>
+                  <td className="px-6 py-4 text-sm text-white">6 tracks (CS, AI, Data Sci, Civil/Struct, Transpo, Math/Stats)</td>
+                  <td className="px-6 py-4 text-sm text-white">6 cutting-edge tracks</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Output</td>
+                  <td className="px-6 py-4 text-sm text-white">Peer-reviewed publication, conference paper, or open-source repo</td>
+                  <td className="px-6 py-4 text-sm text-white">Research training & skills development</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors bg-[#2fb3ff]/5">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Post-Fellowship</td>
+                  <td className="px-6 py-4 text-sm text-[#2fb3ff] font-semibold">Direct support for fully funded Master's/Ph.D. placements</td>
+                  <td className="px-6 py-4 text-sm text-gray-400">—</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Fellows per Cohort</td>
+                  <td className="px-6 py-4 text-sm text-white">Rolling applications</td>
+                  <td className="px-6 py-4 text-sm text-white">25 Fellows</td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-xs text-gray-500 mt-4"
+          >
+            * The 16-Week Intensive is the flagship program. The 12-Month Training is the first cohort (2025) for undergraduate students in Rwanda.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* MENTORSHIP COMPONENT */}
+      {/* ============================================================ */}
+      <Mentorship />
+
+      {/* ============================================================ */}
+      {/* FAQ SECTION */}
+      {/* ============================================================ */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            Frequently Asked <span className="text-[#ffd93d]">Questions</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Find answers to the most common questions about the fellowship
+          </motion.p>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/5 hover:border-[#ffd93d]/20 transition-all overflow-hidden"
+              >
+                <button
+                  className="w-full px-6 py-4 text-left flex justify-between items-center"
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  aria-expanded={expandedFaq === index}
+                >
+                  <span className="text-white font-medium">{faq.q}</span>
+                  <span className={`text-[#ffd93d] text-xl transition-transform duration-300 ${expandedFaq === index ? 'rotate-180' : ''}`}>
+                    ▼
+                  </span>
+                </button>
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{
+                    height: expandedFaq === index ? 'auto' : 0,
+                    opacity: expandedFaq === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-4 pt-1">
+                    <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* FINAL CTA SECTION */}
+      {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-16 px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -496,8 +685,8 @@ export default function Program() {
             Ready to <span className="text-[#2fb3ff]">Apply</span>?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the first cohort of AkiliBridge Fellows and start your journey
-            towards becoming a world-class researcher.
+            Join the Akili Bridge fellowship and start your journey towards becoming a published researcher 
+            with mentorship from world-class experts. Choose the program that fits your goals.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.a
