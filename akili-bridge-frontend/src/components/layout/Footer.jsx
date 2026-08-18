@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import apiFetch from "../../api/client";
 // Import the local logo image
-import logo from "../../assets/logo.png";
+import logo from "../../assets/akilibridge.png";
 
 export default function Footer() {
   const footerRef = useRef(null);
