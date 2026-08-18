@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 // Import the local logo image
-import logo from "../../assets/ChatGPT Image Aug 18, 2026, 12_49_12 PM.png";
+import logo from "../../assets/logo.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
