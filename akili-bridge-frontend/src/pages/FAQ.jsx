@@ -1,10 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
 
-// Import components
-import FAQAccordion from "./FAQAccordion";
-import FAQCategory from "./FAQCategory";
+// Import components from components/faq/
+import FAQCategory from "../components/faq/FAQCategory";
 
 export default function FAQ() {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ export default function FAQ() {
         },
         {
           q: "How long is the fellowship?",
-          a: "The flagship program runs for 16 weeks (intensive term). We also have a 12-month researcher-in-training option for undergraduate students in Rwanda (First Cohort 2025). Both programs are designed to provide hands-on research experience and mentorship."
+          a: "The flagship program runs for 16 weeks (intensive term). We also have a 12-month researcher-in-training option for undergraduate students in Rwanda. Both programs are designed to provide hands-on research experience and mentorship."
         },
         {
           q: "Is there a cost to participate?",
@@ -257,17 +256,6 @@ export default function FAQ() {
     }
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.2
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
       {/* ============================================================ */}
@@ -403,7 +391,7 @@ export default function FAQ() {
       </motion.section>
 
       {/* ============================================================ */}
-      {/* FAQ ACCORDION - Using FAQAccordion component */}
+      {/* FAQ CATEGORIES - Using FAQCategory component */}
       {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         {filteredFaqs.length === 0 ? (
@@ -427,32 +415,24 @@ export default function FAQ() {
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
             className="space-y-10"
           >
-            {filteredFaqs.map((category, catIndex) => (
-              <motion.div key={catIndex} variants={fadeInUp}>
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <h2 className={`text-2xl font-bold text-[#2fb3ff]`}>
-                    {category.category}
-                  </h2>
-                  <span className="px-2 py-0.5 rounded-full text-xs bg-[#2fb3ff]/10 text-gray-400">
-                    {category.questions.length} questions
-                  </span>
-                </div>
-
-                {/* FAQ Items - Using FAQAccordion component */}
-                <div className="space-y-3">
-                  {category.questions.map((faq, qIndex) => (
-                    <FAQAccordion
-                      key={qIndex}
-                      question={faq.q}
-                      answer={faq.a}
-                      category={category.category}
-                    />
-                  ))}
-                </div>
+            {filteredFaqs.map((category, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <FAQCategory
+                  category={category.category}
+                  questions={category.questions}
+                />
               </motion.div>
             ))}
           </motion.div>
