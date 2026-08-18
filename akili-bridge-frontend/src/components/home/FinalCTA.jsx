@@ -15,11 +15,11 @@ export default function FinalCTA() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-r from-[#2fb3ff]/10 to-[#8a7ff7]/10 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#2fb3ff] rounded-full filter blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl" />
+    <section className="py-20 px-4 bg-gray-50 relative overflow-hidden border-t border-gray-200">
+      {/* Decorative background elements - Faint Orange Orbs */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -28,7 +28,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 shadow-xl shadow-black/20"
+          className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50"
         >
           {/* Badge */}
           <motion.span
@@ -36,7 +36,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#2fb3ff]/20"
+            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20"
           >
             Applications Open
           </motion.span>
@@ -46,9 +46,9 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#0a1628] mb-4"
           >
-            Become a Published <span className="text-[#2fb3ff]">Researcher</span>
+            Become a Published <span className="text-[#df7c2e]">Researcher</span>
           </motion.h2>
 
           <motion.p
@@ -56,7 +56,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-gray-300 text-lg max-w-2xl mx-auto mb-6"
+            className="text-[#0a1628]/70 text-lg max-w-2xl mx-auto mb-6"
           >
             Join the Akili Bridge STEM Research Fellowship and gain 1:1 mentorship, 
             hands-on research experience, and publication opportunities — all while 
@@ -72,9 +72,9 @@ export default function FinalCTA() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white/5 rounded-xl p-3 border border-white/5">
-                <p className="text-2xl font-bold text-[#2fb3ff]">{stat.value}</p>
-                <p className="text-xs text-gray-400">{stat.label}</p>
+              <div key={index} className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+                <p className="text-2xl font-bold text-[#df7c2e]">{stat.value}</p>
+                <p className="text-xs text-[#0a1628]/60">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -85,7 +85,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-xs text-gray-500 mb-6"
+            className="text-xs text-[#0a1628]/50 mb-6"
           >
             Fellows receive mentorship from active researchers at MIT, Stanford, Oxford, Cambridge, and more
           </motion.p>
@@ -102,7 +102,7 @@ export default function FinalCTA() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#2fb3ff]/40 transition-all hover:scale-105 active:scale-95"
+              className="px-8 py-4 bg-[#df7c2e] rounded-xl text-white font-semibold text-lg shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all hover:scale-105 active:scale-95"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -110,7 +110,7 @@ export default function FinalCTA() {
             </motion.a>
             <motion.button
               onClick={() => navigate("/program")}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all hover:border-[#2fb3ff]/50"
+              className="px-8 py-4 bg-white rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-50 hover:border-[#df7c2e]/40 transition-all"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -124,7 +124,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-xs text-gray-500 mt-6"
+            className="text-xs text-[#0a1628]/50 mt-6"
           >
             Applications are reviewed on a rolling basis. Early submission is encouraged.
           </motion.p>
