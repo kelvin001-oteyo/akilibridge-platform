@@ -257,24 +257,23 @@ export default function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a1628] text-white">
+    <div className="min-h-screen bg-white text-[#0a1628]">
       {/* ============================================================ */}
-      {/* HERO SECTION */}
+      {/* HERO SECTION - UPDATED TO WHITE/NAVY/ORANGE THEME */}
       {/* ============================================================ */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden border-b border-gray-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" />
         </div>
 
         <div className="relative z-10">
           <motion.span
-            className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
+            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -282,7 +281,7 @@ export default function FAQ() {
             FAQ
           </motion.span>
           <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold mb-4 text-[#0a1628]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -290,7 +289,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-[#0a1628]/70 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -298,33 +297,28 @@ export default function FAQ() {
             Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
 
-          {/* Quick stats */}
+          {/* Quick stats - Updated Colors */}
           <motion.div
             className="flex flex-wrap justify-center gap-6 mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <span className="text-[#2fb3ff] font-bold">{totalQuestions}</span>
+            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
+              <span className="text-[#df7c2e] font-bold">{totalQuestions}</span>
               <span>Questions</span>
             </div>
-            <div className="w-px h-6 bg-white/10" />
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <span className="text-[#ffd93d] font-bold">{faqs.length}</span>
+            <div className="w-px h-6 bg-gray-300" />
+            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
+              <span className="text-[#df7c2e] font-bold">{faqs.length}</span>
               <span>Categories</span>
-            </div>
-            <div className="w-px h-6 bg-white/10" />
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <span className="text-[#4CAF50] font-bold">24/7</span>
-              <span>Support</span>
             </div>
           </motion.div>
         </div>
       </motion.section>
 
       {/* ============================================================ */}
-      {/* SEARCH & FILTER SECTION */}
+      {/* SEARCH & FILTER SECTION - UPDATED TO WHITE THEME */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 -mt-8 relative z-10"
@@ -332,7 +326,7 @@ export default function FAQ() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
       >
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl shadow-black/20">
+        <div className="bg-white shadow-xl shadow-gray-200/50 rounded-2xl p-6 border border-gray-100">
           {/* Search Bar */}
           <div className="relative mb-4">
             <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,12 +338,12 @@ export default function FAQ() {
               placeholder="Search for questions or keywords..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-12 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none focus:ring-2 focus:ring-[#2fb3ff]/20 transition-all"
+              className="w-full pl-12 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[#0a1628] placeholder-gray-400 focus:border-[#df7c2e] focus:outline-none focus:ring-2 focus:ring-[#df7c2e]/20 transition-all"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#0a1628] transition-colors"
               >
                 ✕
               </button>
@@ -357,15 +351,15 @@ export default function FAQ() {
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
                   activeCategory === category.id
-                    ? "bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] text-[#0a1628] shadow-lg shadow-[#2fb3ff]/20"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5"
+                    ? "bg-[#df7c2e] text-white shadow-lg shadow-[#df7c2e]/20"
+                    : "bg-gray-100 text-[#0a1628]/60 hover:bg-gray-200 hover:text-[#0a1628] border border-gray-200"
                 }`}
               >
                 {category.label}
@@ -374,14 +368,14 @@ export default function FAQ() {
           </div>
 
           {/* Results Count */}
-          <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-white/5">
-            <span className="text-sm text-gray-500">
+          <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-gray-200">
+            <span className="text-sm text-[#0a1628]/60">
               {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
             </span>
             {(searchTerm || activeCategory !== "all") && (
               <button
                 onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
-                className="text-sm text-[#2fb3ff] hover:text-[#8a7ff7] transition-colors"
+                className="text-sm text-[#df7c2e] hover:text-[#c96b24] transition-colors font-medium"
               >
                 Clear all filters
               </button>
@@ -398,15 +392,15 @@ export default function FAQ() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-20 bg-white/5 rounded-2xl border border-white/10"
+            className="text-center py-20 bg-gray-50 rounded-2xl border border-gray-200"
           >
-            <h3 className="text-xl font-semibold text-white mb-2">No questions found</h3>
-            <p className="text-gray-400 max-w-md mx-auto">
+            <h3 className="text-xl font-semibold text-[#0a1628] mb-2">No questions found</h3>
+            <p className="text-[#0a1628]/60 max-w-md mx-auto">
               We couldn't find any questions matching your search.
             </p>
             <button
               onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              className="mt-4 px-6 py-2 bg-[#df7c2e] rounded-lg text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all"
             >
               Show all questions
             </button>
@@ -448,21 +442,21 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+          className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
         >
-          <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider text-center mb-4">
+          <h3 className="text-sm font-semibold text-[#0a1628]/50 uppercase tracking-wider text-center mb-4">
             Explore More
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             <button
               onClick={() => navigate("/program")}
-              className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all border border-white/5 hover:border-[#2fb3ff]/30"
+              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
             >
               Program Details
             </button>
             <button
               onClick={() => navigate("/")}
-              className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all border border-white/5 hover:border-[#2fb3ff]/30"
+              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
             >
               Home
             </button>
@@ -470,7 +464,7 @@ export default function FAQ() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-sm text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              className="px-4 py-2 bg-[#df7c2e] rounded-lg text-sm text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all"
             >
               Apply Now
             </a>
@@ -479,7 +473,7 @@ export default function FAQ() {
       </section>
 
       {/* ============================================================ */}
-      {/* STILL HAVE QUESTIONS? */}
+      {/* STILL HAVE QUESTIONS? - UPDATED TO WHITE/ORANGE THEME */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 pb-20"
@@ -488,13 +482,13 @@ export default function FAQ() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-2xl p-8 md:p-12 text-center border border-white/10 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#2fb3ff]/10 rounded-full filter blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#8a7ff7]/10 rounded-full filter blur-3xl" />
+        <div className="bg-[#0a1628] rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#df7c2e]/10 rounded-full filter blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#df7c2e]/10 rounded-full filter blur-3xl" />
           
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Still Have <span className="text-[#2fb3ff]">Questions</span>?
+              Still Have <span className="text-[#df7c2e]">Questions</span>?
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-6">
               Can't find what you're looking for? Our team is here to help. 
@@ -503,7 +497,7 @@ export default function FAQ() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="mailto:info@akilibridge.org"
-                className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all inline-flex items-center gap-2"
+                className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all inline-flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
