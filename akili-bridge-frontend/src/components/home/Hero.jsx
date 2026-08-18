@@ -32,12 +32,12 @@ export default function Hero() {
             custom={0} initial="hidden" animate="visible" variants={fadeInUp}
             className="flex flex-col"
           >
-            {/* REPLACE THIS <div> WITH YOUR ACTUAL <img> LOGO TAG IF YOU HAVE IT */}
             <div className="flex items-center gap-2 mb-1">
-               <div className="w-10 h-10 rounded-full border-2 border-[#0a1628] flex items-center justify-center text-xl font-bold">👤</div>
+               {/* This mimics the logo - replace with your actual logo tag if you have it */}
+               <div className="w-10 h-10 rounded-full border-2 border-[#0a1628] flex items-center justify-center text-xl font-bold text-[#df7c2e]">AB</div>
                <h1 className="text-3xl font-bold tracking-tight">Akili Bridge</h1>
             </div>
-            <p className="text-sm text-[#0a1628]/60 tracking-[0.2em] uppercase font-medium pl-1">
+            <p className="text-xs text-[#0a1628]/60 tracking-[0.2em] uppercase font-medium pl-1">
               Learn • Connect • Grow
             </p>
           </motion.div>
@@ -62,7 +62,6 @@ export default function Hero() {
 
           {/* CTA Box - Navy with Orange Accent */}
           <motion.div custom={3} initial="hidden" animate="visible" variants={fadeInUp} className="bg-[#0a1628] rounded-xl p-5 flex items-center gap-4 text-white relative overflow-hidden max-w-md mt-2">
-            {/* Megaphone Icon Placeholder */}
             <div className="bg-[#df7c2e] rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-3xl shadow-lg">
               📢
             </div>
@@ -95,21 +94,23 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: Graphic Collage */}
+        {/* RIGHT COLUMN: STEM Collage Graphic - Using Unsplash URL */}
         <motion.div 
           custom={5} initial="hidden" animate="visible" variants={fadeInUp}
           className="relative w-full h-full flex items-center justify-center"
         >
-          {/* 
-            !!! IMPORTANT: REPLACE THE SRC BELOW WITH YOUR REAL COLLAGE IMAGE !!!
-            If you have the image in your project, use: import collage from "../assets/collage.png"
-          */}
-          <img 
-            src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-            alt="STEM Research Collage" 
-            className="w-full h-auto rounded-xl shadow-2xl object-cover max-h-[700px]"
-          />
-          {/* Optional: You can use a style trick to make the right side look cut like a poster if you get the real graphic */}
+          <div className="relative w-full">
+            {/* Main image - tech and bridge collage vibe */}
+            <img 
+              src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="STEM Research Collage" 
+              className="w-full h-auto rounded-xl shadow-2xl object-cover max-h-[700px]"
+            />
+            {/* Diagonal overlay shapes to mimic the poster's diagonal cuts */}
+            <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-white/10" />
+            </div>
+          </div>
         </motion.div>
 
       </div>
