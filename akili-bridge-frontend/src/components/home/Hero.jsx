@@ -122,33 +122,20 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* Badge - NEW: "Applications Open" */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#2fb3ff]/20 backdrop-blur-sm rounded-full text-sm border border-[#2fb3ff]/30 mb-6 hover:bg-[#2fb3ff]/30 transition-all cursor-default">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2fb3ff] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2fb3ff]"></span>
-            </span>
-            Applications Open — 2026 Cohort
-          </span>
-        </motion.div>
+        {/* Badge - REMOVED "Applications Open — 2026 Cohort" */}
 
         {/* Main Title - UPDATED: Cleaner wording */}
         <motion.h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span
             className="inline-block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             Akili
           </motion.span>
@@ -156,7 +143,7 @@ export default function Hero() {
             className="inline-block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             Bridge
           </motion.span>
@@ -164,7 +151,7 @@ export default function Hero() {
             className="block text-3xl sm:text-4xl md:text-5xl text-gray-300 font-medium mt-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
           >
             STEM Research Fellowship
           </motion.span>
@@ -175,7 +162,7 @@ export default function Hero() {
           className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           <span className="text-white font-semibold">
             Publish your research. Secure your future.
@@ -192,7 +179,7 @@ export default function Hero() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -226,7 +213,7 @@ export default function Hero() {
           className="text-xs text-gray-500 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
         >
           Mentors from MIT, Stanford, Oxford, Cambridge, and more
         </motion.p>
@@ -236,7 +223,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row justify-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
         >
           <motion.a
             href={GOOGLE_FORM_URL}
