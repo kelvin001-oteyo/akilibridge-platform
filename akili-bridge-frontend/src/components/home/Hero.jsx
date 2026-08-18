@@ -38,16 +38,15 @@ export default function Hero() {
       {/* CENTERED MAIN CONTENT CONTAINER - Added more space between items */}
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center space-y-8 w-full">
         
-        {/* Logo area - Made smaller */}
+        {/* Logo area - AB circle removed, only text remains */}
         <motion.div 
           custom={0} initial="hidden" animate="visible" variants={fadeInUp}
           className="flex flex-col items-center mb-2"
         >
-          <div className="flex items-center gap-3 mb-1">
-             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1628] flex items-center justify-center text-base md:text-lg font-bold text-[#df7c2e]">AB</div>
-             <h1 className="text-xl md:text-2xl font-bold tracking-tight">Akili Bridge</h1>
-          </div>
-          <p className="text-[10px] text-[#0a1628]/60 tracking-[0.2em] uppercase font-medium">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0a1628]">
+            AkiliBridge
+          </h1>
+          <p className="text-[10px] text-[#0a1628]/60 tracking-[0.2em] uppercase font-medium mt-1">
             Learn • Connect • Grow
           </p>
         </motion.div>
