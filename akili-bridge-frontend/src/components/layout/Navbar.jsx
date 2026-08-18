@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
-import logo from "../../assets/primary-horizontal-2400.png";
+// Import the local logo image
+import logo from "../../assets/ChatGPT Image Aug 18, 2026, 12_49_12 PM.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
 
-          {/* Logo */}
+          {/* Logo - USING LOCAL IMAGE */}
           <Link
             to="/"
             className="flex items-center shrink-0 group"
