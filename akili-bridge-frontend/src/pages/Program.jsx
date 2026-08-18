@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // Import all component pieces
-import Overview from "./Overview";
-import ResearchTracks from "./ResearchTracks";
-import WhatFellowsReceive from "./WhatFellowsReceive";
-import Mentorship from "./Mentorship";
+import Overview from "../components/program/Overview";
+import ResearchTracks from "../components/program/ResearchTracks";
+import WhatFellowsReceive from "../components/program/WhatFellowsReceive";
+import Mentorship from "../components/program/Mentorship";
 
 export default function Program() {
   const navigate = useNavigate();
