@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TrackCard({ track }) {
+  // SAFETY CHECK 1: If track data hasn't loaded yet, render nothing (stops the crash)
+  if (!track) {
+    return null;
+  }
+
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  // Use the track's color, or default to brand Orange if it's undefined
-  const themeColor = track.color || "#df7c2e";
+  // SAFETY CHECK 2: Safe optional chaining for the color
+  const themeColor = track?.color || "#df7c2e";
+
+  // SAFETY CHECK 3: Ensure name exists before using charAt(0)
+  const initial = track.name ? track.name.charAt(0) : "?";
 
   return (
     <motion.div
@@ -28,7 +36,7 @@ export default function TrackCard({ track }) {
           toggleExpand();
         }
       }}
-      aria-label={`Toggle details for ${track.name}`}
+      aria-label={`Toggle details for ${track.name || "Track"}`}
       aria-expanded={isExpanded}
     >
       {/* Header */}
@@ -40,7 +48,7 @@ export default function TrackCard({ track }) {
             color: themeColor 
           }}
         >
-          {track.name.charAt(0)}
+          {initial}
         </div>
         <div>
           <h3 className="text-lg font-semibold text-[#0a1628] group-hover:text-[#df7c2e] transition-colors">
@@ -77,7 +85,7 @@ export default function TrackCard({ track }) {
                   Skills You'll Learn
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {track.skills.map((skill, i) => (
+                  {track.skills && track.skills.map((skill, i) => (
                     <span
                       key={i}
                       className="text-xs bg-gray-100 px-3 py-1 rounded-full text-[#0a1628]/70 border border-gray-200"
@@ -94,7 +102,7 @@ export default function TrackCard({ track }) {
                   Sample Projects
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {track.projects.map((project, i) => (
+                  {track.projects && track.projects.map((project, i) => (
                     <span
                       key={i}
                       className="text-xs px-3 py-1 rounded-full border"
