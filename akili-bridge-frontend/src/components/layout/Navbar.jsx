@@ -75,7 +75,7 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Akili Bridge Logo"
-              className="h-8 md:h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+              className="h-20 md:h-24 w-auto object-contain transition-opacity group-hover:opacity-80"
             />
           </Link>
 
