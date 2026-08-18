@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TrackCard({ track }) {
-  // SAFETY CHECK 1: If track data is entirely missing, render nothing
-  if (!track) {
-    return null;
-  }
-
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  // SAFETY CHECK 2: The ultimate fallback. If track exists but has no color, default to orange.
-  const themeColor = track && track.color ? track.color : "#df7c2e";
+  // SUPER SAFETY: If track doesn't exist, don't render anything AT ALL
+  if (!track || typeof track !== 'object') {
+    return null;
+  }
 
-  // SAFETY CHECK 3: Ensure name exists before using charAt(0)
-  const initial = track.name ? track.name.charAt(0) : "?";
+  // SUPER SAFETY: Get color. If track has no color, default to orange.
+  const themeColor = (track && track.color) ? track.color : "#df7c2e";
+
+  // SUPER SAFETY: Get initial. If track has no name, default to "?"
+  const initial = (track && track.name) ? track.name.charAt(0) : "?";
 
   return (
     <motion.div
@@ -44,7 +44,7 @@ export default function TrackCard({ track }) {
         <div
           className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold"
           style={{ 
-            background: `${themeColor}15`, // Very light version of the color
+            background: `${themeColor}15`, 
             color: themeColor 
           }}
         >
@@ -52,14 +52,14 @@ export default function TrackCard({ track }) {
         </div>
         <div>
           <h3 className="text-lg font-semibold text-[#0a1628] group-hover:text-[#df7c2e] transition-colors">
-            {track.name}
+            {track.name || "Track"}
           </h3>
-          <span className="text-xs text-[#0a1628]/50">{track.duration}</span>
+          <span className="text-xs text-[#0a1628]/50">{track.duration || "N/A"}</span>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-[#0a1628]/70 text-sm leading-relaxed">{track.description}</p>
+      <p className="text-[#0a1628]/70 text-sm leading-relaxed">{track.description || "No description available."}</p>
 
       {/* Expand indicator */}
       <div className="flex justify-end mt-3">
@@ -85,14 +85,18 @@ export default function TrackCard({ track }) {
                   Skills You'll Learn
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {track.skills && track.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-gray-100 px-3 py-1 rounded-full text-[#0a1628]/70 border border-gray-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {track.skills && track.skills.length > 0 ? (
+                    track.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="text-xs bg-gray-100 px-3 py-1 rounded-full text-[#0a1628]/70 border border-gray-200"
+                      >
+                        {skill}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-xs text-[#0a1628]/50">No skills listed</span>
+                  )}
                 </div>
               </div>
 
@@ -102,19 +106,23 @@ export default function TrackCard({ track }) {
                   Sample Projects
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {track.projects && track.projects.map((project, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-3 py-1 rounded-full border"
-                      style={{
-                        background: `${themeColor}15`,
-                        color: themeColor,
-                        borderColor: `${themeColor}30`,
-                      }}
-                    >
-                      {project}
-                    </span>
-                  ))}
+                  {track.projects && track.projects.length > 0 ? (
+                    track.projects.map((project, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-3 py-1 rounded-full border"
+                        style={{
+                          background: `${themeColor}15`,
+                          color: themeColor,
+                          borderColor: `${themeColor}30`,
+                        }}
+                      >
+                        {project}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-xs text-[#0a1628]/50">No projects listed</span>
+                  )}
                 </div>
               </div>
 
@@ -128,7 +136,7 @@ export default function TrackCard({ track }) {
                     color: themeColor,
                   }}
                 >
-                  {track.duration}
+                  {track.duration || "N/A"}
                 </span>
               </div>
             </div>
