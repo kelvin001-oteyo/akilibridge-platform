@@ -104,44 +104,35 @@ export default function Program() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a1628] text-white">
+    <div className="min-h-screen bg-white text-[#0a1628]">
       {/* ============================================================ */}
-      {/* HERO SECTION - "First Cohort 2025" REMOVED */}
+      {/* HERO SECTION - THEME UPDATED TO WHITE/NAVY/ORANGE */}
       {/* ============================================================ */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden min-h-[90vh]"
+        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden min-h-[90vh] border-b border-gray-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2fb3ff]/5 rounded-full filter blur-3xl" />
+        {/* Background decoration - Subtle Orange */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#df7c2e]/5 rounded-full filter blur-3xl" />
         </div>
         
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-        
         <div className="relative z-10 max-w-4xl">
-          {/* "First Cohort 2025" badge removed */}
-
           <motion.h1
-            className="text-4xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent leading-tight"
+            className="text-4xl md:text-7xl font-bold mb-4 text-[#0a1628] leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Akili Bridge STEM <br />Research Fellowship
+            Akili Bridge STEM <br /><span className="text-[#df7c2e]">Research Fellowship</span>
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl font-semibold text-[#ffd93d] mb-2"
+            className="text-xl md:text-2xl font-semibold text-[#0a1628] mb-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -150,7 +141,7 @@ export default function Program() {
           </motion.p>
           
           <motion.p
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-[#0a1628]/70 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
@@ -169,7 +160,7 @@ export default function Program() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              className="px-8 py-4 bg-[#df7c2e] rounded-xl text-white font-semibold text-lg shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -179,7 +170,7 @@ export default function Program() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('program-info')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+              className="px-8 py-4 bg-gray-100 rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-200 transition-all"
             >
               Learn More ↓
             </motion.button>
@@ -191,30 +182,30 @@ export default function Program() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#2fb3ff]">16</p>
-              <p className="text-xs text-gray-400">Weeks</p>
+            <div className="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">16</p>
+              <p className="text-xs text-[#0a1628]/60">Weeks</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#8a7ff7]">1:1</p>
-              <p className="text-xs text-gray-400">Mentorship</p>
+            <div className="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">1:1</p>
+              <p className="text-xs text-[#0a1628]/60">Mentorship</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#ffd93d]">6</p>
-              <p className="text-xs text-gray-400">Tracks</p>
+            <div className="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">6</p>
+              <p className="text-xs text-[#0a1628]/60">Tracks</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#4CAF50]">25</p>
-              <p className="text-xs text-gray-400">Fellows</p>
+            <div className="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+              <p className="text-2xl font-bold text-[#df7c2e]">25</p>
+              <p className="text-xs text-[#0a1628]/60">Fellows</p>
             </div>
           </motion.div>
         </div>
       </motion.section>
 
       {/* ============================================================ */}
-      {/* PARTNER LOGOS SECTION */}
+      {/* PARTNER LOGOS SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
-      <section className="py-12 px-4 border-t border-b border-white/5 bg-white/5">
+      <section className="py-12 px-4 border-t border-b border-gray-200 bg-gray-50/50">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -223,41 +214,41 @@ export default function Program() {
         >
           <motion.p 
             variants={cardVariants}
-            className="text-center text-gray-500 text-xs uppercase tracking-wider mb-6"
+            className="text-center text-[#0a1628]/50 text-xs uppercase tracking-wider mb-6"
           >
             Our mentors are from leading institutions worldwide
           </motion.p>
           
           <motion.div 
             variants={cardVariants}
-            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60"
+            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-50"
           >
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">MIT</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Stanford</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Oxford</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Cambridge</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">ETH Zurich</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Carnegie Mellon</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Google Research</span>
-            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Microsoft Research</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">MIT</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Stanford</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Oxford</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Cambridge</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">ETH Zurich</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Carnegie Mellon</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Google Research</span>
+            <span className="text-[#0a1628] font-bold text-sm md:text-base hover:text-[#df7c2e] transition-colors cursor-default">Microsoft Research</span>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ============================================================ */}
-      {/* OVERVIEW COMPONENT */}
+      {/* OVERVIEW COMPONENT - NOW USING THE UPDATED WHITE VERSION */}
       {/* ============================================================ */}
       <Overview />
 
       {/* ============================================================ */}
-      {/* RESEARCH TRACKS COMPONENT */}
+      {/* RESEARCH TRACKS COMPONENT - NOW USING THE UPDATED WHITE VERSION */}
       {/* ============================================================ */}
       <ResearchTracks />
 
       {/* ============================================================ */}
-      {/* TIMELINE SECTION */}
+      {/* TIMELINE SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
-      <section className="bg-[#1a2a4a]/30 py-16 px-4">
+      <section className="bg-gray-50 py-16 px-4 border-t border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
@@ -267,14 +258,14 @@ export default function Program() {
           >
             <motion.h2 
               variants={cardVariants}
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
+              className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#0a1628]"
             >
-              Program <span className="text-[#ffd93d]">Timeline</span>
+              Program <span className="text-[#df7c2e]">Timeline</span>
             </motion.h2>
             
             <motion.p 
               variants={cardVariants}
-              className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+              className="text-center text-[#0a1628]/60 max-w-2xl mx-auto mb-12"
             >
               Your 16-week journey from orientation to publication
             </motion.p>
@@ -283,26 +274,26 @@ export default function Program() {
               {/* Phase 1 */}
               <motion.div
                 variants={cardVariants}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">1</div>
+                  <div className="w-8 h-8 rounded-full bg-[#df7c2e]/20 flex items-center justify-center text-[#df7c2e] font-bold text-sm">1</div>
                   <div>
-                    <h3 className="font-semibold text-white">Phase 1: Orientation & Foundation</h3>
-                    <p className="text-xs text-[#ffd93d]">Weeks 1-2</p>
+                    <h3 className="font-semibold text-[#0a1628]">Phase 1: Orientation & Foundation</h3>
+                    <p className="text-xs text-[#df7c2e]">Weeks 1-2</p>
                   </div>
                 </div>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Program orientation and mentor pairing
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Research methodology and ethics training
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Literature review and research proposal development
                   </li>
                 </ul>
@@ -311,30 +302,30 @@ export default function Program() {
               {/* Phase 2 */}
               <motion.div
                 variants={cardVariants}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">2</div>
+                  <div className="w-8 h-8 rounded-full bg-[#df7c2e]/20 flex items-center justify-center text-[#df7c2e] font-bold text-sm">2</div>
                   <div>
-                    <h3 className="font-semibold text-white">Phase 2: Research Execution</h3>
-                    <p className="text-xs text-[#ffd93d]">Weeks 3-12</p>
+                    <h3 className="font-semibold text-[#0a1628]">Phase 2: Research Execution</h3>
+                    <p className="text-xs text-[#df7c2e]">Weeks 3-12</p>
                   </div>
                 </div>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Hands-on research with mentor guidance
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Data collection, analysis, and experimentation
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Weekly mentor pod check-ins
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Cohort seminars and peer feedback sessions
                   </li>
                 </ul>
@@ -343,30 +334,30 @@ export default function Program() {
               {/* Phase 3 */}
               <motion.div
                 variants={cardVariants}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/5 hover:border-[#ffd93d]/30 transition-all"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#ffd93d]/20 flex items-center justify-center text-[#ffd93d] font-bold text-sm">3</div>
+                  <div className="w-8 h-8 rounded-full bg-[#df7c2e]/20 flex items-center justify-center text-[#df7c2e] font-bold text-sm">3</div>
                   <div>
-                    <h3 className="font-semibold text-white">Phase 3: Publication & Presentation</h3>
-                    <p className="text-xs text-[#ffd93d]">Weeks 13-16</p>
+                    <h3 className="font-semibold text-[#0a1628]">Phase 3: Publication & Presentation</h3>
+                    <p className="text-xs text-[#df7c2e]">Weeks 13-16</p>
                   </div>
                 </div>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Research paper writing and revision
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Conference abstract and journal submission
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Final symposium presentation
                   </li>
-                  <li className="text-sm text-gray-400 flex items-start gap-2">
-                    <span className="text-[#ffd93d] text-xs mt-1">▸</span>
+                  <li className="text-sm text-[#0a1628]/70 flex items-start gap-2">
+                    <span className="text-[#df7c2e] text-xs mt-1">▸</span>
                     Career development and post-fellowship planning
                   </li>
                 </ul>
@@ -377,14 +368,14 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* WHAT FELLOWS RECEIVE COMPONENT */}
+      {/* WHAT FELLOWS RECEIVE COMPONENT - NOW USING THE UPDATED WHITE VERSION */}
       {/* ============================================================ */}
       <WhatFellowsReceive />
 
       {/* ============================================================ */}
-      {/* ELIGIBILITY SECTION */}
+      {/* ELIGIBILITY SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
-      <section className="py-16 px-4 bg-[#1a2a4a]/30">
+      <section className="py-16 px-4 bg-gray-50 border-t border-b border-gray-200">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial="hidden"
@@ -394,14 +385,14 @@ export default function Program() {
           >
             <motion.h2 
               variants={cardVariants}
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
+              className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#0a1628]"
             >
-              Candidate <span className="text-[#4CAF50]">Requirements</span>
+              Candidate <span className="text-[#df7c2e]">Requirements</span>
             </motion.h2>
             
             <motion.p 
               variants={cardVariants}
-              className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+              className="text-center text-[#0a1628]/60 max-w-2xl mx-auto mb-12"
             >
               Check if you qualify for the fellowship program
             </motion.p>
@@ -411,10 +402,10 @@ export default function Program() {
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/5 hover:border-[#4CAF50]/30 transition-all"
+                  className="bg-white rounded-2xl p-4 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
                 >
-                  <p className="text-xs text-[#4CAF50] font-medium uppercase tracking-wider">{item.label}</p>
-                  <p className="text-white font-medium mt-1">{item.value}</p>
+                  <p className="text-xs text-[#df7c2e] font-medium uppercase tracking-wider">{item.label}</p>
+                  <p className="text-[#0a1628] font-medium mt-1">{item.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -423,7 +414,7 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* HOW TO APPLY SECTION */}
+      {/* HOW TO APPLY SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -434,20 +425,20 @@ export default function Program() {
         >
           <motion.h2 
             variants={cardVariants}
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#0a1628]"
           >
-            How to <span className="text-[#ffd93d]">Apply</span>
+            How to <span className="text-[#df7c2e]">Apply</span>
           </motion.h2>
           
           <motion.p 
             variants={cardVariants}
-            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+            className="text-center text-[#0a1628]/60 max-w-2xl mx-auto mb-12"
           >
             Follow these four simple steps to submit your application
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-            <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ffd93d]/20 via-[#ffd93d]/40 to-[#ffd93d]/20 hidden md:block" />
+            <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-[#df7c2e]/20 via-[#df7c2e]/40 to-[#df7c2e]/20 hidden md:block" />
             
             {applicationSteps.map((step, index) => (
               <motion.div
@@ -455,11 +446,11 @@ export default function Program() {
                 variants={cardVariants}
                 className="relative text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffd93d]/20 to-[#ffd93d]/5 border-2 border-[#ffd93d]/30 flex items-center justify-center text-2xl font-bold text-[#ffd93d] mx-auto mb-4 relative z-10">
+                <div className="w-16 h-16 rounded-full bg-[#df7c2e]/10 border-2 border-[#df7c2e]/30 flex items-center justify-center text-2xl font-bold text-[#df7c2e] mx-auto mb-4 relative z-10">
                   {step.step}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-400 max-w-xs mx-auto">{step.description}</p>
+                <h3 className="text-lg font-semibold text-[#0a1628] mb-2">{step.title}</h3>
+                <p className="text-sm text-[#0a1628]/70 max-w-xs mx-auto">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -472,7 +463,7 @@ export default function Program() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-[#ffd93d] to-[#ff6a00] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#ffd93d]/30 transition-all inline-block"
+              className="px-8 py-4 bg-[#df7c2e] rounded-xl text-white font-semibold text-lg shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all inline-block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -483,7 +474,7 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* POST-FELLOWSHIP PATHWAY SECTION */}
+      {/* POST-FELLOWSHIP PATHWAY SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -491,18 +482,18 @@ export default function Program() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="bg-gradient-to-br from-[#8a7ff7]/10 to-[#2fb3ff]/10 rounded-3xl p-8 md:p-12 border border-white/10"
+          className="bg-[#0a1628] rounded-3xl p-8 md:p-12 border border-gray-800 shadow-xl"
         >
           <motion.div variants={cardVariants} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Post-Fellowship <span className="text-[#8a7ff7]">Pathway</span></h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">Post-Fellowship <span className="text-[#df7c2e]">Pathway</span></h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               Exclusive to program completers — direct support to secure fully funded 
               Master's and Ph.D. positions at top international universities.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
               {postFellowship.map((item, index) => (
-                <div key={index} className="flex items-start gap-2 bg-white/5 rounded-lg p-3">
-                  <span className="text-[#8a7ff7] text-lg flex-shrink-0">✦</span>
+                <div key={index} className="flex items-start gap-2 bg-white/5 rounded-lg p-3 border border-white/5">
+                  <span className="text-[#df7c2e] text-lg flex-shrink-0">✦</span>
                   <span className="text-sm text-gray-300">{item}</span>
                 </div>
               ))}
@@ -512,7 +503,7 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* COMPARISON TABLE SECTION */}
+      {/* COMPARISON TABLE SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -523,14 +514,14 @@ export default function Program() {
         >
           <motion.h2 
             variants={cardVariants}
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#0a1628]"
           >
-            Program <span className="text-[#ffd93d]">Comparison</span>
+            Program <span className="text-[#df7c2e]">Comparison</span>
           </motion.h2>
           
           <motion.p 
             variants={cardVariants}
-            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+            className="text-center text-[#0a1628]/60 max-w-2xl mx-auto mb-12"
           >
             Choose the fellowship path that fits your goals and availability
           </motion.p>
@@ -539,58 +530,58 @@ export default function Program() {
             variants={cardVariants}
             className="overflow-x-auto"
           >
-            <table className="w-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
-              <thead className="bg-white/10">
+            <table className="w-full bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden">
+              <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Feature</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#2fb3ff]">
-                    16-Week Intensive <span className="block text-xs font-normal text-gray-400">(Flagship)</span>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#0a1628]">Feature</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#df7c2e]">
+                    16-Week Intensive <span className="block text-xs font-normal text-[#0a1628]/60">(Flagship)</span>
                   </th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#ffd93d]">
-                    12-Month Training <span className="block text-xs font-normal text-gray-400">(Cohort 2025)</span>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#df7c2e]">
+                    12-Month Training <span className="block text-xs font-normal text-[#0a1628]/60">(Cohort 2025)</span>
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Duration</td>
-                  <td className="px-6 py-4 text-sm text-white">16 weeks (intensive term)</td>
-                  <td className="px-6 py-4 text-sm text-white">12 months (full academic cycle)</td>
+              <tbody className="divide-y divide-gray-100">
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Duration</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">16 weeks (intensive term)</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">12 months (full academic cycle)</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Weekly Commitment</td>
-                  <td className="px-6 py-4 text-sm text-white">15 focused hours/week</td>
-                  <td className="px-6 py-4 text-sm text-white">Flexible research schedule</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Weekly Commitment</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">15 focused hours/week</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Flexible research schedule</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Target Audience</td>
-                  <td className="px-6 py-4 text-sm text-white">Final-year undergrads, recent grads, Master's & Ph.D.</td>
-                  <td className="px-6 py-4 text-sm text-white">Undergraduate students (Rwanda focus)</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Target Audience</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Final-year undergrads, recent grads, Master's & Ph.D.</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Undergraduate students (Rwanda focus)</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Mentorship</td>
-                  <td className="px-6 py-4 text-sm text-white">1:1 with global researchers & senior engineers</td>
-                  <td className="px-6 py-4 text-sm text-white">1:1 mentorship</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Mentorship</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">1:1 with global researchers & senior engineers</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">1:1 mentorship</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Research Tracks</td>
-                  <td className="px-6 py-4 text-sm text-white">6 tracks (CS, AI, Data Sci, Civil/Struct, Transpo, Math/Stats)</td>
-                  <td className="px-6 py-4 text-sm text-white">6 cutting-edge tracks</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Research Tracks</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">6 tracks (CS, AI, Data Sci, Civil/Struct, Transpo, Math/Stats)</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">6 cutting-edge tracks</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Output</td>
-                  <td className="px-6 py-4 text-sm text-white">Peer-reviewed publication, conference paper, or open-source repo</td>
-                  <td className="px-6 py-4 text-sm text-white">Research training & skills development</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Output</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Peer-reviewed publication, conference paper, or open-source repo</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Research training & skills development</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors bg-[#2fb3ff]/5">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Post-Fellowship</td>
-                  <td className="px-6 py-4 text-sm text-[#2fb3ff] font-semibold">Direct support for fully funded Master's/Ph.D. placements</td>
-                  <td className="px-6 py-4 text-sm text-gray-400">—</td>
+                <tr className="hover:bg-gray-50/50 transition-colors bg-[#df7c2e]/5">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Post-Fellowship</td>
+                  <td className="px-6 py-4 text-sm text-[#df7c2e] font-semibold">Direct support for fully funded Master's/Ph.D. placements</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/60">—</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Fellows per Cohort</td>
-                  <td className="px-6 py-4 text-sm text-white">Rolling applications</td>
-                  <td className="px-6 py-4 text-sm text-white">25 Fellows</td>
+                <tr className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm text-[#0a1628]/70 font-medium">Fellows per Cohort</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">Rolling applications</td>
+                  <td className="px-6 py-4 text-sm text-[#0a1628]">25 Fellows</td>
                 </tr>
               </tbody>
             </table>
@@ -598,7 +589,7 @@ export default function Program() {
 
           <motion.p 
             variants={cardVariants}
-            className="text-center text-xs text-gray-500 mt-4"
+            className="text-center text-xs text-[#0a1628]/50 mt-4"
           >
             * The 16-Week Intensive is the flagship program. The 12-Month Training is the first cohort (2025) for undergraduate students in Rwanda.
           </motion.p>
@@ -606,12 +597,12 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* MENTORSHIP COMPONENT */}
+      {/* MENTORSHIP COMPONENT - NOW USING THE UPDATED WHITE VERSION */}
       {/* ============================================================ */}
       <Mentorship />
 
       {/* ============================================================ */}
-      {/* FAQ SECTION */}
+      {/* FAQ SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-16 px-4">
         <motion.div
@@ -622,14 +613,14 @@ export default function Program() {
         >
           <motion.h2 
             variants={cardVariants}
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#0a1628]"
           >
-            Frequently Asked <span className="text-[#ffd93d]">Questions</span>
+            Frequently Asked <span className="text-[#df7c2e]">Questions</span>
           </motion.h2>
           
           <motion.p 
             variants={cardVariants}
-            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+            className="text-center text-[#0a1628]/60 max-w-2xl mx-auto mb-12"
           >
             Find answers to the most common questions about the fellowship
           </motion.p>
@@ -639,15 +630,15 @@ export default function Program() {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/5 hover:border-[#ffd93d]/20 transition-all overflow-hidden"
+                className="bg-white rounded-xl border border-gray-200 hover:border-[#df7c2e]/30 hover:shadow-md transition-all overflow-hidden"
               >
                 <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                   aria-expanded={expandedFaq === index}
                 >
-                  <span className="text-white font-medium">{faq.q}</span>
-                  <span className={`text-[#ffd93d] text-xl transition-transform duration-300 ${expandedFaq === index ? 'rotate-180' : ''}`}>
+                  <span className="text-[#0a1628] font-medium">{faq.q}</span>
+                  <span className={`text-[#df7c2e] text-xl transition-transform duration-300 ${expandedFaq === index ? 'rotate-180' : ''}`}>
                     ▼
                   </span>
                 </button>
@@ -660,8 +651,8 @@ export default function Program() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-4 pt-1">
-                    <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                  <div className="px-6 pb-4 pt-1 border-t border-gray-100">
+                    <p className="text-[#0a1628]/70 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -671,7 +662,7 @@ export default function Program() {
       </section>
 
       {/* ============================================================ */}
-      {/* FINAL CTA SECTION */}
+      {/* FINAL CTA SECTION - UPDATED TO LIGHT THEME */}
       {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-16 px-4 text-center">
         <motion.div
@@ -679,12 +670,12 @@ export default function Program() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10"
+          className="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200 shadow-md"
         >
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to <span className="text-[#2fb3ff]">Apply</span>?
+          <h2 className="text-3xl font-bold mb-4 text-[#0a1628]">
+            Ready to <span className="text-[#df7c2e]">Apply</span>?
           </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-[#0a1628]/70 mb-8 max-w-2xl mx-auto">
             Join the Akili Bridge fellowship and start your journey towards becoming a published researcher 
             with mentorship from world-class experts. Choose the program that fits your goals.
           </p>
@@ -693,7 +684,7 @@ export default function Program() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              className="px-8 py-4 bg-[#df7c2e] rounded-xl text-white font-semibold text-lg shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -703,7 +694,7 @@ export default function Program() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/faq")}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+              className="px-8 py-4 bg-white rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-100 transition-all"
             >
               View FAQs
             </motion.button>
