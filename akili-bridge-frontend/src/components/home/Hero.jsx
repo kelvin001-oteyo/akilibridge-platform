@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+// Import the local background image
+import heroBackground from "../assets/Aug 18, 2026, 12_41_18 PM.png";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background with Parallax */}
+      {/* Background with Parallax - USING LOCAL IMAGE */}
       <motion.div
         className="absolute inset-0 -z-10"
         style={{ y, scale }}
@@ -53,8 +55,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format')",
+            backgroundImage: `url(${heroBackground})`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/85 to-[#0a1628]/50" />
@@ -124,59 +125,82 @@ export default function Hero() {
       >
         {/* Badge - REMOVED "Applications Open — 2026 Cohort" */}
 
-        {/* Main Title - UPDATED: Cleaner wording */}
-        <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight"
+        {/* Main Title - REDUCED SIZE, CLEANER HIERARCHY */}
+        <motion.div
+          className="mb-3"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.span
-            className="inline-block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            Akili
-          </motion.span>
-          <motion.span
-            className="inline-block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Bridge
-          </motion.span>
-          <motion.span
-            className="block text-3xl sm:text-4xl md:text-5xl text-gray-300 font-medium mt-2"
-            initial={{ opacity: 0, y: 20 }}
+            <motion.span
+              className="inline-block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Akili
+            </motion.span>
+            <motion.span
+              className="inline-block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Bridge
+            </motion.span>
+          </motion.h1>
+
+          {/* Subtitle - STEM Research Fellowship (smaller, below brand) */}
+          <motion.p
+            className="text-lg sm:text-xl text-gray-400 font-medium mt-1"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
             STEM Research Fellowship
-          </motion.span>
-        </motion.h1>
+          </motion.p>
+        </motion.div>
 
-        {/* Subtitle - UPDATED: Clearer value proposition */}
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
-          initial={{ opacity: 0, y: 30 }}
+        {/* Value Proposition - LARGER AND MORE PROMINENT */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
         >
-          <span className="text-white font-semibold">
-            Publish your research. Secure your future.
-          </span>
-          <br />
-          <span className="text-gray-400 text-base sm:text-lg">
-            A 16-week mentored fellowship pairing top African scholars with 
+          <motion.p
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Publish your research.
+            <br />
+            <span className="bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent">
+              Secure your future.
+            </span>
+          </motion.p>
+
+          <motion.p
+            className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mt-3 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            A 16-week mentored fellowship pairing top African scholars with
             international researchers for real-world research and publication.
-          </span>
-        </motion.p>
+          </motion.p>
+        </motion.div>
 
         {/* Stats - UPDATED: Meaningful metrics */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -196,7 +220,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -2 }}
             >
               <motion.span
-                className="block text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
+                className="block text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: stat.delay + 0.2 }}
@@ -208,7 +232,7 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Trust Badge - NEW */}
+        {/* Trust Badge */}
         <motion.p
           className="text-xs text-gray-500 mb-6"
           initial={{ opacity: 0 }}
