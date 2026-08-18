@@ -54,11 +54,11 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-[#0a1628] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#2fb3ff] rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8a7ff7] rounded-full filter blur-3xl" />
+    <section className="py-20 px-4 bg-white relative overflow-hidden">
+      {/* Background decoration - Subtle Orange Orbs */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -70,21 +70,21 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-3">
+          <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3">
             How It Works
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            Your Journey to <span className="text-[#2fb3ff]">Becoming a Published Researcher</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
+            Your Journey to <span className="text-[#df7c2e]">Becoming a Published Researcher</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#0a1628]/60 max-w-2xl mx-auto">
             From application to publication — here's how the Akili Bridge fellowship works
           </p>
         </motion.div>
 
         {/* Steps with connecting line */}
         <div className="relative">
-          {/* Desktop connecting line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#2fb3ff]/20 via-[#8a7ff7]/40 to-[#2fb3ff]/20 -translate-y-1/2" />
+          {/* Desktop connecting line - UPDATED TO ORANGE */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#df7c2e]/20 via-[#df7c2e]/40 to-[#df7c2e]/20 -translate-y-1/2" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
@@ -99,23 +99,23 @@ export default function HowItWorks() {
                 {/* Step number circle with icon */}
                 <div className="flex flex-col items-center text-center">
                   <div className="relative mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2fb3ff]/20 to-[#8a7ff7]/20 border-2 border-[#2fb3ff]/30 flex items-center justify-center text-[#2fb3ff] group-hover:border-[#2fb3ff] transition-all group-hover:scale-105">
+                    <div className="w-16 h-16 rounded-full bg-[#df7c2e]/10 border-2 border-[#df7c2e]/30 flex items-center justify-center text-[#df7c2e] group-hover:border-[#df7c2e] transition-all group-hover:scale-105">
                       {step.icon}
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#2fb3ff] text-[#0a1628] text-xs font-bold flex items-center justify-center">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#df7c2e] text-white text-xs font-bold flex items-center justify-center">
                       {step.number}
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-[#2fb3ff] transition-colors">
+                  <h3 className="text-lg font-semibold text-[#0a1628] mb-1 group-hover:text-[#df7c2e] transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+                  <p className="text-[#0a1628]/70 text-sm leading-relaxed max-w-xs">
                     {step.description}
                   </p>
                   
-                  {/* Duration badge */}
-                  <span className="inline-block mt-3 px-3 py-1 bg-white/5 rounded-full text-xs text-gray-500 border border-white/5">
+                  {/* Duration badge - UPDATED TO LIGHT THEME */}
+                  <span className="inline-block mt-3 px-3 py-1 bg-gray-100 rounded-full text-xs text-[#0a1628]/60 border border-gray-200">
                     {step.duration}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* CTA at bottom */}
+        {/* CTA at bottom - UPDATED TO ORANGE THEME */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0, y: 20 }}
@@ -132,7 +132,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-400 text-sm mb-4">
+          <p className="text-[#0a1628]/60 text-sm mb-4">
             Ready to start your journey?
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -140,7 +140,7 @@ export default function HowItWorks() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all inline-flex items-center gap-2"
+              className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all inline-flex items-center gap-2"
             >
               Apply Now
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ export default function HowItWorks() {
             </a>
             <button
               onClick={() => navigate("/faq")}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+              className="px-8 py-3 bg-gray-100 rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-200 transition-all"
             >
               View FAQs
             </button>
