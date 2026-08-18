@@ -40,7 +40,6 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Program", path: "/program" },
     { name: "FAQ", path: "/faq" },
-    // "Apply" is now a CTA button, not a nav link (removed from here)
   ];
 
   const isActive = (path) => {
@@ -210,7 +209,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="hidden lg:inline-block relative overflow-hidden px-5 lg:px-6 py-2.5 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-lg text-[#0a1628] font-semibold text-sm hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all group"
               >
-                <span className="relative z-10">Apply</span>
+                <span className="relative z-10">Apply Now</span>
               </a>
             )}
 
@@ -351,7 +350,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-sm"
                 >
-                  Apply
+                  Apply Now
                 </a>
               )}
 
