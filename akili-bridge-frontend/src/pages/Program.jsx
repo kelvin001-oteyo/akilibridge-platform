@@ -8,124 +8,122 @@ export default function Program() {
   
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
+  // Updated tracks from the Call for Applications
   const tracks = [
     {
       id: 1,
-      name: "EdTech & Digital Learning",
-      description: "Research on innovative educational technologies and digital learning solutions for African classrooms.",
+      name: "Computer Science",
+      description: "Research on computing systems, algorithms, and software development for African solutions.",
       color: "#2fb3ff",
-      duration: "12 weeks",
-      skills: ["EdTech Design", "Digital Pedagogy", "Learning Analytics"],
-      projects: ["Digital Learning Platform", "Teacher Training Module"]
+      duration: "16 weeks",
+      skills: ["Algorithms", "Software Dev", "System Design"],
+      projects: ["Open-source Contribution", "Computing Infrastructure"]
     },
     {
       id: 2,
-      name: "Energy Storage & Battery Technology",
-      description: "Developing sustainable energy storage solutions and battery technologies for off-grid communities.",
-      color: "#ffd93d",
-      duration: "12 weeks",
-      skills: ["Battery Chemistry", "Energy Systems", "Sustainable Design"],
-      projects: ["Solar Battery System", "Energy Storage Optimization"]
+      name: "Artificial Intelligence",
+      description: "Building AI solutions for African challenges in healthcare, agriculture, and finance.",
+      color: "#8a7ff7",
+      duration: "16 weeks",
+      skills: ["Machine Learning", "Python", "Neural Networks"],
+      projects: ["AI Health Prediction", "Agricultural AI Model"]
     },
     {
       id: 3,
-      name: "Nanotechnology & Advanced Materials",
-      description: "Exploring nanomaterials and advanced materials for applications in medicine, electronics, and manufacturing.",
-      color: "#ff6b9d",
-      duration: "12 weeks",
-      skills: ["Nanomaterials", "Material Characterization", "Lab Techniques"],
-      projects: ["Nanoparticle Synthesis", "Material Testing"]
+      name: "Data Science",
+      description: "Leveraging data analytics and visualization to drive informed decision-making across sectors.",
+      color: "#ffd93d",
+      duration: "16 weeks",
+      skills: ["Data Analysis", "Visualization", "Statistical Modeling"],
+      projects: ["Data Pipeline", "Analytics Dashboard"]
     },
     {
       id: 4,
-      name: "Artificial Intelligence & Data Science",
-      description: "Building AI solutions and data science applications to address African challenges in healthcare, agriculture, and finance.",
-      color: "#8a7ff7",
-      duration: "12 weeks",
-      skills: ["Machine Learning", "Data Analysis", "Python Programming"],
-      projects: ["AI Health Prediction", "Agricultural Data Analysis"]
+      name: "Civil & Structural Engineering",
+      description: "Innovative solutions for infrastructure development and structural resilience in Africa.",
+      color: "#ff6a00",
+      duration: "16 weeks",
+      skills: ["Structural Analysis", "Materials", "CAD Design"],
+      projects: ["Infrastructure Assessment", "Resilience Design"]
     },
     {
       id: 5,
-      name: "Biotechnology & Health Innovations",
-      description: "Advancing biotechnology research for disease prevention, diagnostics, and healthcare delivery in Africa.",
+      name: "Intelligent Transportation",
+      description: "Research on smart mobility systems and transportation optimization for African cities.",
       color: "#4CAF50",
-      duration: "12 weeks",
-      skills: ["Molecular Biology", "Genetic Analysis", "Lab Research"],
-      projects: ["Disease Detection Kit", "Genetic Research Study"]
+      duration: "16 weeks",
+      skills: ["Transport Modeling", "IoT", "Traffic Analytics"],
+      projects: ["Smart Traffic System", "Mobility Optimization"]
     },
     {
       id: 6,
-      name: "Renewable Energy Systems",
-      description: "Designing and optimizing renewable energy systems for sustainable development across the continent.",
-      color: "#ff6a00",
-      duration: "12 weeks",
-      skills: ["Solar Energy", "Wind Energy", "Energy Optimization"],
-      projects: ["Solar Panel Efficiency", "Wind Turbine Design"]
+      name: "Applied Mathematics & Statistics",
+      description: "Mathematical modeling and statistical analysis for real-world problem-solving.",
+      color: "#ff6b9d",
+      duration: "16 weeks",
+      skills: ["Mathematical Modeling", "Statistics", "Optimization"],
+      projects: ["Predictive Model", "Statistical Analysis"]
     }
   ];
 
+  // Updated benefits from the Call for Applications
   const benefits = [
-    "1:1 mentorship with leading researchers",
-    "Hands-on research experience in cutting-edge labs",
-    "Career development workshops and training",
-    "Publication and conference presentation opportunities",
-    "Networking with fellow researchers and industry experts",
-    "Research funding and resource support"
+    "Become a published author on a peer-reviewed paper or conference paper",
+    "1:1 mentorship with active researchers at top global universities",
+    "Detailed, output-backed letter of recommendation from your mentor",
+    "Akili Bridge Fellowship Certificate for completing the 16-week term",
+    "Direct support for fully funded Master's and Ph.D. positions",
+    "Networking with international researchers and senior engineers"
   ];
 
-  // Program timeline
+  // Updated timeline (16-week intensive)
   const timeline = [
     {
-      phase: "Phase 1: Foundation",
-      weeks: "Weeks 1-4",
+      phase: "Phase 1: Orientation & Foundation",
+      weeks: "Weeks 1-2",
       activities: [
-        "Orientation and program introduction",
-        "Research methodology training",
-        "Lab safety and protocols",
-        "Literature review and research proposal"
+        "Program orientation and mentor pairing",
+        "Research methodology and ethics training",
+        "Literature review and research proposal development"
       ]
     },
     {
-      phase: "Phase 2: Research",
-      weeks: "Weeks 5-16",
+      phase: "Phase 2: Research Execution",
+      weeks: "Weeks 3-12",
       activities: [
-        "Hands-on research in assigned lab",
-        "Data collection and analysis",
-        "Weekly mentor meetings",
-        "Progress presentations"
+        "Hands-on research with mentor guidance",
+        "Data collection, analysis, and experimentation",
+        "Weekly mentor pod check-ins",
+        "Cohort seminars and peer feedback sessions"
       ]
     },
     {
-      phase: "Phase 3: Analysis & Writing",
-      weeks: "Weeks 17-24",
+      phase: "Phase 3: Publication & Presentation",
+      weeks: "Weeks 13-16",
       activities: [
-        "Data analysis and interpretation",
-        "Research paper writing",
-        "Conference abstract preparation",
-        "Final presentation preparation"
-      ]
-    },
-    {
-      phase: "Phase 4: Publication & Graduation",
-      weeks: "Weeks 25-48",
-      activities: [
-        "Paper submission to journals",
-        "Conference presentations",
-        "Career development sessions",
-        "Graduation ceremony"
+        "Research paper writing and revision",
+        "Conference abstract and journal submission",
+        "Final symposium presentation",
+        "Career development and post-fellowship planning"
       ]
     }
   ];
 
-  // Eligibility criteria
+  // Updated eligibility from the Call for Applications
   const eligibility = [
-    { label: "Academic", value: "Current undergraduate student in STEM field" },
-    { label: "Country", value: "Rwandan citizen or resident" },
-    { label: "Year of Study", value: "2nd, 3rd, or 4th year" },
-    { label: "Academic Performance", value: "Minimum GPA of 3.0 on a 4.0 scale" },
-    { label: "Research Interest", value: "Demonstrated interest in research" },
+    { label: "Academic Level", value: "Final-year undergrad, recent grad, Master's, or Ph.D. student" },
+    { label: "Location", value: "Residing and studying in East Africa" },
+    { label: "Commitment", value: "15 focused hours per week for 16 weeks" },
+    { label: "Career Goal", value: "Willing to pursue research or graduate studies" },
     { label: "Language", value: "Proficiency in English" }
+  ];
+
+  // Post-fellowship benefits
+  const postFellowship = [
+    "Direct support to secure fully funded Master's and Ph.D. positions",
+    "Full tuition coverage, monthly stipends, and research funding",
+    "Connection with hiring professors at top international universities",
+    "Targeted guidance for competitive global scholarship programs"
   ];
 
   const containerVariants = {
@@ -152,25 +150,15 @@ export default function Program() {
     },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
-      {/* Hero Section */}
+      {/* Hero Section - UPDATED */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Animated background orbs */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
@@ -193,7 +181,7 @@ export default function Program() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            STEM Fellowship Program
+            Akili Bridge STEM Research Fellowship
           </motion.h1>
           
           <motion.p
@@ -202,12 +190,11 @@ export default function Program() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            A one-year researcher-in-training fellowship for undergraduate students in Rwanda,
-            equipping the next generation of African researchers with skills, mentorship,
-            and opportunities in STEM.
+            Pairing top African scholars with practicing international researchers and engineers 
+            for 16 weeks of real-world research, mentorship, and publication.
           </motion.p>
 
-          {/* Quick Stats */}
+          {/* Quick Stats - UPDATED */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -215,8 +202,8 @@ export default function Program() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
-              <p className="text-2xl font-bold text-[#2fb3ff]">12</p>
-              <p className="text-xs text-gray-400">Months</p>
+              <p className="text-2xl font-bold text-[#2fb3ff]">16</p>
+              <p className="text-xs text-gray-400">Weeks</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
               <p className="text-2xl font-bold text-[#8a7ff7]">1:1</p>
@@ -234,7 +221,7 @@ export default function Program() {
         </div>
       </motion.section>
 
-      {/* Research Tracks */}
+      {/* Research Tracks - UPDATED */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
           initial="hidden"
@@ -266,12 +253,6 @@ export default function Program() {
                 style={{ borderTopColor: track.color, borderTopWidth: "4px" }}
                 onClick={() => setSelectedTrack(selectedTrack === track.id ? null : track.id)}
               >
-                <div 
-                  className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl mb-4"
-                  style={{ background: `${track.color}20` }}
-                >
-                  {track.icon}
-                </div>
                 <h3 
                   className="text-xl font-semibold mb-2 group-hover:text-[#2fb3ff] transition-colors"
                   style={{ color: track.color }}
@@ -324,7 +305,7 @@ export default function Program() {
         </motion.div>
       </section>
 
-      {/* Program Timeline */}
+      {/* Program Timeline - UPDATED (16 weeks) */}
       <section className="bg-[#1a2a4a]/30 py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -344,10 +325,10 @@ export default function Program() {
               variants={cardVariants}
               className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
             >
-              Your journey from orientation to graduation
+              Your 16-week journey from orientation to publication
             </motion.p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {timeline.map((phase, index) => (
                 <motion.div
                   key={index}
@@ -378,7 +359,7 @@ export default function Program() {
         </div>
       </section>
 
-      {/* What Fellows Receive */}
+      {/* What Fellows Receive - UPDATED */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -391,7 +372,7 @@ export default function Program() {
               variants={cardVariants}
               className="text-3xl md:text-4xl font-bold text-center mb-4"
             >
-              What Fellows <span className="text-[#8a7ff7]">Receive</span>
+              What You <span className="text-[#8a7ff7]">Leave With</span>
             </motion.h2>
             
             <motion.p 
@@ -410,7 +391,7 @@ export default function Program() {
                   className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/5 hover:border-[#2fb3ff]/30 transition-all"
                 >
                   <span className="text-[#2fb3ff] text-xl flex-shrink-0 mt-0.5">✓</span>
-                  <span className="text-gray-300">{benefit}</span>
+                  <span className="text-gray-300 text-sm">{benefit}</span>
                 </motion.div>
               ))}
             </div>
@@ -418,7 +399,7 @@ export default function Program() {
         </div>
       </section>
 
-      {/* Eligibility Section */}
+      {/* Eligibility Section - UPDATED */}
       <section className="py-16 px-4 bg-[#1a2a4a]/30">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -431,7 +412,7 @@ export default function Program() {
               variants={cardVariants}
               className="text-3xl md:text-4xl font-bold text-center mb-4"
             >
-              Eligibility <span className="text-[#4CAF50]">Criteria</span>
+              Candidate <span className="text-[#4CAF50]">Requirements</span>
             </motion.h2>
             
             <motion.p 
@@ -457,6 +438,125 @@ export default function Program() {
         </div>
       </section>
 
+      {/* Post-Fellowship Pathway - NEW SECTION */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="bg-gradient-to-br from-[#8a7ff7]/10 to-[#2fb3ff]/10 rounded-3xl p-8 md:p-12 border border-white/10"
+        >
+          <motion.div variants={cardVariants} className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Post-Fellowship <span className="text-[#8a7ff7]">Pathway</span></h2>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              Exclusive to program completers — direct support to secure fully funded 
+              Master's and Ph.D. positions at top international universities.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+              {postFellowship.map((item, index) => (
+                <div key={index} className="flex items-start gap-2 bg-white/5 rounded-lg p-3">
+                  <span className="text-[#8a7ff7] text-lg flex-shrink-0">✦</span>
+                  <span className="text-sm text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ✅ NEW: VISUAL COMPARISON TABLE - Inserted before CTA */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            Program <span className="text-[#ffd93d]">Comparison</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Choose the fellowship path that fits your goals and availability
+          </motion.p>
+
+          <motion.div 
+            variants={cardVariants}
+            className="overflow-x-auto"
+          >
+            <table className="w-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+              <thead className="bg-white/10">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Feature</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#2fb3ff]">
+                    🚀 16-Week Intensive <span className="block text-xs font-normal text-gray-400">(Flagship)</span>
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-[#ffd93d]">
+                    📚 12-Month Training <span className="block text-xs font-normal text-gray-400">(Cohort 2025)</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Duration</td>
+                  <td className="px-6 py-4 text-sm text-white">16 weeks (intensive term)</td>
+                  <td className="px-6 py-4 text-sm text-white">12 months (full academic cycle)</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Weekly Commitment</td>
+                  <td className="px-6 py-4 text-sm text-white">15 focused hours/week</td>
+                  <td className="px-6 py-4 text-sm text-white">Flexible research schedule</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Target Audience</td>
+                  <td className="px-6 py-4 text-sm text-white">Final-year undergrads, recent grads, Master's & Ph.D.</td>
+                  <td className="px-6 py-4 text-sm text-white">Undergraduate students (Rwanda focus)</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Mentorship</td>
+                  <td className="px-6 py-4 text-sm text-white">1:1 with global researchers & senior engineers</td>
+                  <td className="px-6 py-4 text-sm text-white">1:1 mentorship</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Research Tracks</td>
+                  <td className="px-6 py-4 text-sm text-white">6 tracks (CS, AI, Data Sci, Civil/Struct, Transpo, Math/Stats)</td>
+                  <td className="px-6 py-4 text-sm text-white">6 cutting-edge tracks</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Output</td>
+                  <td className="px-6 py-4 text-sm text-white">Peer-reviewed publication, conference paper, or open‑source repo</td>
+                  <td className="px-6 py-4 text-sm text-white">Research training & skills development</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors bg-[#2fb3ff]/5">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Post‑Fellowship</td>
+                  <td className="px-6 py-4 text-sm text-[#2fb3ff] font-semibold">✅ Direct support for fully funded Master's/Ph.D. placements</td>
+                  <td className="px-6 py-4 text-sm text-gray-400">—</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-300 font-medium">Fellows per Cohort</td>
+                  <td className="px-6 py-4 text-sm text-white">Rolling applications</td>
+                  <td className="px-6 py-4 text-sm text-white">25 Fellows</td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-xs text-gray-500 mt-4"
+          >
+            * The 16-Week Intensive is the flagship program. The 12-Month Training is the first cohort (2025) for undergraduate students in Rwanda.
+          </motion.p>
+        </motion.div>
+      </section>
+
       {/* Mentorship Section */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -469,21 +569,22 @@ export default function Program() {
           <motion.div variants={cardVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">World-Class Mentorship</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              Each fellow is paired with a dedicated mentor — an experienced researcher or industry expert
-              who provides guidance, support, and networking opportunities throughout the program.
+              Each fellow is paired with a dedicated mentor — an active researcher or senior engineer
+              at top global universities and industry labs who provides guidance, support, 
+              and networking opportunities throughout the program.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">1:1 Mentorship</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Monthly Check-ins</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Weekly Check-ins</span>
               <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Career Guidance</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Research Support</span>
-              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Networking</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Publication Support</span>
+              <span className="px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">Global Network</span>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Updated with Comparison Reference */}
       <section className="max-w-4xl mx-auto py-16 px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -496,8 +597,8 @@ export default function Program() {
             Ready to <span className="text-[#2fb3ff]">Apply</span>?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the first cohort of AkiliBridge Fellows and start your journey
-            towards becoming a world-class researcher.
+            Join the Akili Bridge fellowship and start your journey towards becoming a published researcher 
+            with mentorship from world-class experts. Choose the program that fits your goals.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.a
