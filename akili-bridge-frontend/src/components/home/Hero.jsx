@@ -116,9 +116,9 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* LOGO & SUBTITLE - NOW SMALLER AND CLEANER */}
+        {/* LOGO & SUBTITLE */}
         <motion.div
-          className="mb-6"
+          className="mb-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -156,22 +156,21 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* MAIN VALUE PROPOSITION - NOW LARGER AND MORE PROMINENT */}
+        {/* MAIN VALUE PROPOSITION - SHRUNK FOR BETTER BALANCE */}
         <motion.div
-          className="mb-10"
+          className="mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
         >
           <motion.p
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight space-y-1"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Publish your research.
-            <br />
-            <span className="bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent">
+            <span className="block">Publish your research.</span>
+            <span className="block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent">
               Secure your future.
             </span>
           </motion.p>
