@@ -8,17 +8,17 @@ export default function MissionTeaser() {
 
   // Stats that are meaningful and connected to the fellowship
   const stats = [
-    { value: "16", label: "Weeks of Intensive Research", color: "#2fb3ff" },
-    { value: "1:1", label: "Mentorship with Global Experts", color: "#8a7ff7" },
-    { value: "100%", label: "Fellows Become Published Authors", color: "#ffd93d" },
+    { value: "16", label: "Weeks of Intensive Research", color: "#df7c2e" },
+    { value: "1:1", label: "Mentorship with Global Experts", color: "#df7c2e" },
+    { value: "100%", label: "Fellows Become Published Authors", color: "#df7c2e" },
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-[#0a1628] to-[#1a2a4a] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#2fb3ff] rounded-full filter blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl" />
+    <section className="py-20 px-4 bg-white relative overflow-hidden border-t border-b border-gray-200">
+      {/* Background decoration - Subtle Orange Orbs */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -28,9 +28,9 @@ export default function MissionTeaser() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* Badge */}
+          {/* Badge - UPDATED TO ORANGE */}
           <motion.span
-            className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
+            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
@@ -39,23 +39,23 @@ export default function MissionTeaser() {
             Our Mission
           </motion.span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Building Africa's <span className="text-[#2fb3ff]">Research Future</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
+            Building Africa's <span className="text-[#df7c2e]">Research Future</span>
           </h2>
 
-          <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-            Africa contributes less than <span className="text-[#ff6a00] font-bold">&lt;1%</span> of global research 
-            output despite being home to <span className="text-[#2fb3ff] font-bold">17%</span> of the world's population.
+          <p className="text-[#0a1628]/80 text-lg leading-relaxed max-w-3xl mx-auto">
+            Africa contributes less than <span className="text-[#df7c2e] font-bold">&lt;1%</span> of global research 
+            output despite being home to <span className="text-[#df7c2e] font-bold">17%</span> of the world's population.
           </p>
 
-          <p className="text-gray-400 text-base leading-relaxed max-w-3xl mx-auto mt-4">
-            At <span className="text-[#2fb3ff] font-semibold">Akili Bridge</span>, we are changing this narrative. 
+          <p className="text-[#0a1628]/70 text-base leading-relaxed max-w-3xl mx-auto mt-4">
+            At <span className="text-[#df7c2e] font-semibold">Akili Bridge</span>, we are changing this narrative. 
             Our fellowship program pairs top African scholars with international researchers, 
             providing the mentorship, training, and support needed to produce world-class 
             research and become published authors.
           </p>
 
-          {/* Stats */}
+          {/* Stats - UPDATED TO CLEAN WHITE CARDS */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8"
             initial={{ opacity: 0, y: 20 }}
@@ -66,17 +66,17 @@ export default function MissionTeaser() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/5 rounded-xl p-4 border border-white/5 hover:border-[#2fb3ff]/30 transition-all"
+                className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
               >
-                <p className="text-2xl font-bold" style={{ color: stat.color }}>
+                <p className="text-2xl font-bold text-[#df7c2e]">
                   {stat.value}
                 </p>
-                <p className="text-xs text-gray-400">{stat.label}</p>
+                <p className="text-xs text-[#0a1628]/60">{stat.label}</p>
               </div>
             ))}
           </motion.div>
 
-          {/* CTAs */}
+          {/* CTAs - UPDATED TO SOLID ORANGE BUTTONS */}
           <motion.div
             className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function MissionTeaser() {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all inline-flex items-center gap-2"
+              className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:bg-[#c96b24] hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -100,7 +100,7 @@ export default function MissionTeaser() {
 
             <motion.button
               onClick={() => navigate("/about")}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all inline-flex items-center gap-2"
+              className="px-8 py-3 bg-white rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-100 hover:border-[#df7c2e]/40 transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -113,7 +113,7 @@ export default function MissionTeaser() {
 
           {/* Trust indicator */}
           <motion.p
-            className="text-xs text-gray-500 mt-6"
+            className="text-xs text-[#0a1628]/50 mt-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
