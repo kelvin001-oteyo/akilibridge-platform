@@ -2,7 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import apiFetch from "../../api/client";
-import logo from "../../assets/primary-horizontal-2400.png"; // <--- IMPORT
+// Import the local logo image
+import logo from "../../assets/ChatGPT Image Aug 18, 2026, 12_49_12 PM.png";
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -177,7 +178,7 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ textShadow: "0 0 20px rgba(255,217,102,0.5)" }}
             >
-              {/* REPLACED WITH NEW LOGO */}
+              {/* USING THE NEW LOGO */}
               <img 
                 src={logo} 
                 alt="Akili Bridge Logo" 
@@ -350,7 +351,7 @@ export default function Footer() {
           />
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              {/* REPLACED WITH LOGO */}
+              {/* USING THE NEW LOGO */}
               <img 
                 src={logo} 
                 alt="Akili Bridge Logo" 
