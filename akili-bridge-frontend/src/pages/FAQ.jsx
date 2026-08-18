@@ -1,17 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
+
+// Import components
+import FAQAccordion from "./FAQAccordion";
+import FAQCategory from "./FAQCategory";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
-  const [feedback, setFeedback] = useState({});
-  const navigate = useNavigate();
 
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  // Full FAQ data - Updated to match the actual fellowship
+  // Full FAQ data
   const faqs = [
     {
       category: "Program Overview",
@@ -245,35 +247,6 @@ export default function FAQ() {
       });
   }, [searchTerm, activeCategory]);
 
-  // Handle feedback
-  const handleFeedback = (questionId, isHelpful) => {
-    setFeedback(prev => ({ ...prev, [questionId]: isHelpful }));
-  };
-
-  // Scroll to top on category change
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [activeCategory]);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  // Color mapping for categories
-  const getCategoryColors = (category) => {
-    const colors = {
-      "Program Overview": { text: "text-[#2fb3ff]", border: "border-[#2fb3ff]/30", bg: "bg-[#2fb3ff]/10" },
-      "Eligibility & Requirements": { text: "text-[#4CAF50]", border: "border-[#4CAF50]/30", bg: "bg-[#4CAF50]/10" },
-      "Application Process": { text: "text-[#ffd93d]", border: "border-[#ffd93d]/30", bg: "bg-[#ffd93d]/10" },
-      "Program Structure": { text: "text-[#ff6a00]", border: "border-[#ff6a00]/30", bg: "bg-[#ff6a00]/10" },
-      "Output & Outcomes": { text: "text-[#8a7ff7]", border: "border-[#8a7ff7]/30", bg: "bg-[#8a7ff7]/10" },
-      "Post-Fellowship Pathway": { text: "text-[#ff6b9d]", border: "border-[#ff6b9d]/30", bg: "bg-[#ff6b9d]/10" },
-      "Technical & Logistics": { text: "text-[#ffd93d]", border: "border-[#ffd93d]/30", bg: "bg-[#ffd93d]/10" },
-      "Mentorship": { text: "text-[#2fb3ff]", border: "border-[#2fb3ff]/30", bg: "bg-[#2fb3ff]/10" },
-    };
-    return colors[category] || { text: "text-gray-400", border: "border-gray-500/30", bg: "bg-white/5" };
-  };
-
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -297,28 +270,19 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
-      {/* Hero Section */}
+      {/* ============================================================ */}
+      {/* HERO SECTION */}
+      {/* ============================================================ */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Animated background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#2fb3ff]/5 rounded-full filter blur-3xl" />
         </div>
-
-        {/* Grid overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }} />
 
         <div className="relative z-10">
           <motion.span
@@ -345,7 +309,7 @@ export default function FAQ() {
           >
             Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
-          
+
           {/* Quick stats */}
           <motion.div
             className="flex flex-wrap justify-center gap-6 mt-6"
@@ -371,7 +335,9 @@ export default function FAQ() {
         </div>
       </motion.section>
 
-      {/* Search & Filter */}
+      {/* ============================================================ */}
+      {/* SEARCH & FILTER SECTION */}
+      {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 -mt-8 relative z-10"
         initial={{ opacity: 0, y: 30 }}
@@ -379,7 +345,7 @@ export default function FAQ() {
         transition={{ delay: 0.5, duration: 0.6 }}
       >
         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl shadow-black/20">
-          {/* Search Bar with Clear Button */}
+          {/* Search Bar */}
           <div className="relative mb-4">
             <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8" strokeWidth="2"/>
@@ -402,7 +368,7 @@ export default function FAQ() {
             )}
           </div>
 
-          {/* Category Filters - Scrollable */}
+          {/* Category Filters */}
           <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
             {categories.map((category) => (
               <button
@@ -419,7 +385,7 @@ export default function FAQ() {
             ))}
           </div>
 
-          {/* Results Count with clear filters */}
+          {/* Results Count */}
           <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-white/5">
             <span className="text-sm text-gray-500">
               {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
@@ -436,7 +402,9 @@ export default function FAQ() {
         </div>
       </motion.section>
 
-      {/* FAQ Accordion */}
+      {/* ============================================================ */}
+      {/* FAQ ACCORDION - Using FAQAccordion component */}
+      {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         {filteredFaqs.length === 0 ? (
           <motion.div
@@ -444,10 +412,9 @@ export default function FAQ() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-20 bg-white/5 rounded-2xl border border-white/10"
           >
-            <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-xl font-semibold text-white mb-2">No questions found</h3>
             <p className="text-gray-400 max-w-md mx-auto">
-              We couldn't find any questions matching "{searchTerm}" in {activeCategory !== "all" ? activeCategory : "any"} category.
+              We couldn't find any questions matching your search.
             </p>
             <button
               onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
@@ -463,114 +430,38 @@ export default function FAQ() {
             variants={staggerContainer}
             className="space-y-10"
           >
-            {filteredFaqs.map((category, catIndex) => {
-              const colors = getCategoryColors(category.category);
-              return (
-                <motion.div key={catIndex} variants={fadeInUp} className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <h2 className={`text-2xl font-bold ${colors.text}`}>
-                      {category.category}
-                    </h2>
-                    <span className={`px-2 py-0.5 rounded-full text-xs ${colors.bg} text-gray-400`}>
-                      {category.questions.length} questions
-                    </span>
-                  </div>
+            {filteredFaqs.map((category, catIndex) => (
+              <motion.div key={catIndex} variants={fadeInUp}>
+                {/* Category Header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <h2 className={`text-2xl font-bold text-[#2fb3ff]`}>
+                    {category.category}
+                  </h2>
+                  <span className="px-2 py-0.5 rounded-full text-xs bg-[#2fb3ff]/10 text-gray-400">
+                    {category.questions.length} questions
+                  </span>
+                </div>
 
-                  {category.questions.map((faq, qIndex) => {
-                    const questionId = `${catIndex}-${qIndex}`;
-                    const isOpen = openIndex === questionId;
-                    const isHelpful = feedback[questionId];
-
-                    return (
-                      <motion.div
-                        key={questionId}
-                        variants={fadeInUp}
-                        className={`bg-white/5 backdrop-blur-sm rounded-xl border transition-all duration-300 overflow-hidden ${
-                          isOpen 
-                            ? `border-[#2fb3ff]/50 shadow-lg shadow-[#2fb3ff]/10` 
-                            : 'border-white/10 hover:border-[#2fb3ff]/30'
-                        }`}
-                      >
-                        <button
-                          className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors group"
-                          onClick={() => toggleAccordion(questionId)}
-                          aria-expanded={isOpen}
-                        >
-                          <span className={`text-lg font-medium transition-colors ${
-                            isOpen ? 'text-[#2fb3ff]' : 'text-white group-hover:text-[#2fb3ff]'
-                          }`}>
-                            {faq.q}
-                          </span>
-                          <motion.span
-                            animate={{ rotate: isOpen ? 180 : 0 }}
-                            transition={{ duration: 0.3 }}
-                            className={`text-2xl flex-shrink-0 ml-4 transition-colors ${
-                              isOpen ? "text-[#2fb3ff]" : "text-gray-400"
-                            }`}
-                          >
-                            {isOpen ? "−" : "+"}
-                          </motion.span>
-                        </button>
-                        
-                        <AnimatePresence>
-                          {isOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.3 }}
-                            >
-                              <div className="px-6 pb-4">
-                                <div className="pt-3 text-gray-300 leading-relaxed border-t border-white/5">
-                                  {faq.a}
-                                </div>
-                                
-                                {/* Helpful feedback section */}
-                                <div className="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-white/5">
-                                  <span className="text-sm text-gray-500">Was this helpful?</span>
-                                  <div className="flex gap-1">
-                                    <button
-                                      onClick={() => handleFeedback(questionId, true)}
-                                      className={`px-3 py-1 rounded-lg text-sm transition-all ${
-                                        isHelpful === true 
-                                          ? 'bg-[#4CAF50]/20 text-[#4CAF50] border border-[#4CAF50]/30'
-                                          : 'text-gray-400 hover:text-[#4CAF50] hover:bg-[#4CAF50]/10'
-                                      }`}
-                                    >
-                                      Yes
-                                    </button>
-                                    <button
-                                      onClick={() => handleFeedback(questionId, false)}
-                                      className={`px-3 py-1 rounded-lg text-sm transition-all ${
-                                        isHelpful === false 
-                                          ? 'bg-[#ff6b6b]/20 text-[#ff6b6b] border border-[#ff6b6b]/30'
-                                          : 'text-gray-400 hover:text-[#ff6b6b] hover:bg-[#ff6b6b]/10'
-                                      }`}
-                                    >
-                                      No
-                                    </button>
-                                  </div>
-                                  {isHelpful !== undefined && (
-                                    <span className="text-xs text-gray-500">
-                                      {isHelpful ? 'Thank you for your feedback!' : 'We\'ll improve this answer!'}
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
-              );
-            })}
+                {/* FAQ Items - Using FAQAccordion component */}
+                <div className="space-y-3">
+                  {category.questions.map((faq, qIndex) => (
+                    <FAQAccordion
+                      key={qIndex}
+                      question={faq.q}
+                      answer={faq.a}
+                      category={category.category}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         )}
       </section>
 
-      {/* Quick Links / Related Pages */}
+      {/* ============================================================ */}
+      {/* QUICK LINKS */}
+      {/* ============================================================ */}
       <section className="max-w-4xl mx-auto px-4 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -607,7 +498,9 @@ export default function FAQ() {
         </motion.div>
       </section>
 
-      {/* Still Have Questions? */}
+      {/* ============================================================ */}
+      {/* STILL HAVE QUESTIONS? */}
+      {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 pb-20"
         initial={{ opacity: 0, y: 30 }}
@@ -616,7 +509,6 @@ export default function FAQ() {
         transition={{ duration: 0.6 }}
       >
         <div className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-2xl p-8 md:p-12 text-center border border-white/10 relative overflow-hidden">
-          {/* Decorative elements */}
           <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#2fb3ff]/10 rounded-full filter blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#8a7ff7]/10 rounded-full filter blur-3xl" />
           
