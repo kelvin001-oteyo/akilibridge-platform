@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 // Import the local background image
-import heroBackground from "../assets/Aug 18, 2026, 12_41_18 PM.png";
+import heroBackground from "../assets/background.png";
 
 export default function Hero() {
   const navigate = useNavigate();
