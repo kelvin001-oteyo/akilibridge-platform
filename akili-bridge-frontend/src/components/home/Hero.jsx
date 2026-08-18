@@ -47,15 +47,10 @@ export default function Hero() {
     >
       {/* Background with Parallax - USING SPLASH URL */}
       <motion.div
-        className="absolute inset-0 -z-10"
-        style={{ y, scale }}
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{ y, scale, backgroundImage: `url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")` }}
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")`,
-          }}
-        />
+        {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/85 to-[#0a1628]/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent" />
       </motion.div>
