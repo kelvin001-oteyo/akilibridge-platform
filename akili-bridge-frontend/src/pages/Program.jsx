@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Program() {
   const navigate = useNavigate();
   const [selectedTrack, setSelectedTrack] = useState(null);
+  const [expandedFaq, setExpandedFaq] = useState(null);
   
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
@@ -126,6 +127,54 @@ export default function Program() {
     "Targeted guidance for competitive global scholarship programs"
   ];
 
+  // FAQ Data
+  const faqs = [
+    {
+      q: "Is this program fully remote?",
+      a: "Yes, the program is hybrid with virtual mentorship and independent research. Fellows work remotely while staying connected through weekly check-ins and cohort seminars."
+    },
+    {
+      q: "Can I apply if I'm not from East Africa?",
+      a: "Currently, we require applicants to be residing and studying in East Africa. This helps us build a strong regional research community and provide targeted support."
+    },
+    {
+      q: "Do I need prior research experience?",
+      a: "Not necessarily. We welcome motivated students with strong academic backgrounds who are eager to learn. Our mentorship model is designed to guide you through the research process."
+    },
+    {
+      q: "Is there a fee to participate?",
+      a: "No, this is a fully funded fellowship program. There are no costs for selected fellows."
+    },
+    {
+      q: "What happens after the fellowship?",
+      a: "Program completers receive direct support to secure fully funded Master's and Ph.D. positions at top international universities, including help with applications, scholarships, and connecting with professors."
+    }
+  ];
+
+  // Application steps
+  const applicationSteps = [
+    {
+      step: 1,
+      title: "Complete Application Form",
+      description: "Fill out our comprehensive Google Form with your academic background, research interests, and motivation."
+    },
+    {
+      step: 2,
+      title: "Submit Supporting Documents",
+      description: "Upload your transcripts, CV/resume, and a brief research proposal or statement of purpose."
+    },
+    {
+      step: 3,
+      title: "Interview Selection",
+      description: "Shortlisted candidates will be invited for an interview with our selection committee."
+    },
+    {
+      step: 4,
+      title: "Final Selection & Onboarding",
+      description: "Selected fellows will receive an offer letter and begin their orientation process."
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -152,17 +201,28 @@ export default function Program() {
 
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
-      {/* Hero Section - UPDATED */}
+      {/* Hero Section - IMPROVED (#5) */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden min-h-[90vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
+        {/* Animated background with grid pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#2fb3ff] rounded-full filter blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2fb3ff]/5 rounded-full filter blur-3xl" />
         </div>
+        
+        {/* Grid overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
         
         <div className="relative z-10 max-w-4xl">
           <motion.span
@@ -176,13 +236,23 @@ export default function Program() {
           </motion.span>
           
           <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
+            className="text-4xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Akili Bridge STEM Research Fellowship
+            Akili Bridge STEM <br />Research Fellowship
           </motion.h1>
+
+          {/* NEW: Value prop sub-headline */}
+          <motion.p
+            className="text-xl md:text-2xl font-semibold text-[#ffd93d] mb-2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+          >
+            Publish Your Research. Secure Your Future.
+          </motion.p>
           
           <motion.p
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
@@ -194,12 +264,39 @@ export default function Program() {
             for 16 weeks of real-world research, mentorship, and publication.
           </motion.p>
 
+          {/* NEW: CTA buttons in hero */}
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <motion.a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#2fb3ff]/30 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Apply Now →
+            </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('program-info')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
+            >
+              Learn More ↓
+            </motion.button>
+          </motion.div>
+
           {/* Quick Stats - UPDATED */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
               <p className="text-2xl font-bold text-[#2fb3ff]">16</p>
@@ -221,8 +318,39 @@ export default function Program() {
         </div>
       </motion.section>
 
+      {/* NEW: Partners/University Logos Section (#6) */}
+      <section className="py-12 px-4 border-t border-b border-white/5 bg-white/5">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-500 text-xs uppercase tracking-wider mb-6"
+          >
+            Our mentors are from leading institutions worldwide
+          </motion.p>
+          
+          <motion.div 
+            variants={cardVariants}
+            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60"
+          >
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">MIT</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Stanford</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Oxford</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Cambridge</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">ETH Zurich</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Carnegie Mellon</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Google Research</span>
+            <span className="text-white/30 font-bold text-sm md:text-base hover:text-white/60 transition-colors cursor-default">Microsoft Research</span>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* Research Tracks - UPDATED */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
+      <section id="program-info" className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -252,6 +380,15 @@ export default function Program() {
                 className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#2fb3ff]/50 transition-all group cursor-pointer"
                 style={{ borderTopColor: track.color, borderTopWidth: "4px" }}
                 onClick={() => setSelectedTrack(selectedTrack === track.id ? null : track.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedTrack(selectedTrack === track.id ? null : track.id);
+                  }
+                }}
+                aria-label={`Toggle details for ${track.name}`}
               >
                 <h3 
                   className="text-xl font-semibold mb-2 group-hover:text-[#2fb3ff] transition-colors"
@@ -438,6 +575,65 @@ export default function Program() {
         </div>
       </section>
 
+      {/* NEW: How to Apply Section (#2) */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            How to <span className="text-[#ffd93d]">Apply</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Follow these four simple steps to submit your application
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            {/* Connecting line */}
+            <div className="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ffd93d]/20 via-[#ffd93d]/40 to-[#ffd93d]/20 hidden md:block" />
+            
+            {applicationSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="relative text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffd93d]/20 to-[#ffd93d]/5 border-2 border-[#ffd93d]/30 flex items-center justify-center text-2xl font-bold text-[#ffd93d] mx-auto mb-4 relative z-10">
+                  {step.step}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                <p className="text-sm text-gray-400 max-w-xs mx-auto">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            variants={cardVariants}
+            className="text-center mt-10"
+          >
+            <motion.a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-[#ffd93d] to-[#ff6a00] rounded-xl text-[#0a1628] font-semibold text-lg shadow-lg hover:shadow-[#ffd93d]/30 transition-all inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Your Application →
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* Post-Fellowship Pathway - NEW SECTION */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -465,7 +661,7 @@ export default function Program() {
         </motion.div>
       </section>
 
-      {/* ✅ NEW: VISUAL COMPARISON TABLE - Inserted before CTA */}
+      {/* ✅ NEW: VISUAL COMPARISON TABLE */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
           initial="hidden"
@@ -557,6 +753,173 @@ export default function Program() {
         </motion.div>
       </section>
 
+      {/* NEW: Testimonials Section (#4) - Updated with Oteyo Kelvin */}
+      <section className="py-16 px-4 bg-[#1a2a4a]/30">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="max-w-6xl mx-auto"
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            What Our <span className="text-[#ff6b9d]">Mentors Say</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Hear from the researchers and engineers who guide our fellows
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Testimonial 1 - Oteyo Kelvin */}
+            <motion.div 
+              variants={cardVariants}
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#ff6b9d]/30 transition-all"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#ff6b9d] to-[#ff6b9d]/40 flex items-center justify-center text-2xl font-bold text-white">
+                  OK
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Oteyo Kelvin</p>
+                  <p className="text-xs text-[#ff6b9d]">Senior Research Mentor</p>
+                  <p className="text-xs text-gray-500">AI & Data Science Track</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-lg italic leading-relaxed">
+                "The Akili Bridge fellows bring fresh perspectives and genuine passion to their research. 
+                Watching them grow from curious students to published researchers in just 16 weeks is 
+                incredibly rewarding. This program is exactly what African STEM needs to build the next 
+                generation of innovators."
+              </p>
+              <div className="mt-4 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-[#ffd93d] text-sm">★</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Testimonial 2 */}
+            <motion.div 
+              variants={cardVariants}
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#2fb3ff]/30 transition-all"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#2fb3ff] to-[#2fb3ff]/40 flex items-center justify-center text-2xl font-bold text-white">
+                  JP
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Dr. Jean-Pierre Niyigena</p>
+                  <p className="text-xs text-[#2fb3ff]">Research Mentor</p>
+                  <p className="text-xs text-gray-500">Civil & Structural Engineering</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-lg italic leading-relaxed">
+                "What sets Akili Bridge apart is the focus on tangible output. Fellows don't just learn 
+                theory — they produce publishable research that contributes to solving real African 
+                challenges. The mentorship model ensures every fellow has the support they need to succeed."
+              </p>
+              <div className="mt-4 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-[#ffd93d] text-sm">★</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Testimonial 3 */}
+            <motion.div 
+              variants={cardVariants}
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#4CAF50]/30 transition-all md:col-span-2 max-w-2xl mx-auto"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4CAF50] to-[#4CAF50]/40 flex items-center justify-center text-2xl font-bold text-white">
+                  SM
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Dr. Sarah Mwangi</p>
+                  <p className="text-xs text-[#4CAF50]">Program Director</p>
+                  <p className="text-xs text-gray-500">Akili Bridge</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-lg italic leading-relaxed">
+                "Our fellows consistently exceed expectations. The combination of world-class mentorship, 
+                rigorous research training, and the post-fellowship pathway creates a transformative experience 
+                that opens doors to top graduate programs and research careers worldwide."
+              </p>
+              <div className="mt-4 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-[#ffd93d] text-sm">★</span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2 
+            variants={cardVariants}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            Frequently Asked <span className="text-[#ffd93d]">Questions</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-center text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Find answers to the most common questions about the fellowship
+          </motion.p>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/5 hover:border-[#ffd93d]/20 transition-all overflow-hidden"
+              >
+                <button
+                  className="w-full px-6 py-4 text-left flex justify-between items-center"
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  aria-expanded={expandedFaq === index}
+                >
+                  <span className="text-white font-medium">{faq.q}</span>
+                  <span className={`text-[#ffd93d] text-xl transition-transform duration-300 ${expandedFaq === index ? 'rotate-180' : ''}`}>
+                    ▼
+                  </span>
+                </button>
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{
+                    height: expandedFaq === index ? 'auto' : 0,
+                    opacity: expandedFaq === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-4 pt-1">
+                    <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Mentorship Section */}
       <section className="max-w-7xl mx-auto py-16 px-4">
         <motion.div
@@ -584,7 +947,7 @@ export default function Program() {
         </motion.div>
       </section>
 
-      {/* CTA Section - Updated with Comparison Reference */}
+      {/* CTA Section - Updated */}
       <section className="max-w-4xl mx-auto py-16 px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
