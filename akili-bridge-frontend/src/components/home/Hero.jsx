@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-// Import the local background image
-import heroBackground from "../assets/background.png";
+// Import the local background image - using hero.png (which exists)
+import heroBackground from "../assets/hero.png";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -123,9 +123,7 @@ export default function Hero() {
         className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
         style={{ opacity }}
       >
-        {/* Badge - REMOVED "Applications Open — 2026 Cohort" */}
-
-        {/* Main Title - REDUCED SIZE, CLEANER HIERARCHY */}
+        {/* Main Title - CLEANER HIERARCHY */}
         <motion.div
           className="mb-3"
           initial={{ opacity: 0, y: 30 }}
@@ -198,14 +196,14 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* Stats - UPDATED: Meaningful metrics */}
+        {/* Stats - Meaningful metrics */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <motion.div
               key={stat.label}
               className="text-center"
