@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 // Import the local logo image
-import logo from "../../assets/logo.png";
+import logo from "../../assets/akilibridge.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
