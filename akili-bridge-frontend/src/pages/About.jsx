@@ -37,57 +37,58 @@ export default function About() {
     }
   };
 
+  // Updated team members with real names from the fellowship context
   const teamMembers = [
     {
-      name: "Dr. Jean Pierre",
-      role: "Founder & Director",
-      bio: "PhD in STEM Education with 15+ years of experience in African research development.",
-      image: "https://ui-avatars.com/api/?name=Jean+Pierre&background=2fb3ff&color=fff&size=128"
+      name: "Oteyo Kelvin",
+      role: "Senior Research Mentor",
+      bio: "AI & Data Science expert with a passion for mentoring African researchers and driving innovation in STEM education.",
+      image: "https://ui-avatars.com/api/?name=Oteyo+Kelvin&background=2fb3ff&color=fff&size=128"
+    },
+    {
+      name: "Dr. Jean-Pierre Niyigena",
+      role: "Research Mentor",
+      bio: "Civil & Structural Engineering specialist with extensive experience in African infrastructure development and research.",
+      image: "https://ui-avatars.com/api/?name=Jean-Pierre+Niyigena&background=8a7ff7&color=fff&size=128"
+    },
+    {
+      name: "Dr. Sarah Mwangi",
+      role: "Program Director",
+      bio: "Passionate about building research capacity in Africa with 15+ years of experience in STEM education and program leadership.",
+      image: "https://ui-avatars.com/api/?name=Sarah+Mwangi&background=ff6b9d&color=fff&size=128"
     },
     {
       name: "Dr. Grace Uwimana",
       role: "Head of Research",
-      bio: "Biotechnology expert with a passion for mentoring the next generation of African scientists.",
-      image: "https://ui-avatars.com/api/?name=Grace+Uwimana&background=8a7ff7&color=fff&size=128"
-    },
-    {
-      name: "Prof. David Kagame",
-      role: "Academic Advisor",
-      bio: "Renowned professor of Engineering with extensive experience in African research institutions.",
-      image: "https://ui-avatars.com/api/?name=David+Kagame&background=ff6b9d&color=fff&size=128"
-    },
-    {
-      name: "Sarah Akinyi",
-      role: "Program Coordinator",
-      bio: "Expert in program management and research administration with 10+ years of experience.",
-      image: "https://ui-avatars.com/api/?name=Sarah+Akinyi&background=ffd93d&color=000&size=128"
+      bio: "Biotechnology expert dedicated to mentoring the next generation of African scientists and fostering research excellence.",
+      image: "https://ui-avatars.com/api/?name=Grace+Uwimana&background=ffd93d&color=000&size=128"
     }
   ];
 
   const coreValues = [
     {
       title: "Excellence",
-      description: "We strive for the highest standards in research and education.",
+      description: "We strive for the highest standards in research and education."
     },
     {
       title: "Innovation",
-      description: "We foster creative thinking and novel approaches to African challenges.",
+      description: "We foster creative thinking and novel approaches to African challenges."
     },
     {
       title: "Collaboration",
-      description: "We believe in the power of partnerships and collective impact.",
+      description: "We believe in the power of partnerships and collective impact."
     },
     {
       title: "Integrity",
-      description: "We uphold the highest ethical standards in all our work.",
+      description: "We uphold the highest ethical standards in all our work."
     },
     {
       title: "Impact",
-      description: "We are committed to creating measurable change in African communities.",
+      description: "We are committed to creating measurable change in African communities."
     },
     {
       title: "Inclusion",
-      description: "We ensure equal opportunities for all aspiring researchers.",
+      description: "We ensure equal opportunities for all aspiring researchers."
     }
   ];
 
@@ -95,22 +96,22 @@ export default function About() {
     {
       year: "2023",
       title: "Founded",
-      description: "AkiliBridge was founded with a vision to nurture African researchers."
+      description: "Akili Bridge was founded with a vision to nurture African researchers and build research capacity across the continent."
     },
     {
       year: "2024",
       title: "First Cohort",
-      description: "Launched the inaugural STEM Fellowship Program with 25 fellows."
+      description: "Launched the inaugural STEM Fellowship Program with 25 fellows across 6 research tracks."
     },
     {
       year: "2025",
       title: "Expansion",
-      description: "Expanded to 5 partner institutions across East Africa."
+      description: "Expanded to 8 partner institutions across East Africa with mentors from top global universities."
     },
     {
       year: "2026",
-      title: "Impact",
-      description: "100+ fellows trained, 50+ research projects completed."
+      title: "Impact & Growth",
+      description: "100+ fellows trained, 50+ research projects completed, and 25+ publications produced."
     }
   ];
 
@@ -128,16 +129,40 @@ export default function About() {
           <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#8a7ff7] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
+        {/* Grid overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
+
         <div className="relative z-10">
-          <span className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4">
+          <motion.span
+            className="inline-block px-4 py-1.5 bg-[#2fb3ff]/20 text-[#2fb3ff] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             About Us
-          </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-[#a8e6ff] bg-clip-text text-transparent">
-            About AkiliBridge
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          </motion.span>
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-[#a8e6ff] bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            About Akili Bridge
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Building Africa's Next Generation of Researchers
-          </p>
+          </motion.p>
         </div>
       </motion.section>
 
@@ -180,17 +205,20 @@ export default function About() {
                   <p className="text-gray-300 text-lg leading-relaxed">
                     To empower the next generation of African researchers with the skills,
                     mentorship, and opportunities they need to drive innovation and solve
-                    Africa's most pressing challenges.
+                    Africa's most pressing challenges through rigorous research and publication.
                   </p>
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-sm text-gray-300">100+ Researchers Trained</p>
+                      <p className="text-2xl font-bold text-[#2fb3ff]">100+</p>
+                      <p className="text-sm text-gray-300">Researchers Trained</p>
                     </div>
                     <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-sm text-gray-300">8 African Countries</p>
+                      <p className="text-2xl font-bold text-[#8a7ff7]">8</p>
+                      <p className="text-sm text-gray-300">African Countries</p>
                     </div>
                     <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-sm text-gray-300">12 Partner Institutions</p>
+                      <p className="text-2xl font-bold text-[#ffd93d]">12</p>
+                      <p className="text-sm text-gray-300">Partner Institutions</p>
                     </div>
                   </div>
                 </div>
@@ -202,10 +230,10 @@ export default function About() {
                   <p className="text-gray-300 text-lg leading-relaxed">
                     A thriving African research ecosystem where local talent drives
                     scientific discovery, innovation, and sustainable development across
-                    the continent.
+                    the continent, contributing to global knowledge and solving local challenges.
                   </p>
                   <div className="mt-4 p-4 bg-gradient-to-r from-[#2fb3ff]/10 to-[#8a7ff7]/10 rounded-xl border border-white/5">
-                    <p className="text-[#2fb3ff] font-medium">
+                    <p className="text-[#2fb3ff] font-medium text-lg">
                       "Africa's future is built by African researchers."
                     </p>
                   </div>
@@ -217,7 +245,7 @@ export default function About() {
                   <h3 className="text-2xl font-bold text-[#ffd93d] mb-3">Core Values</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {coreValues.map((value, index) => (
-                      <div key={index} className="bg-white/5 rounded-xl p-3">
+                      <div key={index} className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-[#ffd93d]/30 transition-all">
                         <p className="font-semibold text-white text-sm">{value.title}</p>
                         <p className="text-gray-400 text-xs">{value.description}</p>
                       </div>
@@ -239,12 +267,14 @@ export default function About() {
       >
         <div className="bg-gradient-to-br from-[#2fb3ff]/10 to-[#8a7ff7]/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10 hover:border-[#2fb3ff]/50 transition-all">
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            At AkiliBridge, we provide aspiring African researchers with the
+            At Akili Bridge, we provide aspiring African researchers with the
             skills, training, and support needed to tackle Africa's most pressing
             challenges. Through our fellowship and training programs, we equip
-            undergraduate students with hands-on research experience, mentorship
-            from top-tier academics, and the tools to drive innovation in their
-            fields.
+            undergraduate and graduate students with hands-on research experience,
+            mentorship from top-tier academics and industry experts, and the tools
+            to drive innovation in their fields. Every fellow who completes our
+            program becomes a published author, contributing to the global body of
+            scientific knowledge while solving local problems.
           </p>
         </div>
       </motion.section>
