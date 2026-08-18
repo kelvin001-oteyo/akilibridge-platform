@@ -16,17 +16,21 @@ export default function FAQAccordion({ faqs }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.05 }}
-          className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#2fb3ff]/30 transition-all"
+          // CHANGED: White background, gray border, light shadow
+          className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-[#df7c2e]/40 shadow-sm hover:shadow-md transition-all"
         >
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+            // CHANGED: Hover effect uses light gray instead of white/5
+            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
           >
-            <span className="text-lg font-medium text-white">{faq.question}</span>
+            {/* CHANGED: Question text is now Dark Navy */}
+            <span className="text-lg font-medium text-[#0a1628]">{faq.question}</span>
             <motion.span
               animate={{ rotate: openIndex === index ? 180 : 0 }}
               transition={{ duration: 0.3 }}
-              className="text-[#2fb3ff] text-2xl flex-shrink-0 ml-4"
+              // CHANGED: Icon is now Orange
+              className="text-[#df7c2e] text-2xl flex-shrink-0 ml-4"
             >
               {openIndex === index ? "−" : "+"}
             </motion.span>
@@ -38,7 +42,8 @@ export default function FAQAccordion({ faqs }) {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="px-6 pb-4 text-gray-300 leading-relaxed"
+                // CHANGED: Answer text is Dark Navy/Gray mix, light top border
+                className="px-6 pb-4 text-[#0a1628]/70 leading-relaxed border-t border-gray-100 pt-3"
               >
                 {faq.answer}
               </motion.div>
