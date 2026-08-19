@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 export default function WhatFellowsReceive() {
   const benefits = [
     {
-      text: "Become a published author on a peer-reviewed paper, conference paper, or open-source repository"
+      text: "16 weeks of structured, 1:1 mentored research"
     },
     {
-      text: "1:1 mentorship with active researchers at top global universities and industry labs"
+      text: "A completed research project in your discipline"
     },
     {
-      text: "Detailed, output-backed letter of recommendation from your track mentor"
+      text: "Support taking your work toward publication"
     },
     {
-      text: "Akili Bridge Fellowship Certificate for completing the 16-week term"
+      text: "A closing symposium to present your findings"
     },
     {
-      text: "Direct support for fully funded Master's and Ph.D. positions at top international universities"
+      text: "An Akili Bridge Fellowship certificate"
     },
     {
-      text: "Networking with international researchers and senior engineers"
+      text: "A network of peers and mentors across six research fields"
     }
   ];
 
@@ -46,36 +46,15 @@ export default function WhatFellowsReceive() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* Badge - Updated to Orange */}
-          <motion.span
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Your Outcomes
-          </motion.span>
+          {/* REMOVED: Badge */}
 
-          {/* Title - Updated to Dark Navy & Orange */}
+          {/* Title - UPDATED */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
-            What You <span className="text-[#df7c2e]">Leave With</span>
+            What You Walk Away With
           </h2>
-          <p className="text-[#0a1628]/70 max-w-2xl mx-auto">
-            Our comprehensive fellowship program provides everything you need to succeed
-          </p>
-
-          {/* Promise indicator - Updated to Orange theme */}
-          <motion.div
-            className="inline-flex items-center gap-2 mt-3 px-4 py-1.5 bg-[#df7c2e]/10 rounded-full border border-[#df7c2e]/20"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-[#df7c2e] text-lg font-bold">✦</span>
-            <span className="text-sm text-[#df7c2e] font-medium">100% of fellows become published authors</span>
-          </motion.div>
+          
+          {/* REMOVED: Subtitle */}
+          {/* REMOVED: Promise indicator */}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
