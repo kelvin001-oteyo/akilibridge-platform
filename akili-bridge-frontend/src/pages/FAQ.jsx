@@ -259,7 +259,7 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-white text-[#0a1628]">
       {/* ============================================================ */}
-      {/* HERO SECTION - UPDATED TO WHITE/NAVY/ORANGE THEME */}
+      {/* HERO SECTION */}
       {/* ============================================================ */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden border-b border-gray-100"
@@ -272,14 +272,6 @@ export default function FAQ() {
         </div>
 
         <div className="relative z-10">
-          <motion.span
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            FAQ
-          </motion.span>
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 text-[#0a1628]"
             initial={{ opacity: 0, y: 30 }}
@@ -296,29 +288,11 @@ export default function FAQ() {
           >
             Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
-
-          {/* Quick stats - Updated Colors */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-6 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
-              <span className="text-[#df7c2e] font-bold">{totalQuestions}</span>
-              <span>Questions</span>
-            </div>
-            <div className="w-px h-6 bg-gray-300" />
-            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
-              <span className="text-[#df7c2e] font-bold">{faqs.length}</span>
-              <span>Categories</span>
-            </div>
-          </motion.div>
         </div>
       </motion.section>
 
       {/* ============================================================ */}
-      {/* SEARCH & FILTER SECTION - UPDATED TO WHITE THEME */}
+      {/* SEARCH & FILTER SECTION */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 -mt-8 relative z-10"
@@ -368,10 +342,7 @@ export default function FAQ() {
           </div>
 
           {/* Results Count */}
-          <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-gray-200">
-            <span className="text-sm text-[#0a1628]/60">
-              {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
-            </span>
+          <div className="flex flex-wrap items-center justify-end mt-4 pt-4 border-t border-gray-200">
             {(searchTerm || activeCategory !== "all") && (
               <button
                 onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
@@ -434,46 +405,10 @@ export default function FAQ() {
       </section>
 
       {/* ============================================================ */}
-      {/* QUICK LINKS */}
-      {/* ============================================================ */}
-      <section className="max-w-4xl mx-auto px-4 pb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
-        >
-          <h3 className="text-sm font-semibold text-[#0a1628]/50 uppercase tracking-wider text-center mb-4">
-            Explore More
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => navigate("/program")}
-              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
-            >
-              Program Details
-            </button>
-            <button
-              onClick={() => navigate("/")}
-              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
-            >
-              Home
-            </button>
-            <a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#df7c2e] rounded-lg text-sm text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all"
-            >
-              Apply Now
-            </a>
-          </div>
-        </motion.div>
-      </section>
+      {/* DROPPED: The "EXPLORE MORE" / QUICK LINKS section */}
 
       {/* ============================================================ */}
-      {/* STILL HAVE QUESTIONS? - UPDATED TO WHITE/ORANGE THEME */}
+      {/* STILL HAVE QUESTIONS? */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 pb-20"
@@ -496,7 +431,7 @@ export default function FAQ() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="mailto:info@akilibridge.org"
+                href="mailto:communications@akilibridge.org"
                 className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all inline-flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -515,7 +450,7 @@ export default function FAQ() {
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-4">
-              Or reach us at <span className="text-gray-400">info@akilibridge.org</span>
+              Or reach us at <span className="text-gray-400">communications@akilibridge.org</span>
             </p>
           </div>
         </div>
