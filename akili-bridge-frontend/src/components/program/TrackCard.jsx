@@ -21,22 +21,24 @@ export default function TrackCard({ track }) {
         style={{ backgroundColor: themeColor }}
       />
 
-      {/* SAFETY CHECK 3: Fallback text if name is missing */}
+      {/* Track Name */}
       <h3 className="text-xl font-bold text-[#0a1628] mb-2 group-hover:text-[#df7c2e] transition-colors">
         {track.name || "Research Track"}
       </h3>
 
-      {/* SAFETY CHECK 4: Fallback text if description is missing */}
+      {/* Track Description */}
       <p className="text-[#0a1628]/70 text-sm leading-relaxed mb-4">
         {track.description || "No description available."}
       </p>
 
+      {/* Duration Badge */}
       <div className="flex items-center gap-2 text-xs text-[#0a1628]/50 mb-4 border-t border-gray-100 pt-3">
         <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[#df7c2e] font-medium">
           {track.duration || "N/A"}
         </span>
       </div>
 
+      {/* Skills Section */}
       <div className="space-y-2">
         <div>
           <p className="text-xs font-semibold text-[#0a1628]/40 uppercase tracking-wider mb-1">
@@ -50,23 +52,6 @@ export default function TrackCard({ track }) {
                 className="px-2 py-0.5 bg-gray-100 rounded-full text-xs text-[#0a1628]/70"
               >
                 {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="pt-2">
-          <p className="text-xs font-semibold text-[#0a1628]/40 uppercase tracking-wider mb-1">
-            Sample Projects
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {/* SAFETY CHECK: Ensure projects is an array before mapping */}
-            {Array.isArray(track.projects) && track.projects.map((project, i) => (
-              <span 
-                key={i} 
-                className="px-2 py-0.5 bg-[#df7c2e]/10 rounded-full text-xs text-[#df7c2e] border border-[#df7c2e]/20"
-              >
-                {project}
               </span>
             ))}
           </div>
