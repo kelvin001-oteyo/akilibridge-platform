@@ -1,288 +1,129 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const navigate = useNavigate();
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
 
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  // Smooth scroll effects
-  const y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), {
-    stiffness: 100,
-    damping: 30,
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-
-  // Floating particles
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 2,
-    duration: Math.random() * 4 + 2,
-    delay: Math.random() * 3,
-    opacity: Math.random() * 0.5 + 0.1,
-  }));
-
-  // Updated stats - meaningful fellowship metrics
-  const stats = [
-    { value: "16", label: "Weeks Intensive", delay: 0.9 },
-    { value: "1:1", label: "Mentorship", delay: 1.1 },
-    { value: "6", label: "Research Tracks", delay: 1.3 },
-    { value: "100%", label: "Publication Rate", delay: 1.5 },
-  ];
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+    }),
+  };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+    <section 
+      ref={containerRef} 
+      className="relative bg-white text-[#0a1628] pt-32 lg:pt-40 pb-20 md:pb-24 px-4 md:px-8 overflow-hidden min-h-screen flex items-center justify-center"
     >
-      {/* Background with Parallax */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        style={{ y, scale }}
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      {/* BACKGROUND IMAGE WRAPPER */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format')",
+            backgroundImage: `url("https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/85 to-[#0a1628]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent" />
-      </motion.div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full bg-white"
-            style={{
-              width: particle.size,
-              height: particle.size,
-              left: `${particle.x}%`,
-              top: `${particle.y}%`,
-              opacity: particle.opacity,
-            }}
-            animate={{
-              y: [0, -30 - Math.random() * 40, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-              opacity: [particle.opacity, particle.opacity * 2, particle.opacity],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {/* Soft white gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
       </div>
 
-      {/* Animated Gradient Orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#2fb3ff]/10 blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#8a7ff7]/10 blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white"
-        style={{ opacity }}
-      >
-        {/* Badge - REMOVED "Applications Open — 2026 Cohort" */}
-
-        {/* Main Title - UPDATED: Cleaner wording */}
-        <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+      {/* CENTERED MAIN CONTENT CONTAINER - Added more space between items */}
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center space-y-8 w-full">
+        
+        {/* Logo area - AB circle removed, only text remains */}
+        <motion.div 
+          custom={0} initial="hidden" animate="visible" variants={fadeInUp}
+          className="flex flex-col items-center mb-2"
         >
-          <motion.span
-            className="inline-block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Akili
-          </motion.span>
-          <motion.span
-            className="inline-block bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Bridge
-          </motion.span>
-          <motion.span
-            className="block text-3xl sm:text-4xl md:text-5xl text-gray-300 font-medium mt-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-          >
-            STEM Research Fellowship
-          </motion.span>
-        </motion.h1>
-
-        {/* Subtitle - UPDATED: Clearer value proposition */}
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <span className="text-white font-semibold">
-            Publish your research. Secure your future.
-          </span>
-          <br />
-          <span className="text-gray-400 text-base sm:text-lg">
-            A 16-week mentored fellowship pairing top African scholars with 
-            international researchers for real-world research and publication.
-          </span>
-        </motion.p>
-
-        {/* Stats - UPDATED: Meaningful metrics */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: stat.delay,
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
-              }}
-              whileHover={{ scale: 1.05, y: -2 }}
-            >
-              <motion.span
-                className="block text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] bg-clip-text text-transparent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: stat.delay + 0.2 }}
-              >
-                {stat.value}
-              </motion.span>
-              <span className="text-xs md:text-sm text-gray-400">{stat.label}</span>
-            </motion.div>
-          ))}
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0a1628]">
+            AkiliBridge
+          </h1>
+          <p className="text-[10px] text-[#0a1628]/60 tracking-[0.2em] uppercase font-medium mt-1">
+            Learn • Connect • Grow
+          </p>
         </motion.div>
 
-        {/* Trust Badge - NEW */}
-        <motion.p
-          className="text-xs text-gray-500 mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-        >
-          Mentors from MIT, Stanford, Oxford, Cambridge, and more
+        {/* Main Headlines - DRASTICALLY SHRUNK */}
+        <motion.div custom={1} initial="hidden" animate="visible" variants={fadeInUp} className="space-y-1">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#0a1628]">
+            STEM RESEARCH
+          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#df7c2e]">
+            FELLOWSHIP
+          </h2>
+        </motion.div>
+
+        {/* Value Proposition - SHRUNK */}
+        <motion.div custom={2} initial="hidden" animate="visible" variants={fadeInUp} className="space-y-1">
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0a1628] leading-tight">
+            Publish your research.<br />
+            <span className="text-[#df7c2e]">Secure your future.</span>
+          </p>
+        </motion.div>
+
+        {/* Subtitle Description */}
+        <motion.p custom={3} initial="hidden" animate="visible" variants={fadeInUp} className="text-sm md:text-base text-[#0a1628]/70 max-w-2xl leading-relaxed">
+          A 16-week mentored fellowship pairing African scholars with international researchers for real-world research and publication.
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center gap-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+        {/* CTA Buttons - Made more elegant */}
+        <motion.div 
+          custom={4} initial="hidden" animate="visible" variants={fadeInUp}
+          className="flex flex-col sm:flex-row justify-center gap-4 mt-2"
         >
           <motion.a
             href={GOOGLE_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-3.5 bg-gradient-to-r from-[#2fb3ff] to-[#8a7ff7] rounded-xl text-[#0a1628] font-semibold text-lg overflow-hidden shadow-lg shadow-[#2fb3ff]/20"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="bg-[#df7c2e] text-white font-semibold text-sm md:text-base py-3 px-6 md:py-3 md:px-8 rounded-lg shadow-md hover:bg-[#c96b24] transition-colors flex items-center justify-center gap-2"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              Apply Now
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                →
-              </motion.span>
-            </span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#8a7ff7] to-[#2fb3ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            />
+            Apply Now 
+            <span className="text-lg">→</span>
           </motion.a>
-
           <motion.button
             onClick={() => navigate("/program")}
-            className="group px-8 py-3.5 bg-white/10 backdrop-blur-sm rounded-xl text-white font-semibold border border-white/20 hover:bg-white/20 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="bg-white text-[#0a1628] font-semibold text-sm md:text-base py-3 px-6 md:py-3 md:px-8 rounded-lg border-2 border-[#0a1628] hover:bg-gray-50 transition-colors"
           >
-            <span className="flex items-center gap-2">
-              Learn More
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
+            Learn More
           </motion.button>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
+        {/* Stats Grid - Small, neat, at the bottom */}
+        <motion.div 
+          custom={5} initial="hidden" animate="visible" variants={fadeInUp}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-3xl w-full mt-4 pt-6 border-t border-gray-200/60"
         >
-          <span className="text-xs text-gray-500 uppercase tracking-wider">Scroll</span>
-          <motion.div
-            className="w-5 h-8 rounded-full border-2 border-white/20 flex justify-center p-1"
-            animate={{ y: [0, 4, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <motion.div
-              className="w-1 h-2 rounded-full bg-[#2fb3ff]"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-            />
-          </motion.div>
+          <div className="flex flex-col items-center">
+            <p className="text-xl md:text-2xl font-bold text-[#df7c2e]">16</p>
+            <p className="text-[10px] text-[#0a1628]/50 uppercase tracking-wider">Weeks</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="text-xl md:text-2xl font-bold text-[#df7c2e]">1:1</p>
+            <p className="text-[10px] text-[#0a1628]/50 uppercase tracking-wider">Mentorship</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="text-xl md:text-2xl font-bold text-[#df7c2e]">6</p>
+            <p className="text-[10px] text-[#0a1628]/50 uppercase tracking-wider">Research Tracks</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="text-xl md:text-2xl font-bold text-[#df7c2e]">25</p>
+            <p className="text-[10px] text-[#0a1628]/50 uppercase tracking-wider">Fellows per Cohort</p>
+          </div>
         </motion.div>
-      </motion.div>
+
+      </div>
     </section>
   );
 }

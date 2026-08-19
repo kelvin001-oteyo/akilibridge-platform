@@ -1,126 +1,77 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function TrackCard({ track }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  // SAFETY CHECK 1: If track is missing, don't render anything (Stops the crash)
+  if (!track || typeof track !== 'object') {
+    return null;
+  }
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
+  // SAFETY CHECK 2: Safely handle missing color
+  const themeColor = track.color || "#df7c2e";
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#2fb3ff]/50 hover:-translate-y-1 transition-all cursor-pointer group"
-      style={{ borderTopColor: track.color, borderTopWidth: "4px" }}
-      onClick={toggleExpand}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleExpand();
-        }
-      }}
-      aria-label={`Toggle details for ${track.name}`}
-      aria-expanded={isExpanded}
+      whileHover={{ y: -8 }}
+      className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg hover:border-[#df7c2e]/30 transition-all duration-300 group"
     >
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-3">
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold text-white"
-          style={{ background: `${track.color}20`, color: track.color }}
-        >
-          {track.name.charAt(0)}
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold text-white group-hover:text-[#2fb3ff] transition-colors">
-            {track.name}
-          </h3>
-          <span className="text-xs text-gray-500">{track.duration}</span>
-        </div>
-      </div>
+      {/* Color Strip Header */}
+      <div 
+        className="h-1 w-12 rounded-full mb-4 transition-all duration-300 group-hover:w-16"
+        style={{ backgroundColor: themeColor }}
+      />
 
-      {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed">{track.description}</p>
+      {/* SAFETY CHECK 3: Fallback text if name is missing */}
+      <h3 className="text-xl font-bold text-[#0a1628] mb-2 group-hover:text-[#df7c2e] transition-colors">
+        {track.name || "Research Track"}
+      </h3>
 
-      {/* Expand indicator */}
-      <div className="flex justify-end mt-3">
-        <span className="text-xs text-gray-500 group-hover:text-[#2fb3ff] transition-colors">
-          {isExpanded ? "Show less ▲" : "Show more ▼"}
+      {/* SAFETY CHECK 4: Fallback text if description is missing */}
+      <p className="text-[#0a1628]/70 text-sm leading-relaxed mb-4">
+        {track.description || "No description available."}
+      </p>
+
+      <div className="flex items-center gap-2 text-xs text-[#0a1628]/50 mb-4 border-t border-gray-100 pt-3">
+        <span className="px-2 py-0.5 bg-gray-100 rounded-full text-[#df7c2e] font-medium">
+          {track.duration || "N/A"}
         </span>
       </div>
 
-      {/* Expandable content */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="mt-4 pt-4 border-t border-white/10 space-y-3">
-              {/* Skills */}
-              <div>
-                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2">
-                  Skills You'll Learn
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {track.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400 border border-white/5"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+      <div className="space-y-2">
+        <div>
+          <p className="text-xs font-semibold text-[#0a1628]/40 uppercase tracking-wider mb-1">
+            Skills
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {/* SAFETY CHECK: Ensure skills is an array before mapping */}
+            {Array.isArray(track.skills) && track.skills.map((skill, i) => (
+              <span 
+                key={i} 
+                className="px-2 py-0.5 bg-gray-100 rounded-full text-xs text-[#0a1628]/70"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
 
-              {/* Projects */}
-              <div>
-                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2">
-                  Sample Projects
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {track.projects.map((project, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-3 py-1 rounded-full border"
-                      style={{
-                        background: `${track.color}15`,
-                        color: track.color,
-                        borderColor: `${track.color}30`,
-                      }}
-                    >
-                      {project}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Duration badge */}
-              <div className="flex items-center gap-2 pt-1">
-                <span className="text-xs text-gray-500">Duration:</span>
-                <span
-                  className="text-xs font-medium px-3 py-0.5 rounded-full"
-                  style={{
-                    background: `${track.color}20`,
-                    color: track.color,
-                  }}
-                >
-                  {track.duration}
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <div className="pt-2">
+          <p className="text-xs font-semibold text-[#0a1628]/40 uppercase tracking-wider mb-1">
+            Sample Projects
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {/* SAFETY CHECK: Ensure projects is an array before mapping */}
+            {Array.isArray(track.projects) && track.projects.map((project, i) => (
+              <span 
+                key={i} 
+                className="px-2 py-0.5 bg-[#df7c2e]/10 rounded-full text-xs text-[#df7c2e] border border-[#df7c2e]/20"
+              >
+                {project}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }

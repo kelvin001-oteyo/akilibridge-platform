@@ -23,7 +23,7 @@ export default function WhatFellowsReceive() {
     }
   ];
 
-  // SVG Checkmark Icon
+  // SVG Checkmark Icon - Updated to Dark Navy
   const CheckIcon = () => (
     <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
@@ -31,11 +31,11 @@ export default function WhatFellowsReceive() {
   );
 
   return (
-    <section className="py-20 px-4 bg-[#1a2a4a]/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8a7ff7] rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#2fb3ff] rounded-full filter blur-3xl" />
+    <section className="py-20 px-4 bg-white relative overflow-hidden">
+      {/* Background decoration - Faint Orange orbs */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -46,9 +46,9 @@ export default function WhatFellowsReceive() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* Badge */}
+          {/* Badge - Updated to Orange */}
           <motion.span
-            className="inline-block px-4 py-1.5 bg-[#8a7ff7]/20 text-[#8a7ff7] rounded-full text-xs font-medium tracking-wider uppercase mb-3"
+            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
@@ -57,23 +57,24 @@ export default function WhatFellowsReceive() {
             Your Outcomes
           </motion.span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            What You <span className="text-[#8a7ff7]">Leave With</span>
+          {/* Title - Updated to Dark Navy & Orange */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
+            What You <span className="text-[#df7c2e]">Leave With</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#0a1628]/70 max-w-2xl mx-auto">
             Our comprehensive fellowship program provides everything you need to succeed
           </p>
 
-          {/* Promise indicator - No emoji */}
+          {/* Promise indicator - Updated to Orange theme */}
           <motion.div
-            className="inline-flex items-center gap-2 mt-3 px-4 py-1.5 bg-[#4CAF50]/10 rounded-full border border-[#4CAF50]/20"
+            className="inline-flex items-center gap-2 mt-3 px-4 py-1.5 bg-[#df7c2e]/10 rounded-full border border-[#df7c2e]/20"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.4 }}
             viewport={{ once: true }}
           >
-            <span className="text-[#4CAF50] text-lg font-bold">✦</span>
-            <span className="text-sm text-[#4CAF50] font-medium">100% of fellows become published authors</span>
+            <span className="text-[#df7c2e] text-lg font-bold">✦</span>
+            <span className="text-sm text-[#df7c2e] font-medium">100% of fellows become published authors</span>
           </motion.div>
         </motion.div>
 
@@ -85,12 +86,12 @@ export default function WhatFellowsReceive() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               viewport={{ once: true }}
-              className="flex items-start gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/5 hover:border-[#8a7ff7]/30 hover:-translate-y-0.5 transition-all group"
+              className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md hover:-translate-y-0.5 transition-all group"
             >
-              <span className="text-[#8a7ff7] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+              <span className="text-[#df7c2e] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                 <CheckIcon />
               </span>
-              <span className="text-gray-300 text-sm leading-relaxed">{benefit.text}</span>
+              <span className="text-[#0a1628]/70 text-sm leading-relaxed">{benefit.text}</span>
             </motion.div>
           ))}
         </div>
