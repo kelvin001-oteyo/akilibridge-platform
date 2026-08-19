@@ -272,14 +272,8 @@ export default function FAQ() {
         </div>
 
         <div className="relative z-10">
-          <motion.span
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            FAQ
-          </motion.span>
+          {/* REMOVED: FAQ badge/pill */}
+
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 text-[#0a1628]"
             initial={{ opacity: 0, y: 30 }}
@@ -297,23 +291,7 @@ export default function FAQ() {
             Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
 
-          {/* Quick stats - Updated Colors */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-6 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
-              <span className="text-[#df7c2e] font-bold">{totalQuestions}</span>
-              <span>Questions</span>
-            </div>
-            <div className="w-px h-6 bg-gray-300" />
-            <div className="flex items-center gap-2 text-sm text-[#0a1628]/60">
-              <span className="text-[#df7c2e] font-bold">{faqs.length}</span>
-              <span>Categories</span>
-            </div>
-          </motion.div>
+          {/* REMOVED: Quick stats (39 Questions | 8 Categories) */}
         </div>
       </motion.section>
 
@@ -367,11 +345,8 @@ export default function FAQ() {
             ))}
           </div>
 
-          {/* Results Count */}
-          <div className="flex flex-wrap items-center justify-between mt-4 pt-4 border-t border-gray-200">
-            <span className="text-sm text-[#0a1628]/60">
-              {filteredFaqs.reduce((acc, faq) => acc + faq.questions.length, 0)} questions found
-            </span>
+          {/* Results Count - REMOVED: "39 questions found" */}
+          <div className="flex flex-wrap items-center justify-end mt-4 pt-4 border-t border-gray-200">
             {(searchTerm || activeCategory !== "all") && (
               <button
                 onClick={() => { setSearchTerm(""); setActiveCategory("all"); }}
@@ -496,7 +471,7 @@ export default function FAQ() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="mailto:info@akilibridge.org"
+                href="mailto:communications@akilibridge.org"
                 className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all inline-flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -515,7 +490,7 @@ export default function FAQ() {
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-4">
-              Or reach us at <span className="text-gray-400">info@akilibridge.org</span>
+              Or reach us at <span className="text-gray-400">communications@akilibridge.org</span>
             </p>
           </div>
         </div>
