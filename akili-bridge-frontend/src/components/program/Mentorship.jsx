@@ -18,23 +18,14 @@ export default function Mentorship() {
           viewport={{ once: true }}
           className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50 text-center"
         >
-          {/* Badge */}
-          <motion.span
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Mentorship
-          </motion.span>
+          {/* REMOVED: The "Mentorship" pill badge */}
 
           {/* Title */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-6">
             Mentorship at the Center
           </h2>
 
-          {/* Description - UPDATED TO EXACTLY 2 PARAGRAPHS AS PER SCREENSHOT */}
+          {/* Description - UPDATED TO EXACTLY 2 PARAGRAPHS */}
           <div className="text-[#0a1628]/70 text-lg leading-relaxed max-w-2xl mx-auto space-y-4">
             <p>
               Every fellow is paired 1:1 with an international research mentor in their track — someone who's done the work you're setting out to do.
