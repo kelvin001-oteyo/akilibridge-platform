@@ -6,13 +6,6 @@ export default function MissionTeaser() {
   const navigate = useNavigate();
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  // Stats that are meaningful and connected to the fellowship
-  const stats = [
-    { value: "100+", label: "Researchers Trained", color: "#df7c2e" },
-    { value: "8", label: "African Countries", color: "#df7c2e" },
-    { value: "12", label: "Partner Institutions", color: "#df7c2e" },
-  ];
-
   return (
     <section className="py-20 px-4 bg-white relative overflow-hidden border-t border-b border-gray-200">
       {/* Background decoration - Subtle Orange Orbs */}
@@ -28,8 +21,6 @@ export default function MissionTeaser() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* REMOVED: The "OUR MISSION" badge flag */}
-
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
             Building Africa's <span className="text-[#df7c2e]">Research Future</span>
           </h2>
@@ -46,28 +37,8 @@ export default function MissionTeaser() {
             research and become published authors.
           </p>
 
-          {/* Stats */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#df7c2e]/40 hover:shadow-md transition-all"
-              >
-                <p className="text-2xl font-bold text-[#df7c2e]">
-                  {stat.value}
-                </p>
-                <p className="text-xs text-[#0a1628]/60">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
+          {/* REMOVED: The 3 Stats Cards (100+, 8, 12) */}
 
-          {/* CTA Button - Single "Learn Our Story" button (Apply Now removed) */}
           <motion.div
             className="flex justify-center mt-8"
             initial={{ opacity: 0, y: 20 }}
@@ -88,8 +59,6 @@ export default function MissionTeaser() {
             </motion.button>
           </motion.div>
 
-          {/* REMOVED: The bottom trust indicator text */}
-          
         </motion.div>
       </div>
     </section>
