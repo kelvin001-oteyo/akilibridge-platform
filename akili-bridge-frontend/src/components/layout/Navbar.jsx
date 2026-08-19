@@ -112,7 +112,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
 
             {/* Admin Session */}
-            {isAuthenticated() && isAdmin() ? (
+            {isAuthenticated && isAdmin ? (
               <div className="hidden lg:flex items-center gap-3">
                 <div className="relative">
 
