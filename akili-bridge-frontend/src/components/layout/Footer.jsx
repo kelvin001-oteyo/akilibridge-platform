@@ -80,7 +80,7 @@ export default function Footer() {
     },
     hover: {
       x: 8,
-      color: "#2fb3ff",
+      color: "#df7c2e",
       transition: { duration: 0.2 },
     },
   };
@@ -107,91 +107,55 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: "Who We Are", path: "/about" },
-    { name: "Get to Know Us", path: "/about" },
-    { name: "Fellowship Program", path: "/program" },
-    { name: "Training & Workshops", path: "/program" },
-    { name: "For Fellows", path: "/apply" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Program", path: "/program" },
+    { name: "FAQ", path: "/faq" },
   ];
 
   return (
     <motion.footer
       ref={footerRef}
-      className="relative overflow-hidden"
+      className="relative bg-[#0a1628] text-white overflow-hidden"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
     >
-      {/* Overlay */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(10, 20, 40, 0.95) 0%, rgba(5, 15, 30, 0.92) 100%)",
-        }}
-      />
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-yellow-400/20"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              bottom: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -Math.random() * 100 - 50],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 3,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Logo Section */}
+          
+          {/* Logo & Mission Section */}
           <motion.div variants={itemVariants} className="space-y-4">
             <motion.div
               className="flex items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ textShadow: "0 0 20px rgba(255,217,102,0.5)" }}
+              whileHover={{ textShadow: "0 0 20px rgba(223,124,46,0.5)" }}
             >
-              {/* USING THE NEW LOGO */}
               <img 
                 src={logo} 
                 alt="Akili Bridge Logo" 
                 className="h-16 w-auto object-contain"
               />
             </motion.div>
+            
             <motion.p
               variants={itemVariants}
               className="text-gray-400 text-sm leading-relaxed max-w-sm"
             >
-              Building stronger pathways for African researchers through mentorship,
-              training, and opportunity.
+              Learn · Connect · Grow
             </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-gray-300 text-sm leading-relaxed max-w-sm"
+            >
+              Building stronger pathways for African researchers through 
+              mentorship, training, and opportunity.
+            </motion.p>
+
             <div className="flex flex-wrap gap-3 pt-2">
               {socialLinks.map((social) => (
                 <motion.a
@@ -201,7 +165,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   variants={socialVariants}
                   whileHover="hover"
-                  className="px-4 py-2 rounded-full bg-white/5 text-white hover:bg-[#2fb3ff]/20 transition-all text-sm"
+                  className="px-4 py-2 rounded-full bg-white/5 text-white hover:bg-[#df7c2e]/20 hover:text-[#df7c2e] transition-all text-sm font-medium"
                 >
                   {social.name}
                 </motion.a>
@@ -212,14 +176,14 @@ export default function Footer() {
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
             <motion.h4
-              className="text-lg font-semibold text-[#2fb3ff] mb-4 relative inline-block"
+              className="text-lg font-semibold text-[#df7c2e] mb-4 relative inline-block"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
             >
               Quick Links
               <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-[#2fb3ff] rounded-full"
+                className="absolute -bottom-1 left-0 h-0.5 bg-[#df7c2e] rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -235,19 +199,31 @@ export default function Footer() {
                 >
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-[#2fb3ff] transition-colors text-sm inline-block"
+                    className="text-gray-300 hover:text-[#df7c2e] transition-colors text-sm inline-block"
                   >
                     {link.name}
                   </Link>
                 </motion.li>
               ))}
+              
+              {/* Added Apply Now link as per text */}
+              <motion.li variants={linkVariants} whileHover="hover">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#df7c2e] hover:text-white font-semibold text-sm inline-block transition-colors"
+                >
+                  Apply Now
+                </a>
+              </motion.li>
             </ul>
           </motion.div>
 
-          {/* Newsletter - Fixed Spacing */}
+          {/* Subscribe for Updates */}
           <motion.div variants={itemVariants}>
             <motion.h4
-              className="text-lg font-semibold text-[#2fb3ff] mb-4 flex items-center gap-2"
+              className="text-lg font-semibold text-[#df7c2e] mb-4 flex items-center gap-2"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -255,16 +231,16 @@ export default function Footer() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              Subscribe for updates
+              Subscribe for Updates
             </motion.h4>
             <motion.form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <motion.input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="[]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                whileFocus={{ scale: 1.02, boxShadow: "0 0 0 2px #2fb3ff" }}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#2fb3ff] focus:outline-none transition-all"
+                whileFocus={{ scale: 1.02, boxShadow: "0 0 0 2px #df7c2e" }}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-[#df7c2e] focus:outline-none transition-all"
                 disabled={isSubmitting}
               />
               <motion.button
@@ -272,7 +248,7 @@ export default function Footer() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={subscribed ? { scale: [1, 1.1, 1] } : {}}
-                className="w-full px-6 py-3 bg-[#2fb3ff] text-[#0a1628] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#2fb3ff]/30 transition-all disabled:opacity-50"
+                className="w-full px-6 py-3 bg-[#df7c2e] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all disabled:opacity-50"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Subscribing..." : subscribed ? "Subscribed ✓" : "Subscribe"}
@@ -282,9 +258,9 @@ export default function Footer() {
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-[#2fb3ff] text-sm"
+                className="mt-2 text-[#df7c2e] text-sm"
               >
-                Thanks for subscribing! 🎉
+                Thanks for subscribing!
               </motion.p>
             )}
             {subscribeError && (
@@ -298,10 +274,10 @@ export default function Footer() {
             )}
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Us */}
           <motion.div variants={itemVariants}>
             <motion.h4
-              className="text-lg font-semibold text-[#2fb3ff] mb-4"
+              className="text-lg font-semibold text-[#df7c2e] mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -310,25 +286,25 @@ export default function Footer() {
             </motion.h4>
             <ul className="space-y-3 text-gray-300 text-sm">
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-[#2fb3ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#df7c2e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:communications@akilibridge.org" className="hover:text-[#2fb3ff] transition-colors">
+                <a href="mailto:communications@akilibridge.org" className="hover:text-[#df7c2e] transition-colors">
                   communications@akilibridge.org
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-[#2fb3ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#df7c2e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span>Kigali, Rwanda</span>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-[#2fb3ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#df7c2e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+250788123456" className="hover:text-[#2fb3ff] transition-colors">
+                <a href="tel:+250789128345" className="hover:text-[#df7c2e] transition-colors">
                   +250 789 128 345
                 </a>
               </li>
@@ -344,31 +320,17 @@ export default function Footer() {
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           <motion.div
-            className="absolute top-0 left-1/2 -translate-x-1/2 h-px bg-[#2fb3ff]"
+            className="absolute top-0 left-1/2 -translate-x-1/2 h-px bg-[#df7c2e]"
             initial={{ width: "0%" }}
             animate={{ width: "50%" }}
             transition={{ delay: 0.9, duration: 0.8 }}
           />
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              {/* USING THE NEW LOGO */}
-              <img 
-                src={logo} 
-                alt="Akili Bridge Logo" 
-                className="h-10 w-auto object-contain"
-              />
-              <motion.span whileHover={{ color: "#2fb3ff" }}>
-                © 2025 | AkiliBridge | All Rights Reserved.
-              </motion.span>
+              <span>
+                © 2026 Akili Bridge. All Rights Reserved.
+              </span>
             </div>
-            <span className="text-white/20">|</span>
-            <motion.span whileHover={{ color: "#2fb3ff" }} className="cursor-default">
-              StaffWEBMAIL | WebAdmin
-            </motion.span>
-            <span className="text-white/20">|</span>
-            <motion.span whileHover={{ color: "#2fb3ff" }} className="cursor-default">
-              Built by AkiliBridge
-            </motion.span>
           </div>
         </motion.div>
       </div>
