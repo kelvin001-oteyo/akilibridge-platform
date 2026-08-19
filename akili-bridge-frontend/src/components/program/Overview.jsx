@@ -17,7 +17,12 @@ export default function Overview() {
           viewport={{ once: true }}
           className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 md:p-10 text-center"
         >
-          {/* TITLE */}
+          {/* NEW TITLE ADDED: Overview */}
+          <h3 className="text-sm font-semibold text-[#df7c2e] uppercase tracking-wider mb-2">
+            Overview
+          </h3>
+
+          {/* Subtitle */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-6">
             How the Program Is Structured
           </h2>
