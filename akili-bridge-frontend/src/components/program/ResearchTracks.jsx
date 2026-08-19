@@ -88,7 +88,7 @@ export default function ResearchTracks() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* Badge - Orange */}
+          {/* Badge - UPDATED */}
           <motion.span
             className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -96,15 +96,19 @@ export default function ResearchTracks() {
             transition={{ delay: 0.2, duration: 0.4 }}
             viewport={{ once: true }}
           >
-            Choose Your Path
+            Six Tracks, One Standard of Rigor
           </motion.span>
 
-          {/* Title - Dark Navy & Orange */}
+          {/* Title - UPDATED */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
-            Research <span className="text-[#df7c2e]">Tracks</span>
+            Six Tracks, One Standard of Rigor
           </h2>
+
+          {/* Subtitle - UPDATED */}
           <p className="text-[#0a1628]/70 max-w-2xl mx-auto">
-            Choose from six cutting-edge research tracks designed to address Africa's most pressing challenges
+            Fellows choose the track that matches their research interest. 
+            Mentorship, cohort peers, and program structure are tailored 
+            to each discipline.
           </p>
 
           {/* Track count indicator - Light theme */}
