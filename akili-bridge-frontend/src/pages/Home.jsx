@@ -104,7 +104,8 @@ export default function Home() {
     }
   };
 
-  // Partner logos
+  // Partner logos - REMOVED/COMMENTED OUT
+  /*
   const partners = [
     { name: "University of Rwanda" },
     { name: "Makerere University" },
@@ -113,21 +114,25 @@ export default function Home() {
     { name: "World Bank" },
     { name: "African Development Bank" }
   ];
+  */
 
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
   return (
     <div className="min-h-screen bg-white" ref={containerRef}>
-      {/* Hero Section - Now uses the updated White/Navy/Orange Hero component */}
+      {/* Hero Section */}
       <Hero />
 
-      {/* How It Works - Assumes this is already white or will be updated */}
+      {/* How It Works */}
       <HowItWorks />
 
-      {/* Mission Teaser - Assumes this is already white or will be updated */}
+      {/* Mission Teaser */}
       <MissionTeaser />
 
-      {/* Partners Section - UPDATED TO LIGHT THEME */}
+      {/* 
+      ============================================================
+      PARTNERS SECTION - COMMENTED OUT PER SIMBA'S INSTRUCTION
+      ============================================================
       <motion.section
         className="py-16 px-4 bg-gray-50 border-t border-b border-gray-200"
         initial="hidden"
@@ -162,8 +167,9 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+      */}
 
-      {/* Final CTA - Now uses the updated white theme FinalCTA component */}
+      {/* Final CTA */}
       <FinalCTA />
     </div>
   );
