@@ -73,11 +73,15 @@ export default function HowItWorks() {
           <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3">
             How It Works
           </span>
+          
+          {/* UPDATED MAIN TITLE */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
-            Your Journey to <span className="text-[#df7c2e]">Becoming a Published Researcher</span>
+            How the Fellowship Works
           </h2>
+          
+          {/* UPDATED SUBTITLE */}
           <p className="text-[#0a1628]/60 max-w-2xl mx-auto">
-            From application to publication — here's how the Akili Bridge fellowship works
+            From application to research completion — here's what to expect
           </p>
         </motion.div>
 
