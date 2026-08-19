@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 // Import components
 import Hero from "../components/home/Hero";
-import HowItWorks from "../components/home/HowItWorks";
 import MissionTeaser from "../components/home/MissionTeaser";
+import HowItWorks from "../components/home/HowItWorks";
 // import MentorStrip from "../components/home/MentorStrip"; // REMOVED - will be placed elsewhere
 import FinalCTA from "../components/home/FinalCTA";
 
@@ -120,14 +120,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white" ref={containerRef}>
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <Hero />
 
-      {/* How It Works */}
-      <HowItWorks />
-
-      {/* Mission Teaser */}
+      {/* 2. Mission Teaser Section */}
       <MissionTeaser />
+
+      {/* 3. How It Works Section */}
+      <HowItWorks />
 
       {/* 
       ============================================================
@@ -169,7 +169,7 @@ export default function Home() {
       </motion.section>
       */}
 
-      {/* Final CTA */}
+      {/* 4. Final CTA (Before Footer) */}
       <FinalCTA />
     </div>
   );
