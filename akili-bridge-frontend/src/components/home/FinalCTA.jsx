@@ -6,12 +6,11 @@ export default function FinalCTA() {
   const navigate = useNavigate();
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  // Stats for social proof
+  // Stats for social proof - UPDATED to 3 items
   const stats = [
     { value: "16", label: "Weeks" },
     { value: "1:1", label: "Mentorship" },
-    { value: "6", label: "Tracks" },
-    { value: "25", label: "Fellows" }
+    { value: "6", label: "Research Tracks" }
   ];
 
   return (
@@ -30,7 +29,7 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50"
         >
-          {/* Badge */}
+          {/* Badge - UPDATED */}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,9 +37,10 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20"
           >
-            Applications Open
+            APPLICATIONS OPEN — FOUNDING COHORT
           </motion.span>
 
+          {/* Main Title - UPDATED */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +48,10 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-[#0a1628] mb-4"
           >
-            Become a Published <span className="text-[#df7c2e]">Researcher</span>
+            Be Among Our First Fellows
           </motion.h2>
 
+          {/* Description - UPDATED */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,18 +59,18 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-[#0a1628]/70 text-lg max-w-2xl mx-auto mb-6"
           >
-            Join the Akili Bridge STEM Research Fellowship and gain 1:1 mentorship, 
-            hands-on research experience, and publication opportunities — all while 
-            solving Africa's most pressing challenges.
+            Join the Akili Bridge STEM Research Fellowship: 16 weeks of 
+            1:1 mentorship, hands-on research experience, and real 
+            support as you take your work toward publication.
           </motion.p>
 
-          {/* Quick Stats */}
+          {/* Quick Stats - UPDATED to 3 columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8"
+            className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8"
           >
             {stats.map((stat, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-3 border border-gray-200">
@@ -126,7 +127,7 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-xs text-[#0a1628]/50 mt-6"
           >
-            Applications are reviewed on a rolling basis. Early submission is encouraged.
+            Applications reviewed on a rolling basis. Early submission is encouraged.
           </motion.p>
         </motion.div>
       </div>
