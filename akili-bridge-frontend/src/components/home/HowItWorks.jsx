@@ -62,7 +62,7 @@ export default function HowItWorks() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
+        {/* Header - REMOVED THE "HOW IT WORKS" FLAG/BADGE */}
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
@@ -70,16 +70,9 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-3">
-            How It Works
-          </span>
-          
-          {/* UPDATED MAIN TITLE */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
             How the Fellowship Works
           </h2>
-          
-          {/* UPDATED SUBTITLE */}
           <p className="text-[#0a1628]/60 max-w-2xl mx-auto">
             From application to research completion — here's what to expect
           </p>
@@ -100,14 +93,11 @@ export default function HowItWorks() {
                 viewport={{ once: true }}
                 className="relative group"
               >
-                {/* Step number circle with icon */}
+                {/* Step number circle with icon - REMOVED THE NUMBER BADGE */}
                 <div className="flex flex-col items-center text-center">
                   <div className="relative mb-4">
                     <div className="w-16 h-16 rounded-full bg-[#df7c2e]/10 border-2 border-[#df7c2e]/30 flex items-center justify-center text-[#df7c2e] group-hover:border-[#df7c2e] transition-all group-hover:scale-105">
                       {step.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#df7c2e] text-white text-xs font-bold flex items-center justify-center">
-                      {step.number}
                     </div>
                   </div>
 
@@ -118,7 +108,7 @@ export default function HowItWorks() {
                     {step.description}
                   </p>
                   
-                  {/* Duration badge - UPDATED TO LIGHT THEME */}
+                  {/* Duration badge */}
                   <span className="inline-block mt-3 px-3 py-1 bg-gray-100 rounded-full text-xs text-[#0a1628]/60 border border-gray-200">
                     {step.duration}
                   </span>
@@ -128,37 +118,8 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* CTA at bottom - UPDATED TO ORANGE THEME */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-[#0a1628]/60 text-sm mb-4">
-            Ready to start your journey?
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 hover:bg-[#c96b24] transition-all inline-flex items-center gap-2"
-            >
-              Apply Now
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-            <button
-              onClick={() => navigate("/faq")}
-              className="px-8 py-3 bg-gray-100 rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-200 transition-all"
-            >
-              View FAQs
-            </button>
-          </div>
-        </motion.div>
+        {/* REMOVED THE ENTIRE CTA BOTTOM SECTION (Apply Now & View FAQs) */}
+        
       </div>
     </section>
   );
