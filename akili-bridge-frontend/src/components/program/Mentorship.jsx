@@ -27,7 +27,7 @@ export default function Mentorship() {
           viewport={{ once: true }}
           className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50 text-center"
         >
-          {/* Badge - Updated to Orange */}
+          {/* Badge - UPDATED */}
           <motion.span
             className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -35,19 +35,30 @@ export default function Mentorship() {
             transition={{ delay: 0.2, duration: 0.4 }}
             viewport={{ once: true }}
           >
-            Expert Guidance
+            Mentorship at the Center
           </motion.span>
 
-          {/* Title - Updated to Dark Navy & Orange */}
+          {/* Title - UPDATED */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
-            World-Class <span className="text-[#df7c2e]">Mentorship</span>
+            Mentorship at the Center
           </h2>
 
-          {/* Description - Updated to Dark Navy text */}
+          {/* Description - UPDATED TO EXACT NEW TEXT */}
           <p className="text-[#0a1628]/70 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-            Each fellow is paired with a dedicated mentor — an active researcher or senior engineer
-            at <span className="text-[#df7c2e] font-semibold">top global universities and industry labs</span> 
-            who provides guidance, support, and networking opportunities throughout the 16-week program.
+            Every fellow is paired 1:1 with an international research 
+            mentor in their track — someone who's done the work you're 
+            setting out to do.
+          </p>
+          <p className="text-[#0a1628]/70 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+            Pairs meet biweekly to review progress, work through 
+            challenges, and refine the research as it develops. The full 
+            cohort also comes together monthly, so fellows learn not just 
+            from their mentor, but from peers working across every track.
+          </p>
+          <p className="text-[#0a1628]/70 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+            A program coordinator stays involved throughout — a second 
+            point of contact for any fellow who needs support beyond their 
+            mentor pairing.
           </p>
 
           {/* Mentor stats - Updated to light gray cards with Dark Navy text */}
@@ -87,16 +98,8 @@ export default function Mentorship() {
             ))}
           </div>
 
-          {/* Trust indicator - Updated text color */}
-          <motion.p
-            className="text-xs text-[#0a1628]/50 mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Mentors include researchers from MIT, Stanford, Oxford, Cambridge, Google Research, and Microsoft Research
-          </motion.p>
+          {/* REMOVED: Trust indicator (MIT, Stanford, etc.) */}
+          
         </motion.div>
       </div>
     </section>
