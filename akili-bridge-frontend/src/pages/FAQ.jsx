@@ -1,3 +1,5 @@
+
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
@@ -356,7 +358,7 @@ export default function FAQ() {
       </motion.section>
 
       {/* ============================================================ */}
-      {/* FAQ CATEGORIES - Using FAQCategory component */}
+      {/* FAQ CATEGORIES */}
       {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         {filteredFaqs.length === 0 ? (
@@ -405,8 +407,8 @@ export default function FAQ() {
       </section>
 
       {/* ============================================================ */}
-      {/* DROPPED: The "EXPLORE MORE" / QUICK LINKS section */}
-
+      {/* DROPPED: EXPLORE MORE SECTION */}
+      
       {/* ============================================================ */}
       {/* STILL HAVE QUESTIONS? */}
       {/* ============================================================ */}
