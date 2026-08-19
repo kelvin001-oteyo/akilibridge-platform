@@ -18,10 +18,7 @@ export default function Overview() {
           viewport={{ once: true }}
           className="text-center"
         >
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
-            How the Program Is Structured
-          </h2>
+          {/* REMOVED: "How the Program Is Structured" title */}
 
           {/* Description - EXACT NEW TEXT */}
           <div className="text-[#0a1628]/70 text-lg leading-relaxed max-w-3xl mx-auto space-y-4">
