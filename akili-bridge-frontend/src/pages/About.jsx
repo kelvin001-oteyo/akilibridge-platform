@@ -28,27 +28,9 @@ export default function About() {
     }
   };
 
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
-
-  // Team members - Removed per your request to only use your provided text
-  // const teamMembers = [ ... ]
-
-  // Core Values - Removed per your request
-  // const coreValues = [ ... ]
-
-  // Timeline - Removed per your request
-  // const timeline = [ ... ]
-
   return (
     <div className="min-h-screen bg-white text-[#0a1628]">
-      {/* Hero Section */}
+      {/* Hero Section - Balanced Font Sizes */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-24 px-4 overflow-hidden border-b border-gray-100"
         initial={{ opacity: 0 }}
@@ -61,19 +43,19 @@ export default function About() {
           <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
-        <div className="relative z-10 max-w-4xl">
+        <div className="relative z-10 max-w-4xl px-4">
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#0a1628] leading-tight"
+            className="text-4xl md:text-5xl font-bold mb-5 text-[#0a1628] leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            We're not building another prestigious program for people <br />
+            We're not building another prestigious program for people <br className="hidden md:block" />
             who already have a head start.
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl font-medium text-[#df7c2e] max-w-3xl mx-auto"
+            className="text-xl md:text-2xl font-medium text-[#df7c2e] max-w-3xl mx-auto leading-snug"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -83,7 +65,7 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* Our Mission Section */}
+      {/* Our Mission Section - No Label Pill */}
       <motion.section
         className="py-16 px-4 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -95,9 +77,7 @@ export default function About() {
           className="bg-white rounded-2xl p-6 md:p-10 border border-gray-200 shadow-sm hover:border-[#df7c2e]/30 transition-all"
           variants={fadeInUp}
         >
-          <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20">
-            Our Mission
-          </span>
+          <h3 className="text-xl font-semibold text-[#df7c2e] mb-2">Our Mission</h3>
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
             Building Africa's Research Future
           </h2>
@@ -142,7 +122,7 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Our Approach Section */}
+      {/* Our Approach Section - No Pill, No Boxes, All Text Together */}
       <motion.section
         className="py-16 px-4 bg-gray-50 border-t border-b border-gray-200"
         initial={{ opacity: 0, y: 30 }}
@@ -152,44 +132,31 @@ export default function About() {
       >
         <div className="max-w-4xl mx-auto">
           <motion.div 
-            className="text-center"
+            className="text-center mb-8"
             variants={fadeInUp}
           >
-            <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20">
-              Our Approach
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
-              How We're Different
-            </h2>
+            <h3 className="text-xl font-semibold text-[#df7c2e] mb-2">Our Approach</h3>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628]">How We're Different</h2>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 gap-8 mt-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto text-[#0a1628]/80 text-lg leading-relaxed"
+            variants={fadeInUp}
           >
-            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:border-[#df7c2e]/30 transition-all">
-              <p className="text-lg text-[#0a1628]/80 leading-relaxed">
-                Most research programs assume you've already done research. We don't.
-              </p>
-            </motion.div>
-            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:border-[#df7c2e]/30 transition-all">
-              <p className="text-lg text-[#0a1628]/80 leading-relaxed">
-                We built Akili Bridge for the scholar who has never written a research proposal, never worked with a mentor, never seen their name on a paper — but has the curiosity and drive to get there. Every part of our program, from application to final publication support, is designed to lower the barrier to entry without lowering the bar for the work itself.
-              </p>
-            </motion.div>
-            <motion.div variants={fadeInUp} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:border-[#df7c2e]/30 transition-all">
-              <p className="text-lg text-[#0a1628]/80 leading-relaxed">
-                You bring the questions. We bring the structure, mentorship, and support to help you answer them rigorously.
-              </p>
-            </motion.div>
+            <p className="mb-6">
+              Most research programs assume you've already done research. We don't.
+            </p>
+            <p className="mb-6">
+              We built Akili Bridge for the scholar who has never written a research proposal, never worked with a mentor, never seen their name on a paper — but has the curiosity and drive to get there. Every part of our program, from application to final publication support, is designed to lower the barrier to entry without lowering the bar for the work itself.
+            </p>
+            <p>
+              You bring the questions. We bring the structure, mentorship, and support to help you answer them rigorously.
+            </p>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Who We Serve Section */}
+      {/* Who We Serve Section - No Label Pill, Clean Text */}
       <motion.section
         className="py-16 px-4 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -201,25 +168,23 @@ export default function About() {
           className="text-center"
           variants={fadeInUp}
         >
-          <span className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20">
-            Who We Serve
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
+          <h3 className="text-xl font-semibold text-[#df7c2e] mb-2">Who We Serve</h3>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-6">
             Built for Scholars Just Starting Out
           </h2>
         </motion.div>
 
         <motion.div 
-          className="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm hover:border-[#df7c2e]/30 transition-all mt-6"
+          className="text-center max-w-3xl mx-auto text-[#0a1628]/80 text-lg leading-relaxed"
           variants={fadeInUp}
         >
-          <p className="text-lg text-[#0a1628]/80 leading-relaxed mb-6">
+          <p className="mb-6">
             Akili Bridge is for early-career researchers across East Africa — undergraduates, recent graduates, and Master's or PhD students — who are ready to do research but haven't yet had the chance to start.
           </p>
-          <p className="text-lg text-[#0a1628]/80 leading-relaxed mb-6">
+          <p className="mb-6">
             You don't need prior publications. You don't need to already know how to write a literature review. You need a real question, genuine curiosity, and the commitment to see 16 weeks of work through.
           </p>
-          <p className="text-lg text-[#0a1628]/80 leading-relaxed">
+          <p>
             Our fellows work across six tracks: Computer Science, Artificial Intelligence, Data Science, Civil & Structural Engineering, Intelligent Transportation, and Applied Mathematics & Statistics.
           </p>
         </motion.div>
