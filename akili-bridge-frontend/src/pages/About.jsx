@@ -30,9 +30,9 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1628]">
-      {/* Hero Section - Balanced Font Sizes */}
+      {/* Hero Section - Reduced Gap & Restored Bold Font */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-24 px-4 overflow-hidden border-b border-gray-100"
+        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden border-b border-gray-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -43,9 +43,9 @@ export default function About() {
           <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
-        <div className="relative z-10 max-w-4xl px-4">
+        <div className="relative z-10 max-w-5xl px-4">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-5 text-[#0a1628] leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#0a1628] leading-tight mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -55,7 +55,7 @@ export default function About() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl font-medium text-[#df7c2e] max-w-3xl mx-auto leading-snug"
+            className="text-lg md:text-xl lg:text-2xl font-medium text-[#df7c2e] max-w-4xl mx-auto leading-snug"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -65,9 +65,9 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* Our Mission Section - No Label Pill */}
+      {/* Our Mission Section - No Label Pill - GAP REDUCED AT THE TOP */}
       <motion.section
-        className="py-16 px-4 max-w-4xl mx-auto"
+        className="pt-6 pb-16 px-4 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
