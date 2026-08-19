@@ -3,23 +3,23 @@ import { motion } from "framer-motion";
 
 export default function Overview() {
   return (
-    <section className="py-16 px-4 bg-white relative overflow-hidden">
+    <section className="pt-8 pb-20 px-4 bg-white relative overflow-hidden">
       {/* Background decoration - Subtle orange orbs */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#df7c2e] rounded-full filter blur-3xl" />
       </div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 md:p-10 text-center"
+          className="text-center"
         >
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-6">
+          {/* TITLE RESTORED - Clean, bold, no badge */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
             How the Program Is Structured
           </h2>
 
