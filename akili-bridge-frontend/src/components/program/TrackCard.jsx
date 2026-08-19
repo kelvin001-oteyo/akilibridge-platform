@@ -31,22 +31,8 @@ export default function TrackCard({ track }) {
         {track.description || "No description available."}
       </p>
 
-      {/* Projects Section */}
-      <div className="border-t border-gray-100 pt-3">
-        <p className="text-xs font-semibold text-[#0a1628]/40 uppercase tracking-wider mb-1">
-          Sample Projects
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {Array.isArray(track.projects) && track.projects.map((project, i) => (
-            <span 
-              key={i} 
-              className="px-2 py-0.5 bg-[#df7c2e]/10 rounded-full text-xs text-[#df7c2e] border border-[#df7c2e]/20"
-            >
-              {project}
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* REMOVED: Sample Projects section completely */}
+      
     </motion.div>
   );
 }
