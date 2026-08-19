@@ -8,43 +8,37 @@ export default function ResearchTracks() {
       id: 1,
       name: "Computer Science",
       description: "Build solutions. Understand systems. Foundational and applied research in algorithms, systems, and software. Fellows can explore theoretical problems, develop new approaches, or work toward practical solutions to real-world challenges.",
-      color: "#df7c2e",
-      projects: ["Open-source Contribution", "Computing Infrastructure"]
+      color: "#df7c2e"
     },
     {
       id: 2,
       name: "Artificial Intelligence",
       description: "Research intelligent systems responsibly. Research into machine learning models, intelligent systems, and their applications to real-world challenges, with attention to responsible and meaningful use of AI.",
-      color: "#df7c2e",
-      projects: ["AI Health Prediction", "Agricultural AI Model"]
+      color: "#df7c2e"
     },
     {
       id: 3,
       name: "Data Science",
       description: "Turn data into evidence. Research focused on transforming raw data into meaningful insights through analysis, modelling, and interpretation. Fellows develop evidence-based approaches to questions across different fields.",
-      color: "#df7c2e",
-      projects: ["Data Pipeline", "Analytics Dashboard"]
+      color: "#df7c2e"
     },
     {
       id: 4,
       name: "Engineering",
       description: "Research the systems that shape our world. Research involving infrastructure, materials, and the built environment, with particular focus on structural and civil systems and the challenges they address in the real world.",
-      color: "#df7c2e",
-      projects: ["Infrastructure Assessment", "Resilience Design"]
+      color: "#df7c2e"
     },
     {
       id: 5,
       name: "Intelligent Transportation",
       description: "Build better ways to move people and goods. Research at the intersection of transportation systems and emerging technologies, exploring practical approaches to mobility, efficiency, infrastructure, and other real-world transportation challenges.",
-      color: "#df7c2e",
-      projects: ["Smart Traffic System", "Mobility Optimization"]
+      color: "#df7c2e"
     },
     {
       id: 6,
       name: "Applied Mathematics & Statistics",
       description: "Use mathematical thinking to solve real problems. Mathematical and statistical research applied to real-world problems across science, engineering, technology, and society.",
-      color: "#df7c2e",
-      projects: ["Predictive Model", "Statistical Analysis"]
+      color: "#df7c2e"
     }
   ];
 
