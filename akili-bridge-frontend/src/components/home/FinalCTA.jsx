@@ -6,7 +6,7 @@ export default function FinalCTA() {
   const navigate = useNavigate();
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeqZ2JpM-sJQChU3HEsaJeQnVdpBRdTMdiyw36VsCpRB8hy_g/viewform?usp=publish-editor";
 
-  // Stats for social proof - UPDATED to 3 items
+  // Stats for social proof
   const stats = [
     { value: "16", label: "Weeks" },
     { value: "1:1", label: "Mentorship" },
@@ -29,16 +29,7 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl shadow-gray-200/50"
         >
-          {/* Badge - UPDATED */}
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4 border border-[#df7c2e]/20"
-          >
-            APPLICATIONS OPEN — FOUNDING COHORT
-          </motion.span>
+          {/* REMOVED: Badge flag */}
 
           {/* Main Title - UPDATED */}
           <motion.h2
@@ -48,7 +39,7 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-[#0a1628] mb-4"
           >
-            Be Among Our First Fellows
+            Ready to Begin Your Research Journey?
           </motion.h2>
 
           {/* Description - UPDATED */}
@@ -59,12 +50,11 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-[#0a1628]/70 text-lg max-w-2xl mx-auto mb-6"
           >
-            Join the Akili Bridge STEM Research Fellowship: 16 weeks of 
-            1:1 mentorship, hands-on research experience, and real 
-            support as you take your work toward publication.
+            Join Akili Bridge and get hands-on mentorship, real research 
+            experience, and the guidance to take your work toward publication.
           </motion.p>
 
-          {/* Quick Stats - UPDATED to 3 columns */}
+          {/* Quick Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,16 +70,7 @@ export default function FinalCTA() {
             ))}
           </motion.div>
 
-          {/* Trust indicator */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-xs text-[#0a1628]/50 mb-6"
-          >
-            Fellows receive mentorship from active researchers at MIT, Stanford, Oxford, Cambridge, and more
-          </motion.p>
+          {/* REMOVED: Trust indicator text */}
 
           {/* CTA Buttons */}
           <motion.div
@@ -119,7 +100,7 @@ export default function FinalCTA() {
             </motion.button>
           </motion.div>
 
-          {/* Deadline notice */}
+          {/* Deadline notice - UPDATED TEXT */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

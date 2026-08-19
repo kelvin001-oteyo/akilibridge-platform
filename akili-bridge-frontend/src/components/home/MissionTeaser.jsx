@@ -21,34 +21,26 @@ export default function MissionTeaser() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* Badge - UPDATED TO ORANGE */}
-          <motion.span
-            className="inline-block px-4 py-1.5 bg-[#df7c2e]/10 text-[#df7c2e] rounded-full text-xs font-medium tracking-wider uppercase mb-4"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Our Mission
-          </motion.span>
-
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-4">
             Building Africa's <span className="text-[#df7c2e]">Research Future</span>
           </h2>
 
-          {/* UPDATED TEXT CONTENT */}
           <p className="text-[#0a1628]/80 text-lg leading-relaxed max-w-3xl mx-auto">
             Africa contributes less than <span className="text-[#df7c2e] font-bold">&lt;1%</span> of global research 
             output despite being home to <span className="text-[#df7c2e] font-bold">17%</span> of the world's population.
           </p>
 
           <p className="text-[#0a1628]/70 text-base leading-relaxed max-w-3xl mx-auto mt-4">
-            Akili Bridge exists to change that.
+            At <span className="text-[#df7c2e] font-semibold">Akili Bridge</span>, we are changing this narrative. 
+            Our fellowship program pairs top African scholars with international researchers, 
+            providing the mentorship, training, and support needed to produce world-class 
+            research and become published authors.
           </p>
 
-          {/* CTAs - UPDATED TO NEW BUTTON */}
+          {/* REMOVED: The 3 Stats Cards (100+, 8, 12) */}
+
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+            className="flex justify-center mt-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -56,7 +48,7 @@ export default function MissionTeaser() {
           >
             <motion.button
               onClick={() => navigate("/about")}
-              className="px-8 py-3 bg-[#df7c2e] rounded-xl text-white font-semibold hover:bg-[#c96b24] hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all inline-flex items-center gap-2"
+              className="px-8 py-3 bg-white rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-100 hover:border-[#df7c2e]/40 transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -65,32 +57,8 @@ export default function MissionTeaser() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
               </svg>
             </motion.button>
-
-            <motion.a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-white rounded-xl text-[#0a1628] font-semibold border border-gray-200 hover:bg-gray-100 hover:border-[#df7c2e]/40 transition-all inline-flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Apply Now
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </motion.a>
           </motion.div>
 
-          {/* Trust indicator */}
-          <motion.p
-            className="text-xs text-[#0a1628]/50 mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Fellows receive mentorship from researchers at MIT, Stanford, Oxford, Cambridge, and more
-          </motion.p>
         </motion.div>
       </div>
     </section>
