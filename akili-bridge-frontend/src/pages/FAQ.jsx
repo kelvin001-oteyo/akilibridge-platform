@@ -1,3 +1,5 @@
+
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
@@ -259,7 +261,7 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-white text-[#0a1628]">
       {/* ============================================================ */}
-      {/* HERO SECTION - UPDATED TO WHITE/NAVY/ORANGE THEME */}
+      {/* HERO SECTION */}
       {/* ============================================================ */}
       <motion.section
         className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden border-b border-gray-100"
@@ -272,8 +274,6 @@ export default function FAQ() {
         </div>
 
         <div className="relative z-10">
-          {/* REMOVED: FAQ badge/pill */}
-
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 text-[#0a1628]"
             initial={{ opacity: 0, y: 30 }}
@@ -290,13 +290,11 @@ export default function FAQ() {
           >
             Everything you need to know about the Akili Bridge STEM Research Fellowship
           </motion.p>
-
-          {/* REMOVED: Quick stats (39 Questions | 8 Categories) */}
         </div>
       </motion.section>
 
       {/* ============================================================ */}
-      {/* SEARCH & FILTER SECTION - UPDATED TO WHITE THEME */}
+      {/* SEARCH & FILTER SECTION */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 -mt-8 relative z-10"
@@ -345,7 +343,7 @@ export default function FAQ() {
             ))}
           </div>
 
-          {/* Results Count - REMOVED: "39 questions found" */}
+          {/* Results Count */}
           <div className="flex flex-wrap items-center justify-end mt-4 pt-4 border-t border-gray-200">
             {(searchTerm || activeCategory !== "all") && (
               <button
@@ -360,7 +358,7 @@ export default function FAQ() {
       </motion.section>
 
       {/* ============================================================ */}
-      {/* FAQ CATEGORIES - Using FAQCategory component */}
+      {/* FAQ CATEGORIES */}
       {/* ============================================================ */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         {filteredFaqs.length === 0 ? (
@@ -409,46 +407,10 @@ export default function FAQ() {
       </section>
 
       {/* ============================================================ */}
-      {/* QUICK LINKS */}
+      {/* DROPPED: EXPLORE MORE SECTION */}
+      
       {/* ============================================================ */}
-      <section className="max-w-4xl mx-auto px-4 pb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
-        >
-          <h3 className="text-sm font-semibold text-[#0a1628]/50 uppercase tracking-wider text-center mb-4">
-            Explore More
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => navigate("/program")}
-              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
-            >
-              Program Details
-            </button>
-            <button
-              onClick={() => navigate("/")}
-              className="px-4 py-2 bg-white rounded-lg text-sm text-[#0a1628] hover:bg-gray-100 transition-all border border-gray-200 hover:border-[#df7c2e]/30"
-            >
-              Home
-            </button>
-            <a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#df7c2e] rounded-lg text-sm text-white font-semibold hover:shadow-lg hover:shadow-[#df7c2e]/30 transition-all"
-            >
-              Apply Now
-            </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* STILL HAVE QUESTIONS? - UPDATED TO WHITE/ORANGE THEME */}
+      {/* STILL HAVE QUESTIONS? */}
       {/* ============================================================ */}
       <motion.section
         className="max-w-4xl mx-auto px-4 pb-20"
