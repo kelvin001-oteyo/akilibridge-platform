@@ -9,8 +9,6 @@ export default function ResearchTracks() {
       name: "Computer Science",
       description: "Build solutions. Understand systems. Foundational and applied research in algorithms, systems, and software. Fellows can explore theoretical problems, develop new approaches, or work toward practical solutions to real-world challenges.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Algorithms", "Systems", "Software Dev"],
       projects: ["Open-source Contribution", "Computing Infrastructure"]
     },
     {
@@ -18,8 +16,6 @@ export default function ResearchTracks() {
       name: "Artificial Intelligence",
       description: "Research intelligent systems responsibly. Research into machine learning models, intelligent systems, and their applications to real-world challenges, with attention to responsible and meaningful use of AI.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Machine Learning", "Python", "Neural Networks"],
       projects: ["AI Health Prediction", "Agricultural AI Model"]
     },
     {
@@ -27,8 +23,6 @@ export default function ResearchTracks() {
       name: "Data Science",
       description: "Turn data into evidence. Research focused on transforming raw data into meaningful insights through analysis, modelling, and interpretation. Fellows develop evidence-based approaches to questions across different fields.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Data Analysis", "Modelling", "Interpretation"],
       projects: ["Data Pipeline", "Analytics Dashboard"]
     },
     {
@@ -36,8 +30,6 @@ export default function ResearchTracks() {
       name: "Engineering",
       description: "Research the systems that shape our world. Research involving infrastructure, materials, and the built environment, with particular focus on structural and civil systems and the challenges they address in the real world.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Structural Analysis", "Materials", "Civil Systems"],
       projects: ["Infrastructure Assessment", "Resilience Design"]
     },
     {
@@ -45,8 +37,6 @@ export default function ResearchTracks() {
       name: "Intelligent Transportation",
       description: "Build better ways to move people and goods. Research at the intersection of transportation systems and emerging technologies, exploring practical approaches to mobility, efficiency, infrastructure, and other real-world transportation challenges.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Transport Modeling", "IoT", "Mobility Analysis"],
       projects: ["Smart Traffic System", "Mobility Optimization"]
     },
     {
@@ -54,8 +44,6 @@ export default function ResearchTracks() {
       name: "Applied Mathematics & Statistics",
       description: "Use mathematical thinking to solve real problems. Mathematical and statistical research applied to real-world problems across science, engineering, technology, and society.",
       color: "#df7c2e",
-      duration: "16 weeks",
-      skills: ["Mathematical Modeling", "Statistics", "Optimization"],
       projects: ["Predictive Model", "Statistical Analysis"]
     }
   ];
@@ -88,7 +76,6 @@ export default function ResearchTracks() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* Badge / Flag removed to match "no labels" preference */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1628] mb-2">
             Research Tracks
           </h2>
