@@ -37,7 +37,7 @@ export default function Program() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#0a1628]">
+    <div className="min-h-screen bg-white text-[#0a1628] pt-16 md:pt-24">
       {/* ============================================================ */}
       {/* HERO SECTION */}
       {/* ============================================================ */}
@@ -62,12 +62,7 @@ export default function Program() {
             The Fellowship, <br /><span className="text-[#df7c2e]">In Full</span>
           </motion.h1>
 
-          <motion.p
-            className="text-xl md:text-2xl font-medium text-[#0a1628]/80 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <motion.p className="text-base md:text-lg text-[#0a1628]/80 max-w-3xl leading-relaxed">
             A 16-week research fellowship designed to take you from a 
             research question to real, mentored work — built specifically 
             for scholars who are just getting started.

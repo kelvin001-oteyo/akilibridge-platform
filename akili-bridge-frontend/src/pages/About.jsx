@@ -29,38 +29,32 @@ export default function About() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#0a1628]">
+    <div className="min-h-screen bg-white text-[#0a1628] pt-16 md:pt-24">
       {/* Hero Section - Balanced and Scaled Down */}
       <motion.section
-        className="relative flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden border-b border-gray-100"
+        className="relative flex flex-col items-center justify-center text-center py-24 px-4 overflow-hidden min-h-[60vh] border-b border-gray-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Subtle Orange Orbs */}
         <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#df7c2e] rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
-
+        
         <div className="relative z-10 max-w-4xl px-4">
           <motion.h1
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0a1628] leading-tight mb-4"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-[#0a1628] leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            We're not building another prestigious program for people <br className="hidden md:block" />
-            who already have a head start.
+            You Don't Need a Head Start. <br /><span className="text-[#df7c2e]">You Need a Real Start.</span>
           </motion.h1>
 
-          <motion.p
-            className="text-base md:text-lg lg:text-xl font-medium text-[#df7c2e] max-w-3xl mx-auto leading-snug"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            We're building the one that meets you where you are — and takes you further than you thought research could go.
+          <motion.p className="text-base md:text-lg text-[#0a1628]/80 max-w-3xl leading-relaxed">
+            Akili Bridge welcomes scholars at every stage — with a program 
+            built especially for those just getting started in research.
           </motion.p>
         </div>
       </motion.section>

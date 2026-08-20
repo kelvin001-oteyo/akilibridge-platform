@@ -140,13 +140,6 @@ export default function Footer() {
                 className="h-16 w-auto object-contain"
               />
             </motion.div>
-            
-            <motion.p
-              variants={itemVariants}
-              className="text-gray-400 text-sm leading-relaxed max-w-sm"
-            >
-              Learn · Connect · Grow
-            </motion.p>
 
             <motion.p
               variants={itemVariants}
@@ -236,7 +229,7 @@ export default function Footer() {
             <motion.form onSubmit={handleSubscribe} className="flex flex-col gap-3">
               <motion.input
                 type="email"
-                placeholder="[]"
+                placeholder=""
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 whileFocus={{ scale: 1.02, boxShadow: "0 0 0 2px #df7c2e" }}

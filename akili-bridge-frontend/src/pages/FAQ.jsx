@@ -259,7 +259,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#0a1628]">
+    <div className="min-h-screen bg-white text-[#0a1628] pt-16 md:pt-24">
       {/* ============================================================ */}
       {/* HERO SECTION */}
       {/* ============================================================ */}
